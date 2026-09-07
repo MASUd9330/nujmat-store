@@ -51,16 +51,17 @@
           <div class="gallery-main-num" id="galleryNum">01 / 04</div>
           <div class="gallery-main-tag" id="galleryTag">صحة · Wellness</div>
           <div class="gallery-main-img" id="galleryMainImg">
+            <img id="galleryImg" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover">
             <div class="gallery-main-monogram" id="galleryMonogram">عافية</div>
           </div>
           <div class="gallery-main-label" id="galleryLabel">Recovery</div>
         </div>
         <div class="gallery-thumbs" id="galleryThumbs">
-          <div class="gallery-thumb active" data-view="main"><span class="gallery-thumb-num">i</span></div>
-          <div class="gallery-thumb" data-view="side"><span class="gallery-thumb-gv">ii</span></div>
-          <div class="gallery-thumb" data-view="detail"><span class="gallery-thumb-gv">iii</span></div>
-          <div class="gallery-thumb" data-view="in-use"><span class="gallery-thumb-gv">iv</span></div>
-          <div class="gallery-thumb" data-view="scale"><span class="gallery-thumb-gv">v</span></div>
+          <div class="gallery-thumb active" data-view="0"><span class="gallery-thumb-num">i</span></div>
+          <div class="gallery-thumb" data-view="1"><span class="gallery-thumb-num">ii</span></div>
+          <div class="gallery-thumb" data-view="2"><span class="gallery-thumb-num">iii</span></div>
+          <div class="gallery-thumb" data-view="3"><span class="gallery-thumb-num">iv</span></div>
+          <div class="gallery-thumb" data-view="4"><span class="gallery-thumb-num">v</span></div>
         </div>
       </div>
 
@@ -323,23 +324,52 @@
   // Long desc
   document.getElementById('tabDesc').innerHTML = `<p>${p.descLong}</p><h4 style="margin-top:24px">المميزات الرئيسية</h4><ul>${p.bullets.map(b => `<li><b>•</b><span>${b}</span></li>`).join('')}</ul>`;
 
-  // Gallery view variations
-  const galleryViews = {
-    main: p.monogram,
-    side: p.monogramEn,
-    detail: p.num,
-    'in-use': p.ar.substring(0, 2),
-    scale: p.num
+  // Gallery: try real images first, fall back to monogram
+  const hasImages = [0, 1, 2, 3, 4].some(i => {
+    const img = new Image();
+    img.src = `images/p${prodId}-${i === 0 ? 'main' : i}.jpg`;
+    return true; // we'll attempt, browser will 404 if missing
+  });
+
+  // Try to load real images for this product
+  const galleryImages = [];
+  for (let i = 0; i < 5; i++) {
+    const fname = i === 0 ? `images/p${prodId}-main.jpg` : `images/p${prodId}-${i}.jpg`;
+    galleryImages.push(fname);
+  }
+
+  // Test first image
+  const testImg = new Image();
+  testImg.onload = () => {
+    // Real images available - hide monogram, show img
+    document.getElementById('galleryMonogram').style.display = 'none';
+    const imgEl = document.getElementById('galleryImg');
+    imgEl.style.display = 'block';
+    imgEl.src = galleryImages[0];
+    imgEl.alt = p.ar;
+    document.getElementById('galleryMainImg').style.background = '#FFFFFF';
   };
-  document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+  testImg.onerror = () => {
+    // No real images - keep monogram
+    document.getElementById('galleryImg').style.display = 'none';
+  };
+  testImg.src = galleryImages[0];
+
+  // Thumbnails click handler
+  document.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
     thumb.addEventListener('click', () => {
       document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');
-      const view = thumb.dataset.view;
-      document.getElementById('galleryMonogram').textContent = galleryViews[view];
-      // Slight visual variation
-      const colors = { main: p.color, side: p.color + 'E0', detail: p.color + 'C0', 'in-use': p.color + 'D0', scale: p.color + 'B0' };
-      document.getElementById('galleryMainImg').style.background = `radial-gradient(circle, ${colors[view]}, transparent 70%)`;
+      const imgEl = document.getElementById('galleryImg');
+      if (imgEl.style.display !== 'none') {
+        imgEl.src = galleryImages[idx];
+      } else {
+        // Monogram fallback
+        const monograms = [p.monogram, p.monogramEn, p.num, p.ar.substring(0, 2), p.num];
+        document.getElementById('galleryMonogram').textContent = monograms[idx];
+        const colors = [p.color, p.color + 'E0', p.color + 'C0', p.color + 'D0', p.color + 'B0'];
+        document.getElementById('galleryMainImg').style.background = `radial-gradient(circle, ${colors[idx]}, transparent 70%)`;
+      }
     });
   });
 
