@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F3EC">
+<meta name="description" content="نجمة الخليج — تفاصيل المنتج">
+<title>تفاصيل المنتج | نجمة الخليج</title>
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-ar">نجمة الخليج</span>
+      <span class="brand-en">Gulf Star</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#products">المختارات</a>
+      <a href="index.html#bundle">العرض</a>
+      <a href="index.html#reviews">آراء العملاء</a>
+      <a href="index.html#faq">الأسئلة</a>
+    </div>
+    <a href="#cta" class="nav-cta">اطلب الآن</a>
+  </div>
+</nav>
+
+<!-- ============================ BREADCRUMB ============================ -->
+<div class="wrap">
+  <div class="breadcrumb">
+    <a href="index.html">الرئيسية</a>
+    <span class="sep">/</span>
+    <a href="index.html#products">المختارات</a>
+    <span class="sep">/</span>
+    <span class="current" id="bcName">المنتج</span>
+  </div>
+</div>
+
+<!-- ============================ PRODUCT PAGE ============================ -->
+<section class="product-page">
+  <div class="wrap">
+    <div class="product-grid">
+
+      <!-- GALLERY -->
+      <div>
+        <div class="gallery-main" id="galleryMain">
+          <div class="gallery-main-num" id="galleryNum">01 / 04</div>
+          <div class="gallery-main-tag" id="galleryTag">صحة · Wellness</div>
+          <div class="gallery-main-img" id="galleryMainImg">
+            <div class="gallery-main-monogram" id="galleryMonogram">عافية</div>
+          </div>
+          <div class="gallery-main-label" id="galleryLabel">Recovery</div>
+        </div>
+        <div class="gallery-thumbs" id="galleryThumbs">
+          <div class="gallery-thumb active" data-view="main"><span class="gallery-thumb-num">i</span></div>
+          <div class="gallery-thumb" data-view="side"><span class="gallery-thumb-gv">ii</span></div>
+          <div class="gallery-thumb" data-view="detail"><span class="gallery-thumb-gv">iii</span></div>
+          <div class="gallery-thumb" data-view="in-use"><span class="gallery-thumb-gv">iv</span></div>
+          <div class="gallery-thumb" data-view="scale"><span class="gallery-thumb-gv">v</span></div>
+        </div>
+      </div>
+
+      <!-- PRODUCT INFO -->
+      <div class="product-side">
+        <span class="product-side-tag" id="prodTag">صحة · Wellness</span>
+        <h1 class="product-side-title" id="prodName">مسدس التدليك الذكي</h1>
+        <p class="product-side-title-en" id="prodNameEn">Recovery Smart Massage Gun</p>
+        <div class="product-rating">
+          <span class="product-rating-stars">★★★★★</span>
+          <span class="product-rating-count" id="prodRating">4.9 · 320 تقييم</span>
+        </div>
+        <p class="product-side-desc" id="prodDesc">أربع رؤوس، ست سرعات، شحن يدوم ست ساعات.</p>
+
+        <div class="product-side-price">
+          <span class="product-side-price-amt" id="prodPrice">139</span>
+          <span style="font-size:1rem;color:var(--muted)">ر.س</span>
+          <span class="product-side-price-old" id="prodOld">199 ر.س</span>
+        </div>
+        <span class="product-side-save" id="prodSave">وفّر 60 ر.س</span>
+
+        <!-- QUANTITY -->
+        <div class="qty-row">
+          <span class="qty-label">الكمية</span>
+          <div class="qty-selector">
+            <button class="qty-btn" id="qtyMinus" type="button">−</button>
+            <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="99">
+            <button class="qty-btn" id="qtyPlus" type="button">+</button>
+          </div>
+        </div>
+
+        <!-- DISCOUNT TIERS -->
+        <div class="discount-tiers" id="discountTiers">
+          <div class="discount-tier" data-min="1">
+            <span class="qty">قطعة واحدة</span>
+            <span class="pct">السعر الكامل</span>
+          </div>
+          <div class="discount-tier" data-min="2">
+            <span class="qty">قطعتان</span>
+            <span class="pct">خصم 10%</span>
+          </div>
+          <div class="discount-tier" data-min="3">
+            <span class="qty">3 قطع</span>
+            <span class="pct">خصم 15%</span>
+          </div>
+          <div class="discount-tier" data-min="4">
+            <span class="qty">4 قطع أو أكثر</span>
+            <span class="pct">خصم 20%</span>
+          </div>
+          <div class="discount-tier" data-min="5">
+            <span class="qty">5 قطع أو أكثر</span>
+            <span class="pct">خصم 25%</span>
+          </div>
+        </div>
+
+        <!-- ACTIONS -->
+        <div class="product-side-actions" id="cta">
+          <a href="#" class="btn-primary full" id="orderNow">اطلب الآن — <span id="totalDisplay">139 ر.س</span></a>
+          <div class="product-side-secondary">
+            <a href="https://wa.me/966500000000" class="btn-primary" target="_blank">💬 استفسر</a>
+            <button class="btn-primary" id="addBundle">🎁 احصل على الباقة</button>
+          </div>
+        </div>
+
+        <!-- TRUST -->
+        <div class="product-trust">
+          <div class="trust-item">
+            <div class="trust-icon">✓</div>
+            <div class="trust-label">دفع عند الاستلام</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🚚</div>
+            <div class="trust-label">توصيل 3-5 أيام</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-icon">🔄</div>
+            <div class="trust-label">استبدال 7 أيام</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="product-tabs">
+      <div class="tabs-nav">
+        <button class="tab-btn active" data-tab="desc">الوصف الكامل</button>
+        <button class="tab-btn" data-tab="specs">المواصفات</button>
+        <button class="tab-btn" data-tab="shipping">الشحن والإرجاع</button>
+        <button class="tab-btn" data-tab="reviews">التقييمات</button>
+      </div>
+
+      <div class="tab-panel active" data-tab="desc">
+        <p id="tabDesc">أربع رؤوس مختلفة، ست سرعات، شحن يدوم ست ساعات. مسدس التدليك الذكي مصمم لتخفيف آلام العضلات بعد التمرين أو يوم العمل الطويل. خفيف الوزن، هادئ تماماً.</p>
+        <h4 style="margin-top:24px">لماذا تختار هذه القطعة؟</h4>
+        <ul>
+          <li><b>الاستخدام اليومي</b><span>مصممة للاستخدام المتواصل بدون إزعاج</span></li>
+          <li><b>متانة طويلة</b><span>مواد عالية الجودة وضمان شامل</span></li>
+          <li><b>سهولة الاستخدام</b><span>واجهة بسيطة — جاهزة للاستخدام فوراً</span></li>
+          <li><b>دعم محلي</b><span>فريق دعم سعودي جاهز للمساعدة</span></li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" data-tab="specs">
+        <ul id="tabSpecs">
+          <li><b>الرؤوس</b><span>4 رؤوس مختلفة</span></li>
+          <li><b>السرعات</b><span>6 سرعات</span></li>
+          <li><b>البطارية</b><span>6 ساعات</span></li>
+        </ul>
+      </div>
+
+      <div class="tab-panel" data-tab="shipping">
+        <h4>الشحن</h4>
+        <p>نوصل طلبك خلال 3-5 أيام عمل لجميع مدن المملكة العربية السعودية. التوصيل مجاني للطلبات فوق 150 ر.س. التوصيل للرياض وجدة والدمام عادة 2-3 أيام.</p>
+        <h4 style="margin-top:24px">الإرجاع والاستبدال</h4>
+        <p>نضمن لك حق الاستبدال أو الاسترجاع خلال 7 أيام من الاستلام. تواصل معنا عبر واتساب وسنرتب لك ذلك بدون أي سؤال.</p>
+        <h4 style="margin-top:24px">الضمان</h4>
+        <p>كل قطعة تأتي مع ضمان شامل ضد عيوب الصناعة. الضمان لا يشمل الأضرار الناتجة عن سوء الاستخدام.</p>
+      </div>
+
+      <div class="tab-panel" data-tab="reviews">
+        <div class="test-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:0">
+          <div class="test-card">
+            <div class="testimonial-stars" style="color:#FFC107;font-size:0.875rem;margin-bottom:8px">★★★★★</div>
+            <p class="test-text">"استخدمته شهر كامل. الآلام اختفت تماماً. أنصح به بشدة."</p>
+            <div class="test-author">
+              <div class="test-avatar">م</div>
+              <div>
+                <div class="test-name">محمد العتيبي</div>
+                <div class="test-meta">الرياض · عميل منذ 60 يوم</div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="testimonial-stars" style="color:#FFC107;font-size:0.875rem;margin-bottom:8px">★★★★★</div>
+            <p class="test-text">"أفضل استثمار في صحتي. أستخدمه كل يوم بعد الجيم."</p>
+            <div class="test-author">
+              <div class="test-avatar">ن</div>
+              <div>
+                <div class="test-name">نورة الزهراني</div>
+                <div class="test-meta">جدة · عميلة منذ 45 يوم</div>
+              </div>
+            </div>
+          </div>
+          <div class="test-card">
+            <div class="testimonial-stars" style="color:#FFC107;font-size:0.875rem;margin-bottom:8px">★★★★★</div>
+            <p class="test-text">"هدية جميلة لزوجتي. صارت تستخدمه كل ليلة."</p>
+            <div class="test-author">
+              <div class="test-avatar">س</div>
+              <div>
+                <div class="test-name">سعد الدوسري</div>
+                <div class="test-meta">الدمام · عميل منذ 30 يوم</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RELATED -->
+    <div style="margin-top:80px">
+      <div class="intro-label"><span class="num">قد يعجبك أيضاً</span></div>
+      <h2 class="h2 serif" style="margin-bottom:32px">قطع أخرى من مختاراتنا.</h2>
+      <div class="test-grid" id="relatedGrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STICKY MOBILE CTA ============================ -->
+<div class="sticky-cta">
+  <div class="sticky-cta-info">
+    <div class="sticky-cta-price" id="stickyPrice">139 ر.س</div>
+    <div class="sticky-cta-name" id="stickyName">مسدس التدليك</div>
+  </div>
+  <a href="#cta" class="btn-primary gold">اطلب الآن</a>
+</div>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span class="brand-ar">نجمة الخليج</span>
+          <span class="brand-en">Gulf Star</span>
+        </div>
+        <p>متجرك المنتقى لأحدث المنتجات الذكية في المملكة والخليج.</p>
+      </div>
+      <div class="footer-col">
+        <h4>المتجر</h4>
+        <ul>
+          <li><a href="index.html#products">المختارات</a></li>
+          <li><a href="index.html#bundle">العرض المجمّع</a></li>
+          <li><a href="index.html#how">كيف نعمل</a></li>
+          <li><a href="index.html#order">أكمل الطلب</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>الدعم</h4>
+        <ul>
+          <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
+          <li><a href="https://wa.me/966500000000" target="_blank">واتساب</a></li>
+          <li><a href="mailto:hello@nejmat.sa">البريد الإلكتروني</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>تابعنا</h4>
+        <ul>
+          <li><a href="#">TikTok · @nujmat.sa</a></li>
+          <li><a href="#">Instagram · @nujmat.sa</a></li>
+          <li><a href="#">Snapchat · nujmat.sa</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 نجمة الخليج. جميع الحقوق محفوظة.</span>
+      <span class="flags">SA · AE · KW · BH · OM · QA · IQ</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ FLOATING WHATSAPP ============================ -->
+<a href="https://wa.me/966500000000?text=مرحباً، أريد الاستفسار عن منتج" class="wa-float" target="_blank" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>واتساب</span>
+</a>
+
+<script src="app.js"></script>
+<script>
+  // Get product ID
+  const prodId = getParam('id') || '01';
+  const p = PRODUCTS[prodId];
+  if (!p) { window.location.href = 'index.html'; }
+
+  // Page state
+  let qty = parseInt(getParam('qty')) || 1;
+
+  // Populate
+  document.getElementById('bcName').textContent = p.ar;
+  document.title = `${p.ar} | نجمة الخليج`;
+  document.getElementById('galleryNum').textContent = `${p.num} / 04`;
+  document.getElementById('galleryTag').textContent = p.tag;
+  document.getElementById('galleryMonogram').textContent = p.monogram;
+  document.getElementById('galleryLabel').textContent = p.monogramEn;
+  document.getElementById('prodTag').textContent = p.tag;
+  document.getElementById('prodName').textContent = p.ar;
+  document.getElementById('prodNameEn').textContent = p.en;
+  document.getElementById('prodDesc').textContent = p.desc;
+  document.getElementById('prodPrice').textContent = p.price;
+  document.getElementById('prodOld').textContent = `${p.oldPrice} ر.س`;
+  document.getElementById('prodSave').textContent = `وفّر ${p.save} ر.س`;
+  document.getElementById('stickyName').textContent = p.ar;
+  document.getElementById('qtyInput').value = qty;
+
+  // Specs
+  const tabSpecs = document.getElementById('tabSpecs');
+  tabSpecs.innerHTML = p.specs.map(s => `<li><b>${s.k}</b><span>${s.v}</span></li>`).join('');
+
+  // Long desc
+  document.getElementById('tabDesc').innerHTML = `<p>${p.descLong}</p><h4 style="margin-top:24px">المميزات الرئيسية</h4><ul>${p.bullets.map(b => `<li><b>•</b><span>${b}</span></li>`).join('')}</ul>`;
+
+  // Gallery view variations
+  const galleryViews = {
+    main: p.monogram,
+    side: p.monogramEn,
+    detail: p.num,
+    'in-use': p.ar.substring(0, 2),
+    scale: p.num
+  };
+  document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+      const view = thumb.dataset.view;
+      document.getElementById('galleryMonogram').textContent = galleryViews[view];
+      // Slight visual variation
+      const colors = { main: p.color, side: p.color + 'E0', detail: p.color + 'C0', 'in-use': p.color + 'D0', scale: p.color + 'B0' };
+      document.getElementById('galleryMainImg').style.background = `radial-gradient(circle, ${colors[view]}, transparent 70%)`;
+    });
+  });
+
+  // Quantity + pricing
+  function updatePricing() {
+    qty = Math.max(1, parseInt(document.getElementById('qtyInput').value) || 1);
+    document.getElementById('qtyInput').value = qty;
+    const calc = calcPrice(p.price, qty);
+    document.getElementById('totalDisplay').textContent = `${Math.round(calc.total)} ر.س`;
+    document.getElementById('stickyPrice').textContent = `${Math.round(calc.total)} ر.س`;
+    // Active tier
+    document.querySelectorAll('.discount-tier').forEach(tier => {
+      const min = parseInt(tier.dataset.min);
+      tier.classList.toggle('active', qty >= min);
+    });
+  }
+  document.getElementById('qtyMinus').addEventListener('click', () => { document.getElementById('qtyInput').value = Math.max(1, qty - 1); updatePricing(); });
+  document.getElementById('qtyPlus').addEventListener('click', () => { document.getElementById('qtyInput').value = qty + 1; updatePricing(); });
+  document.getElementById('qtyInput').addEventListener('input', updatePricing);
+  updatePricing();
+
+  // Order now → checkout
+  document.getElementById('orderNow').addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = `checkout.html?id=${prodId}&qty=${qty}`;
+  });
+  document.getElementById('addBundle').addEventListener('click', () => {
+    window.location.href = 'checkout.html?bundle=1';
+  });
+
+  // Tabs
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.tab-panel[data-tab="${btn.dataset.tab}"]`).classList.add('active');
+    });
+  });
+
+  // Related products
+  const related = Object.entries(PRODUCTS).filter(([id]) => id !== prodId).slice(0, 3);
+  document.getElementById('relatedGrid').innerHTML = related.map(([id, rp]) => `
+    <a href="product.html?id=${id}" class="test-card" style="text-decoration:none;display:block">
+      <div class="product-visual ${rp.visualClass}" style="height:200px;margin-bottom:16px">
+        <div class="product-monogram" style="font-size:5rem">${rp.monogram}</div>
+      </div>
+      <h3 style="font-family:'Aref Ruqaa',serif;font-size:1.125rem;margin-bottom:4px">${rp.ar}</h3>
+      <p style="font-size:0.875rem;color:var(--muted);margin-bottom:12px">${rp.en}</p>
+      <div style="display:flex;align-items:baseline;gap:8px">
+        <span style="font-family:'Fraunces',serif;font-size:1.25rem;font-weight:500">${rp.price}</span>
+        <span style="color:var(--muted);font-size:0.875rem">ر.س</span>
+      </div>
+    </a>
+  `).join('');
+</script>
+
+</body>
+</html>

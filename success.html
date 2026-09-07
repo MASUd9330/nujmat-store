@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F3EC">
+<meta name="description" content="تم استلام طلبك بنجاح — نجمة الخليج">
+<title>تم استلام طلبك | نجمة الخليج</title>
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-ar">نجمة الخليج</span>
+      <span class="brand-en">Gulf Star</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#products">المختارات</a>
+      <a href="index.html#faq">الأسئلة</a>
+    </div>
+    <a href="index.html" class="nav-cta">الرئيسية</a>
+  </div>
+</nav>
+
+<!-- ============================ SUCCESS ============================ -->
+<section class="success-page">
+  <div class="success-inner">
+    <div class="success-icon">✓</div>
+    <h1 class="success-title">شكراً لك!</h1>
+    <p class="success-sub">تم استلام طلبك بنجاح. سنتصل بك خلال 24 ساعة لتأكيد الطلب وتحديد موعد التوصيل. يرجى الاحتفاظ برقم الطلب للمتابعة.</p>
+
+    <div class="success-order">
+      <div class="success-order-num">رقم الطلب: <span id="orderNum">NG-XXX</span></div>
+      <div class="success-order-line">
+        <span>الاسم</span>
+        <b id="cName">—</b>
+      </div>
+      <div class="success-order-line">
+        <span>المنتج</span>
+        <b id="cProduct">—</b>
+      </div>
+      <div class="success-order-line">
+        <span>الكمية</span>
+        <b id="cQty">1</b>
+      </div>
+      <div class="success-order-line">
+        <span>المدينة</span>
+        <b id="cCity">—</b>
+      </div>
+      <div class="success-order-line">
+        <span>الإجمالي</span>
+        <b id="cTotal">—</b>
+      </div>
+    </div>
+
+    <div style="background: var(--gold-soft); border: 1px solid var(--gold-line); border-radius: 8px; padding: 20px; margin-bottom: 32px; text-align: right;">
+      <h4 style="font-family:'Aref Ruqaa',serif;font-size:1.0625rem;margin-bottom:12px;color:var(--ink)">الخطوات التالية</h4>
+      <ol style="padding-right:20px;color:var(--ink-soft);line-height:1.8;font-size:0.9375rem">
+        <li>سنتصل بك خلال 24 ساعة لتأكيد الطلب</li>
+        <li>بعد التأكيد، نوصل لك خلال 3-5 أيام عمل</li>
+        <li>الدفع نقداً عند الاستلام بعد فحص القطعة</li>
+        <li>إذا احتجت أي شيء، تواصل عبر واتساب</li>
+      </ol>
+    </div>
+
+    <div class="success-actions">
+      <a href="https://wa.me/966500000000?text=مرحباً، لقد طلبت للتو وأريد متابعة طلبي" class="btn-primary" target="_blank">💬 تواصل عبر واتساب</a>
+      <a href="index.html" class="btn-ghost">العودة للرئيسية</a>
+    </div>
+
+    <p style="margin-top: 40px; font-size: 0.8125rem; color: var(--muted);">
+      📧 تم إرسال تأكيد إلى بريدك الإلكتروني<br>
+      💾 تم حفظ طلبك في نظامنا
+    </p>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border:none;padding:0">
+      <span>© 2026 نجمة الخليج. جميع الحقوق محفوظة.</span>
+      <span class="flags">SA · AE · KW · BH · OM · QA · IQ</span>
+    </div>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+<script>
+  // Populate from query params
+  const orderNum = getParam('order') || ('NG-' + Date.now().toString(36).toUpperCase());
+  document.getElementById('orderNum').textContent = orderNum;
+  document.getElementById('cName').textContent = getParam('name') || '—';
+  document.getElementById('cProduct').textContent = getParam('product') || '—';
+  document.getElementById('cQty').textContent = getParam('qty') || '1';
+  document.getElementById('cCity').textContent = getParam('city') || '—';
+  document.getElementById('cTotal').textContent = (getParam('total') || '—') + ' ر.س';
+
+  // Save order to localStorage for backup
+  const orderRecord = {
+    orderNum,
+    name: getParam('name'),
+    product: getParam('product'),
+    qty: getParam('qty'),
+    city: getParam('city'),
+    total: getParam('total'),
+    email: getParam('email'),
+    timestamp: new Date().toISOString()
+  };
+  try {
+    const orders = JSON.parse(localStorage.getItem('ng_orders') || '[]');
+    orders.push(orderRecord);
+    localStorage.setItem('ng_orders', JSON.stringify(orders));
+  } catch (e) {}
+</script>
+
+</body>
+</html>

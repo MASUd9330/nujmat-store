@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F7F3EC">
+<meta name="description" content="نجمة الخليج — إتمام الطلب">
+<title>إتمام الطلب | نجمة الخليج</title>
+<link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
+<link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <span class="brand-ar">نجمة الخليج</span>
+      <span class="brand-en">Gulf Star</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#products">المختارات</a>
+      <a href="index.html#bundle">العرض</a>
+      <a href="index.html#faq">الأسئلة</a>
+    </div>
+    <a href="index.html" class="nav-cta">الرئيسية</a>
+  </div>
+</nav>
+
+<!-- ============================ CHECKOUT ============================ -->
+<section class="product-page" style="padding-top:32px">
+  <div class="wrap">
+    <div class="breadcrumb">
+      <a href="index.html">الرئيسية</a>
+      <span class="sep">/</span>
+      <a href="javascript:history.back()">المنتج</a>
+      <span class="sep">/</span>
+      <span class="current">إتمام الطلب</span>
+    </div>
+
+    <h1 class="h1 serif" style="margin: 16px 0 32px">إتمام الطلب</h1>
+
+    <div class="checkout-grid">
+      <!-- FORM -->
+      <form class="checkout-form-card" id="checkoutForm" onsubmit="return handleCheckout(event)">
+
+        <!-- STEP 1: Contact -->
+        <div class="checkout-section">
+          <h3><span class="step-num">1</span> بيانات التواصل</h3>
+          <div class="checkout-row">
+            <div>
+              <label class="checkout-label">الاسم الكامل *</label>
+              <input type="text" class="checkout-input" name="name" id="cName" required placeholder="مثال: محمد العتيبي">
+            </div>
+            <div>
+              <label class="checkout-label">رقم الجوال *</label>
+              <input type="tel" class="checkout-input" name="phone" id="cPhone" required placeholder="05XXXXXXXX" pattern="[0-9]{10}">
+            </div>
+          </div>
+          <div class="checkout-row">
+            <div>
+              <label class="checkout-label">البريد الإلكتروني (لاستلام التأكيد) *</label>
+              <input type="email" class="checkout-input" name="email" id="cEmail" required placeholder="example@email.com">
+            </div>
+            <div>
+              <label class="checkout-label">واتساب (اختياري)</label>
+              <input type="tel" class="checkout-input" name="whatsapp" placeholder="نفس الرقم أو آخر">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Delivery -->
+        <div class="checkout-section">
+          <h3><span class="step-num">2</span> عنوان التوصيل</h3>
+          <div class="checkout-row">
+            <div>
+              <label class="checkout-label">المدينة *</label>
+              <select class="checkout-select" name="city" id="cCity" required>
+                <option value="">اختر المدينة</option>
+                <option>الرياض</option><option>جدة</option><option>مكة المكرمة</option>
+                <option>المدينة المنورة</option><option>الدمام</option><option>الخبر</option>
+                <option>الطائف</option><option>تبوك</option><option>أبها</option>
+                <option>حائل</option><option>بريدة</option><option>الجبيل</option>
+                <option>الخرج</option><option>نجران</option><option>جيزان</option><option>أخرى</option>
+              </select>
+            </div>
+            <div>
+              <label class="checkout-label">الحي *</label>
+              <input type="text" class="checkout-input" name="district" id="cDistrict" required placeholder="مثال: العليا">
+            </div>
+          </div>
+          <div class="checkout-row" style="grid-template-columns:1fr">
+            <div>
+              <label class="checkout-label">الشارع والوصف (اختياري)</label>
+              <input type="text" class="checkout-input" name="street" placeholder="رقم المبنى، الشارع، أقرب معلم">
+            </div>
+          </div>
+          <div class="checkout-row">
+            <div>
+              <label class="checkout-label">وقت التوصيل المفضل</label>
+              <select class="checkout-select" name="time">
+                <option value="anytime">أي وقت</option>
+                <option>صباحاً (9-12)</option>
+                <option>ظهراً (12-4)</option>
+                <option>عصراً (4-7)</option>
+                <option>مساءً (7-10)</option>
+              </select>
+            </div>
+            <div>
+              <label class="checkout-label">ملاحظات (اختياري)</label>
+              <input type="text" class="checkout-input" name="notes" placeholder="أي ملاحظات إضافية...">
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 3: Quantity -->
+        <div class="checkout-section">
+          <h3><span class="step-num">3</span> الكمية</h3>
+          <div class="qty-row">
+            <span class="qty-label">كم قطعة تريد؟</span>
+            <div class="qty-selector">
+              <button class="qty-btn" id="qtyMinus" type="button">−</button>
+              <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="99">
+              <button class="qty-btn" id="qtyPlus" type="button">+</button>
+            </div>
+            <span style="font-size:0.875rem;color:var(--gold);font-weight:500" id="discountNote"></span>
+          </div>
+        </div>
+
+        <!-- STEP 4: Payment -->
+        <div class="checkout-section">
+          <h3><span class="step-num">4</span> طريقة الدفع</h3>
+          <div class="checkout-payment">
+            <label class="payment-option selected" data-method="cod">
+              <input type="radio" name="payment" value="cod" checked>
+              <span class="payment-icon">💵</span>
+              <div class="payment-info">
+                <div class="payment-name">الدفع عند الاستلام</div>
+                <div class="payment-desc">ادفع نقداً عند استلام القطعة. لا حاجة لبطاقة ائتمان.</div>
+              </div>
+            </label>
+            <label class="payment-option" data-method="bank">
+              <input type="radio" name="payment" value="bank">
+              <span class="payment-icon">🏦</span>
+              <div class="payment-info">
+                <div class="payment-name">تحويل بنكي مسبق</div>
+                <div class="payment-desc">حوّل المبلغ لحسابنا وأرسل الإيصال عبر واتساب. خصم 5% على الطلب.</div>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- STEP 5: Confirm -->
+        <div class="checkout-section">
+          <h3><span class="step-num">5</span> تأكيد</h3>
+          <label class="form-checkbox">
+            <input type="checkbox" required>
+            <span>أوافق على <a href="#" style="color:var(--gold)">شروط الاستخدام</a> و <a href="#" style="color:var(--gold)">سياسة الاستبدال</a>، وأؤكد أن جميع البيانات صحيحة.</span>
+          </label>
+        </div>
+
+        <button type="submit" class="checkout-submit" id="submitBtn">تأكيد الطلب — <span id="submitTotal">139 ر.س</span></button>
+        <p style="text-align:center;font-size:0.8125rem;color:var(--muted);margin-top:16px">
+          🔒 بياناتك آمنة معنا · لن نحفظها لأي طرف ثالث
+        </p>
+      </form>
+
+      <!-- SUMMARY -->
+      <aside class="checkout-summary">
+        <h3 style="font-family:'Aref Ruqaa',serif;font-size:1.25rem;margin-bottom:20px">ملخص الطلب</h3>
+
+        <div class="summary-product" id="summaryProduct">
+          <div class="summary-img" id="summaryImg" style="background:#E8DDC6">عافية</div>
+          <div class="summary-info">
+            <div class="summary-name" id="summaryName">مسدس التدليك الذكي</div>
+            <div class="summary-qty" id="summaryQty">الكمية: 1</div>
+          </div>
+        </div>
+
+        <div class="summary-line">
+          <span>المجموع الفرعي</span>
+          <span class="amt" id="sumSubtotal">139 ر.س</span>
+        </div>
+        <div class="summary-line discount" id="sumDiscountRow" style="display:none">
+          <span>الخصم (<span id="sumDiscountPct">0</span>%)</span>
+          <span class="amt" id="sumDiscountAmt">-0 ر.س</span>
+        </div>
+        <div class="summary-line">
+          <span>التوصيل</span>
+          <span class="amt" id="sumShipping">مجاني</span>
+        </div>
+        <div class="summary-line total">
+          <span>الإجمالي</span>
+          <span class="amt" id="sumTotal">139 ر.س</span>
+        </div>
+
+        <button class="checkout-submit" id="summarySubmit" type="button">تأكيد وإرسال الطلب</button>
+
+        <div class="summary-trust">
+          <div><span class="icon">✓</span> دفع آمن عند الاستلام</div>
+          <div><span class="icon">🚚</span> توصيل 3-5 أيام</div>
+          <div><span class="icon">🔄</span> ضمان استبدال 7 أيام</div>
+          <div><span class="icon">📞</span> دعم 24/7 عبر واتساب</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border:none;padding:0">
+      <span>© 2026 نجمة الخليج. جميع الحقوق محفوظة.</span>
+      <span class="flags">SA · AE · KW · BH · OM · QA · IQ</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ FLOATING WHATSAPP ============================ -->
+<a href="https://wa.me/966500000000?text=مرحباً، أحتاج مساعدة في إتمام الطلب" class="wa-float" target="_blank" aria-label="تواصل عبر واتساب">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>مساعدة</span>
+</a>
+
+<script src="app.js"></script>
+<script>
+  // Determine what's being ordered
+  const isBundle = getParam('bundle') === '1';
+  const prodId = getParam('id') || '01';
+  const product = isBundle ? null : PRODUCTS[prodId];
+
+  let qty = parseInt(getParam('qty')) || 1;
+  let unitPrice, productName, productMonogram, productColor;
+
+  if (isBundle) {
+    unitPrice = BUNDLE.bundlePrice;
+    productName = 'الباقة الكاملة (4 قطع)';
+    productMonogram = '★';
+    productColor = '#D4C9AE';
+  } else {
+    unitPrice = product.price;
+    productName = product.ar;
+    productMonogram = product.monogram;
+    productColor = product.color;
+  }
+
+  // Pre-fill from query params (from home form)
+  ['name', 'phone', 'city', 'district'].forEach(f => {
+    const v = getParam(f);
+    if (v) document.getElementById('c' + f.charAt(0).toUpperCase() + f.slice(1)).value = v;
+  });
+
+  // Set initial values
+  document.getElementById('qtyInput').value = qty;
+  document.getElementById('summaryName').textContent = productName;
+  document.getElementById('summaryImg').textContent = productMonogram;
+  document.getElementById('summaryImg').style.background = productColor;
+
+  // Update pricing
+  function updatePricing() {
+    qty = Math.max(1, parseInt(document.getElementById('qtyInput').value) || 1);
+    document.getElementById('qtyInput').value = qty;
+    const calc = calcPrice(unitPrice, qty);
+    document.getElementById('summaryQty').textContent = `الكمية: ${qty}`;
+    document.getElementById('sumSubtotal').textContent = `${Math.round(calc.subtotal)} ر.س`;
+    document.getElementById('sumTotal').textContent = `${Math.round(calc.total)} ر.س`;
+    document.getElementById('submitTotal').textContent = `${Math.round(calc.total)} ر.س`;
+    if (calc.pct > 0) {
+      document.getElementById('sumDiscountRow').style.display = 'flex';
+      document.getElementById('sumDiscountPct').textContent = calc.pct;
+      document.getElementById('sumDiscountAmt').textContent = `-${Math.round(calc.discount)} ر.س`;
+      document.getElementById('discountNote').textContent = `🎉 وفّرت ${Math.round(calc.discount)} ر.س!`;
+    } else {
+      document.getElementById('sumDiscountRow').style.display = 'none';
+      document.getElementById('discountNote').textContent = 'اشترِ 2 قطعة لتفعيل الخصم';
+    }
+  }
+  document.getElementById('qtyMinus').addEventListener('click', () => { document.getElementById('qtyInput').value = Math.max(1, qty - 1); updatePricing(); });
+  document.getElementById('qtyPlus').addEventListener('click', () => { document.getElementById('qtyInput').value = qty + 1; updatePricing(); });
+  document.getElementById('qtyInput').addEventListener('input', updatePricing);
+  updatePricing();
+
+  // Payment method toggle
+  document.querySelectorAll('.payment-option').forEach(opt => {
+    opt.addEventListener('click', () => {
+      document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('selected'));
+      opt.classList.add('selected');
+    });
+  });
+
+  // Submit
+  async function handleCheckout(e) {
+    e.preventDefault();
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'جاري الإرسال...';
+
+    const form = e.target;
+    const fd = Object.fromEntries(new FormData(form));
+    const calc = calcPrice(unitPrice, qty);
+    const orderNum = 'NG-' + Date.now().toString(36).toUpperCase();
+
+    const orderData = {
+      orderNum,
+      timestamp: new Date().toISOString(),
+      name: fd.name,
+      phone: fd.phone,
+      email: fd.email,
+      whatsapp: fd.whatsapp || fd.phone,
+      city: fd.city,
+      district: fd.district,
+      street: fd.street || '',
+      time: fd.time,
+      notes: fd.notes || '',
+      productId: isBundle ? 'BUNDLE' : prodId,
+      productName,
+      qty,
+      unitPrice,
+      subtotal: calc.subtotal,
+      discountPct: calc.pct,
+      discountAmt: Math.round(calc.discount),
+      total: Math.round(calc.total),
+      payment: fd.payment
+    };
+
+    // 1) Save to Google Sheets (if configured)
+    await saveToGoogleSheets(orderData);
+
+    // 2) Open WhatsApp
+    const waMsg = `🛒 طلب جديد — نجمة الخليج
+━━━━━━━━━━━━━━━
+📋 رقم الطلب: ${orderNum}
+👤 الاسم: ${fd.name}
+📱 الجوال: ${fd.phone}
+📧 البريد: ${fd.email}
+📍 المدينة: ${fd.city} - ${fd.district}
+${fd.street ? '🏘️ ' + fd.street + '\n' : ''}
+⏰ وقت التوصيل: ${fd.time}
+━━━━━━━━━━━━━━━
+📦 المنتج: ${productName}
+🔢 الكمية: ${qty}
+💰 الإجمالي: ${Math.round(calc.total)} ر.س
+${calc.pct > 0 ? `🎁 الخصم: ${calc.pct}% (وفّرت ${Math.round(calc.discount)} ر.س)\n` : ''}💳 الدفع: ${fd.payment === 'cod' ? 'عند الاستلام' : 'تحويل بنكي'}
+━━━━━━━━━━━━━━━
+${fd.notes ? '💬 ملاحظات: ' + fd.notes : ''}`;
+    window.open(buildWhatsAppLink(waMsg), '_blank');
+
+    // 3) Show email link to send to customer
+    setTimeout(() => {
+      const emailSubject = encodeURIComponent(`تأكيد طلبك — ${orderNum} — نجمة الخليج`);
+      const emailBody = encodeURIComponent(`مرحباً ${fd.name}،
+
+شكراً لطلبك من نجمة الخليج! 🌟
+
+تفاصيل الطلب:
+• رقم الطلب: ${orderNum}
+• المنتج: ${productName}
+• الكمية: ${qty}
+• الإجمالي: ${Math.round(calc.total)} ر.س
+• المدينة: ${fd.city}
+• ${fd.district}
+
+سنتصل بك خلال 24 ساعة لتأكيد طلبك.
+بعد التأكيد، يصلك خلال 3-5 أيام.
+الدفع عند الاستلام.
+
+تابعنا: @nujmat.sa
+
+نجمة الخليج`);
+      // Show toast
+      showToast('✅ تم إرسال الطلب — سنتصل بك خلال 24 ساعة', 5000);
+    }, 1000);
+
+    // 4) Redirect to success
+    setTimeout(() => {
+      const successUrl = `success.html?order=${orderNum}&name=${encodeURIComponent(fd.name)}&product=${encodeURIComponent(productName)}&qty=${qty}&total=${Math.round(calc.total)}&city=${encodeURIComponent(fd.city)}&email=${encodeURIComponent(fd.email)}`;
+      window.location.href = successUrl;
+    }, 2500);
+  }
+
+  // Summary submit
+  document.getElementById('summarySubmit').addEventListener('click', () => {
+    document.getElementById('checkoutForm').requestSubmit();
+  });
+</script>
+
+</body>
+</html>
