@@ -117,6 +117,16 @@
               <input type="text" class="checkout-input" name="address" placeholder="رقم المبنى، الشارع، أقرب معلم">
             </div>
           </div>
+          <div class="checkout-row" style="grid-template-columns:1fr">
+            <div>
+              <label class="checkout-label">البريد الإلكتروني (اختياري — لتصلك عروض حصرية)</label>
+              <input type="email" class="checkout-input" name="email" id="cEmail" placeholder="example@email.com" autocomplete="email">
+            </div>
+          </div>
+          <label class="form-checkbox" style="margin-top:8px">
+            <input type="checkbox" name="marketing_consent" id="cMarketing" value="1" checked>
+            <span>أرغب في الحصول على <strong>عروض حصرية</strong> وكود خصم 10% للطلب القادم عبر البريد الإلكتروني</span>
+          </label>
         </div>
 
         <!-- STEP 2: Quantity -->
@@ -350,6 +360,8 @@
       timestamp: new Date().toISOString(),
       name: fd.name,
       phone: fd.phone,
+      email: fd.email || '',
+      marketingConsent: !!fd.marketing_consent,
       city: fd.city,
       district: fd.district,
       address: fd.address || '',

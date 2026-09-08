@@ -19,9 +19,9 @@ When a customer submits an order, the form data is automatically saved as a new 
 3. Name it: `نجمة الخليج - Orders`
 4. In row 1, add these column headers (copy-paste):
 
-| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| Order # | Date | Name | Phone | Email | WhatsApp | City | District | Street | Product | Qty | Unit Price | Subtotal | Discount % | Total | Payment |
+| A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Order # | Date | Name | Phone | Email | Marketing | WhatsApp | City | District | Street | Product | Qty | Unit Price | Subtotal | Discount % | Total | Payment |
 
 ### Step 2: Open Apps Script
 1. In your Sheet, click **Extensions → Apps Script** (top menu)
@@ -41,6 +41,7 @@ function doPost(e) {
       data.name || '',
       data.phone || '',
       data.email || '',
+      data.marketingConsent ? 'YES' : 'NO',
       data.whatsapp || '',
       data.city || '',
       data.district || '',
