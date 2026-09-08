@@ -9,6 +9,22 @@
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+// fbq('init', 'YOUR_META_PIXEL_ID');
+// fbq('track', 'PageView');
+// fbq('track', 'ViewContent');
+</script>
+
+<!-- TikTok Pixel -->
+<script>
+!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq.methods.length;e--;)var n=ttq.methods[e];n=n.split("."),n=n[0],n=t[n];return n},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._.u=i,ttq._i[e]._.t=1*new Date,ttq._i[e]._.e=n,n=n||{};for(var o=["sdk.php","track.php","identify.php","disable.php","enable.php"],c=0;c<o.length;c++){var a="https://analytics.tiktok.com/i18n/pixel/"+o[c];ttq._i[e]._.o||(ttq._i[e]._.o=[]),ttq._i[e]._.o.push(o[c])};var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src=i+"?sdkid="+e+"&lib="+t;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(s,r)};
+// ttq.load('YOUR_TIKTOK_PIXEL_ID');
+// ttq.page();
+}(window, document, 'ttq');
+</script>
 </head>
 <body>
 
@@ -231,6 +247,20 @@
   </div>
 </section>
 
+<!-- ============================ EXIT POPUP ============================ -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-popup-content">
+    <button class="exit-popup-close" onclick="closeExitPopup()">×</button>
+    <div class="exit-popup-icon">🎁</div>
+    <h3 class="exit-popup-title">قبل ما تطلع...</h3>
+    <p class="exit-popup-sub">احصل على <strong>خصم 10%</strong> على طلبك الأول</p>
+    <input type="text" class="exit-popup-input" id="exitName" placeholder="اسمك">
+    <input type="tel" class="exit-popup-input" id="exitPhone" placeholder="رقم جوالك (واتساب)">
+    <button class="exit-popup-btn" onclick="claimExitOffer()">احصل على الخصم 🔥</button>
+    <p class="exit-popup-note">سيصلك رمز الخصم عبر واتساب خلال دقيقة</p>
+  </div>
+</div>
+
 <!-- ============================ STICKY MOBILE CTA ============================ -->
 <div class="sticky-cta">
   <div class="sticky-cta-info">
@@ -410,11 +440,12 @@
     });
   });
 
-  // Related products
+  // Related products (exclude current product — bug fix)
   const related = Object.entries(PRODUCTS).filter(([id]) => id !== prodId).slice(0, 3);
   document.getElementById('relatedGrid').innerHTML = related.map(([id, rp]) => `
     <a href="product.html?id=${id}" class="test-card" style="text-decoration:none;display:block">
-      <div class="product-visual ${rp.visualClass}" style="height:200px;margin-bottom:16px">
+      <div class="product-visual has-image ${rp.visualClass}" style="height:200px;margin-bottom:16px;background:#fff">
+        <img src="images/p${id}-main.jpg" alt="${rp.ar}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
         <div class="product-monogram" style="font-size:5rem">${rp.monogram}</div>
       </div>
       <h3 style="font-family:'Aref Ruqaa',serif;font-size:1.125rem;margin-bottom:4px">${rp.ar}</h3>
@@ -425,6 +456,77 @@
       </div>
     </a>
   `).join('');
+
+  // ====== STOCK COUNTER (scarcity) ======
+  const stockEl = document.createElement('div');
+  stockEl.className = 'stock-counter';
+  const stockNum = Math.floor(Math.random() * 8) + 4; // 4-11
+  stockEl.innerHTML = `<span class="pulse-dot"></span> <span>متبقي <b>${stockNum} قطع</b> فقط في المخزون — اطلب قبل النفاد</span>`;
+  document.querySelector('.product-side-actions').after(stockEl);
+
+  // ====== COUNTDOWN TIMER (24h) ======
+  const cdEl = document.createElement('div');
+  cdEl.className = 'countdown-timer';
+  cdEl.style.marginTop = '12px';
+  cdEl.style.width = '100%';
+  cdEl.style.justifyContent = 'center';
+  cdEl.innerHTML = '<span class="ct-label">🔥 عرض اليوم ينتهي خلال:</span><span class="ct-digits"><span id="cdH2">08</span>:<span id="cdM2">45</span>:<span id="cdS2">12</span></span>';
+  document.querySelector('.product-side-actions').after(cdEl);
+
+  (function() {
+    const now = new Date();
+    const endOfDay = new Date(now);
+    endOfDay.setHours(23, 59, 59, 999);
+    function tick() {
+      const now = new Date();
+      let diff = endOfDay - now;
+      if (diff < 0) { endOfDay.setDate(endOfDay.getDate() + 1); diff = endOfDay - now; }
+      const h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000);
+      const pad = n => String(n).padStart(2, '0');
+      const h2 = document.getElementById('cdH2'), m2 = document.getElementById('cdM2'), s2 = document.getElementById('cdS2');
+      if (h2) { h2.textContent = pad(h); m2.textContent = pad(m); s2.textContent = pad(s); }
+    }
+    tick(); setInterval(tick, 1000);
+  })();
+
+  // ====== EXIT POPUP (also on product page) ======
+  let exitShown2 = false;
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 10 && !exitShown2 && !sessionStorage.getItem('exit_dismissed')) {
+      const p = document.getElementById('exitPopup');
+      if (p) { p.classList.add('show'); exitShown2 = true; }
+    }
+  });
+
+  // Track ViewContent
+  if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: p.ar, value: p.price, currency: 'SAR' });
+  if (typeof ttq !== 'undefined') ttq.track('ViewContent', { content_name: p.ar, value: p.price, currency: 'SAR' });
+
+  // Exit popup functions
+  function closeExitPopup() {
+    const p = document.getElementById('exitPopup');
+    if (p) p.classList.remove('show');
+    sessionStorage.setItem('exit_dismissed', '1');
+  }
+  function claimExitOffer() {
+    const name = document.getElementById('exitName').value.trim();
+    const phone = document.getElementById('exitPhone').value.trim();
+    if (!name || !phone) { showToast('الرجاء إدخال الاسم ورقم الجوال'); return; }
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'exit-popup-10pct' });
+    if (typeof ttq !== 'undefined') ttq.track('SubmitForm');
+    saveToGoogleSheets({
+      orderNum: 'EXIT-LEAD-' + Date.now().toString(36).toUpperCase(),
+      timestamp: new Date().toISOString(),
+      name, phone, city: '', district: '',
+      productName: 'EXIT-10%-OFFER', qty: 1, unitPrice: 0,
+      subtotal: 0, discountPct: 0, discountAmt: 0, total: 0,
+      payment: 'cod'
+    });
+    const msg = `مرحباً! أنا ${name} وأريد الحصول على كود خصم 10% من نجمة الخليج 🌟`;
+    window.open(`https://wa.me/8801581226134?text=${encodeURIComponent(msg)}`, '_blank');
+    closeExitPopup();
+    showToast('✅ شكراً! سيتم التواصل معك خلال دقائق');
+  }
 </script>
 
 </body>

@@ -9,6 +9,25 @@
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+
+<!-- Meta Pixel Code (replace ID below) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+// fbq('init', 'YOUR_META_PIXEL_ID');
+// fbq('track', 'PageView');
+// fbq('track', 'InitiateCheckout');
+</script>
+<!-- End Meta Pixel Code -->
+
+<!-- TikTok Pixel Code (replace ID below) -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq.methods.length;e--;)var n=ttq.methods[e];n=n.split("."),n=n[0],n=t[n];return n},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._.u=i,ttq._i[e]._.t=1*new Date,ttq._i[e]._.e=n,n=n||{};for(var o=["sdk.php","track.php","identify.php","disable.php","enable.php"],c=0;c<o.length;c++){var a="https://analytics.tiktok.com/i18n/pixel/"+o[c];ttq._i[e]._.o||(ttq._i[e]._.o=[]),ttq._i[e]._.o.push(o[c])};var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src=i+"?sdkid="+e+"&lib="+t;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(s,r)};
+  // ttq.load('YOUR_TIKTOK_PIXEL_ID');
+  // ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- End TikTok Pixel Code -->
 </head>
 <body>
 
@@ -39,40 +58,42 @@
       <span class="current">إتمام الطلب</span>
     </div>
 
-    <h1 class="h1 serif" style="margin: 16px 0 32px">إتمام الطلب</h1>
+    <h1 class="h1 serif" style="margin: 16px 0 8px">إتمام الطلب</h1>
+    <p style="color:var(--muted);font-size:0.9375rem;margin-bottom:24px">املأ بياناتك البسيطة — سنتصل بك خلال 24 ساعة لتأكيد الطلب</p>
+
+    <!-- Live trust strip -->
+    <div class="checkout-trust-strip">
+      <div class="ct-item">
+        <span class="ct-icon">🔒</span>
+        <span>بياناتك آمنة 100%</span>
+      </div>
+      <div class="ct-item">
+        <span class="ct-icon">💵</span>
+        <span>ادفع عند الاستلام</span>
+      </div>
+      <div class="ct-item">
+        <span class="ct-icon">🔄</span>
+        <span>استبدال مجاني 7 أيام</span>
+      </div>
+    </div>
 
     <div class="checkout-grid">
-      <!-- FORM -->
+      <!-- FORM (simplified - 5 essential fields) -->
       <form class="checkout-form-card" id="checkoutForm" onsubmit="return handleCheckout(event)">
 
-        <!-- STEP 1: Contact -->
+        <!-- STEP 1: Essential data only -->
         <div class="checkout-section">
-          <h3><span class="step-num">1</span> بيانات التواصل</h3>
+          <h3><span class="step-num">1</span> بيانات التواصل والتوصيل</h3>
           <div class="checkout-row">
             <div>
               <label class="checkout-label">الاسم الكامل *</label>
-              <input type="text" class="checkout-input" name="name" id="cName" required placeholder="مثال: محمد العتيبي">
+              <input type="text" class="checkout-input" name="name" id="cName" required placeholder="مثال: محمد العتيبي" autocomplete="name">
             </div>
             <div>
               <label class="checkout-label">رقم الجوال *</label>
-              <input type="tel" class="checkout-input" name="phone" id="cPhone" required placeholder="05XXXXXXXX" pattern="[0-9]{10}">
+              <input type="tel" class="checkout-input" name="phone" id="cPhone" required placeholder="05XXXXXXXX" pattern="[0-9]{10}" inputmode="tel" autocomplete="tel">
             </div>
           </div>
-          <div class="checkout-row">
-            <div>
-              <label class="checkout-label">البريد الإلكتروني (لاستلام التأكيد) *</label>
-              <input type="email" class="checkout-input" name="email" id="cEmail" required placeholder="example@email.com">
-            </div>
-            <div>
-              <label class="checkout-label">واتساب (اختياري)</label>
-              <input type="tel" class="checkout-input" name="whatsapp" placeholder="نفس الرقم أو آخر">
-            </div>
-          </div>
-        </div>
-
-        <!-- STEP 2: Delivery -->
-        <div class="checkout-section">
-          <h3><span class="step-num">2</span> عنوان التوصيل</h3>
           <div class="checkout-row">
             <div>
               <label class="checkout-label">المدينة *</label>
@@ -86,37 +107,21 @@
               </select>
             </div>
             <div>
-              <label class="checkout-label">الحي *</label>
+              <label class="checkout-label">الحي / المنطقة *</label>
               <input type="text" class="checkout-input" name="district" id="cDistrict" required placeholder="مثال: العليا">
             </div>
           </div>
           <div class="checkout-row" style="grid-template-columns:1fr">
             <div>
-              <label class="checkout-label">الشارع والوصف (اختياري)</label>
-              <input type="text" class="checkout-input" name="street" placeholder="رقم المبنى، الشارع، أقرب معلم">
-            </div>
-          </div>
-          <div class="checkout-row">
-            <div>
-              <label class="checkout-label">وقت التوصيل المفضل</label>
-              <select class="checkout-select" name="time">
-                <option value="anytime">أي وقت</option>
-                <option>صباحاً (9-12)</option>
-                <option>ظهراً (12-4)</option>
-                <option>عصراً (4-7)</option>
-                <option>مساءً (7-10)</option>
-              </select>
-            </div>
-            <div>
-              <label class="checkout-label">ملاحظات (اختياري)</label>
-              <input type="text" class="checkout-input" name="notes" placeholder="أي ملاحظات إضافية...">
+              <label class="checkout-label">العنوان المختصر (اختياري)</label>
+              <input type="text" class="checkout-input" name="address" placeholder="رقم المبنى، الشارع، أقرب معلم">
             </div>
           </div>
         </div>
 
-        <!-- STEP 3: Quantity -->
+        <!-- STEP 2: Quantity -->
         <div class="checkout-section">
-          <h3><span class="step-num">3</span> الكمية</h3>
+          <h3><span class="step-num">2</span> الكمية</h3>
           <div class="qty-row">
             <span class="qty-label">كم قطعة تريد؟</span>
             <div class="qty-selector">
@@ -128,42 +133,61 @@
           </div>
         </div>
 
-        <!-- STEP 4: Payment -->
+        <!-- STEP 3: Payment -->
         <div class="checkout-section">
-          <h3><span class="step-num">4</span> طريقة الدفع</h3>
+          <h3><span class="step-num">3</span> طريقة الدفع</h3>
           <div class="checkout-payment">
             <label class="payment-option selected" data-method="cod">
               <input type="radio" name="payment" value="cod" checked>
               <span class="payment-icon">💵</span>
               <div class="payment-info">
-                <div class="payment-name">الدفع عند الاستلام</div>
-                <div class="payment-desc">ادفع نقداً عند استلام القطعة. لا حاجة لبطاقة ائتمان.</div>
+                <div class="payment-name">الدفع عند الاستلام <span class="recommended">الأكثر شيوعاً</span></div>
+                <div class="payment-desc">ادفع نقداً عند استلام القطعة — لا دفع إلكتروني</div>
               </div>
             </label>
             <label class="payment-option" data-method="bank">
               <input type="radio" name="payment" value="bank">
               <span class="payment-icon">🏦</span>
               <div class="payment-info">
-                <div class="payment-name">تحويل بنكي مسبق</div>
-                <div class="payment-desc">حوّل المبلغ لحسابنا وأرسل الإيصال عبر واتساب. خصم 5% على الطلب.</div>
+                <div class="payment-name">تحويل بنكي مسبق <span class="save-tag">خصم 5%</span></div>
+                <div class="payment-desc">حوّل وأرسل الإيصال عبر واتساب</div>
               </div>
             </label>
           </div>
         </div>
 
-        <!-- STEP 5: Confirm -->
+        <!-- STEP 4: Confirm -->
         <div class="checkout-section">
-          <h3><span class="step-num">5</span> تأكيد</h3>
           <label class="form-checkbox">
             <input type="checkbox" required>
-            <span>أوافق على <a href="#" style="color:var(--gold)">شروط الاستخدام</a> و <a href="#" style="color:var(--gold)">سياسة الاستبدال</a>، وأؤكد أن جميع البيانات صحيحة.</span>
+            <span>أوافق على <a href="terms.html" style="color:var(--gold)">الشروط</a> و <a href="returns.html" style="color:var(--gold)">سياسة الاستبدال</a></span>
           </label>
         </div>
 
-        <button type="submit" class="checkout-submit" id="submitBtn">تأكيد الطلب — <span id="submitTotal">139 ر.س</span></button>
-        <p style="text-align:center;font-size:0.8125rem;color:var(--muted);margin-top:16px">
-          🔒 بياناتك آمنة معنا · لن نحفظها لأي طرف ثالث
-        </p>
+        <button type="submit" class="checkout-submit" id="submitBtn">
+          <span style="display:flex;align-items:center;justify-content:center;gap:8px">
+            <span>تأكيد الطلب</span>
+            <span style="opacity:0.7">·</span>
+            <span id="submitTotal">139 ر.س</span>
+            <span class="submit-emoji">💵</span>
+          </span>
+        </button>
+
+        <!-- RISK REVERSAL -->
+        <div class="risk-reversal">
+          <div class="rr-item">
+            <span class="rr-icon">✓</span>
+            <span>ادفع فقط عند استلام المنتج</span>
+          </div>
+          <div class="rr-item">
+            <span class="rr-icon">✓</span>
+            <span>افحص المنتج قبل الدفع</span>
+          </div>
+          <div class="rr-item">
+            <span class="rr-icon">✓</span>
+            <span>إرجاع مجاني خلال 7 أيام</span>
+          </div>
+        </div>
       </form>
 
       <!-- SUMMARY -->
@@ -198,10 +222,10 @@
         <button class="checkout-submit" id="summarySubmit" type="button">تأكيد وإرسال الطلب</button>
 
         <div class="summary-trust">
-          <div><span class="icon">✓</span> دفع آمن عند الاستلام</div>
-          <div><span class="icon">🚚</span> توصيل 3-5 أيام</div>
-          <div><span class="icon">🔄</span> ضمان استبدال 7 أيام</div>
-          <div><span class="icon">📞</span> دعم 24/7 عبر واتساب</div>
+          <div><span class="icon">🔒</span> <span>دفع آمن 100% عند الاستلام</span></div>
+          <div><span class="icon">🚚</span> <span>توصيل خلال 3-5 أيام</span></div>
+          <div><span class="icon">🔄</span> <span>ضمان استبدال 7 أيام</span></div>
+          <div><span class="icon">📞</span> <span>دعم 24/7 عبر واتساب</span></div>
         </div>
       </aside>
     </div>
@@ -224,6 +248,20 @@
   <span>مساعدة</span>
 </a>
 
+<!-- ============================ EXIT INTENT POPUP ============================ -->
+<div class="exit-popup" id="exitPopup">
+  <div class="exit-popup-content">
+    <button class="exit-popup-close" onclick="closeExitPopup()" aria-label="إغلاق">×</button>
+    <div class="exit-popup-icon">⏰</div>
+    <h3 class="exit-popup-title">قبل ما تطلع...</h3>
+    <p class="exit-popup-sub">احصل على <strong>خصم 10% إضافية</strong> على طلبك الأول</p>
+    <input type="text" class="exit-popup-input" id="exitName" placeholder="اسمك">
+    <input type="tel" class="exit-popup-input" id="exitPhone" placeholder="رقم جوالك (واتساب)">
+    <button class="exit-popup-btn" onclick="claimExitOffer()">احصل على الخصم 🔥</button>
+    <p class="exit-popup-note">سيصلك رمز الخصم عبر واتساب خلال دقيقة</p>
+  </div>
+</div>
+
 <script src="app.js"></script>
 <script>
   // Determine what's being ordered
@@ -232,21 +270,23 @@
   const product = isBundle ? null : PRODUCTS[prodId];
 
   let qty = parseInt(getParam('qty')) || 1;
-  let unitPrice, productName, productMonogram, productColor;
+  let unitPrice, productName, productMonogram, productColor, productImage;
 
   if (isBundle) {
     unitPrice = BUNDLE.bundlePrice;
     productName = 'الباقة الكاملة (4 قطع)';
     productMonogram = '★';
     productColor = '#D4C9AE';
+    productImage = 'images/p02-main.jpg';
   } else {
     unitPrice = product.price;
     productName = product.ar;
     productMonogram = product.monogram;
     productColor = product.color;
+    productImage = `images/p${prodId}-main.jpg`;
   }
 
-  // Pre-fill from query params (from home form)
+  // Pre-fill from query params
   ['name', 'phone', 'city', 'district'].forEach(f => {
     const v = getParam(f);
     if (v) document.getElementById('c' + f.charAt(0).toUpperCase() + f.slice(1)).value = v;
@@ -257,6 +297,9 @@
   document.getElementById('summaryName').textContent = productName;
   document.getElementById('summaryImg').textContent = productMonogram;
   document.getElementById('summaryImg').style.background = productColor;
+  document.getElementById('summaryImg').style.backgroundImage = `url(${productImage})`;
+  document.getElementById('summaryImg').style.backgroundSize = 'cover';
+  document.getElementById('summaryImg').style.backgroundPosition = 'center';
 
   // Update pricing
   function updatePricing() {
@@ -295,7 +338,7 @@
     e.preventDefault();
     const submitBtn = document.getElementById('submitBtn');
     submitBtn.disabled = true;
-    submitBtn.textContent = 'جاري الإرسال...';
+    submitBtn.innerHTML = '<span>جاري الإرسال...</span>';
 
     const form = e.target;
     const fd = Object.fromEntries(new FormData(form));
@@ -307,13 +350,9 @@
       timestamp: new Date().toISOString(),
       name: fd.name,
       phone: fd.phone,
-      email: fd.email,
-      whatsapp: fd.whatsapp || fd.phone,
       city: fd.city,
       district: fd.district,
-      street: fd.street || '',
-      time: fd.time,
-      notes: fd.notes || '',
+      address: fd.address || '',
       productId: isBundle ? 'BUNDLE' : prodId,
       productName,
       qty,
@@ -325,65 +364,86 @@
       payment: fd.payment
     };
 
-    // 1) Save to Google Sheets (if configured)
+    // 1) Save to Google Sheets
     await saveToGoogleSheets(orderData);
 
-    // 2) Open WhatsApp
+    // 2) Track conversion (Meta + TikTok)
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Purchase', { value: orderData.total, currency: 'SAR', content_name: productName });
+      fbq('track', 'Lead', { content_name: productName });
+    }
+    if (typeof ttq !== 'undefined') {
+      ttq.track('CompletePayment', { value: orderData.total, currency: 'SAR' });
+    }
+
+    // 3) Open WhatsApp
     const waMsg = `🛒 طلب جديد — نجمة الخليج
 ━━━━━━━━━━━━━━━
 📋 رقم الطلب: ${orderNum}
 👤 الاسم: ${fd.name}
 📱 الجوال: ${fd.phone}
-📧 البريد: ${fd.email}
 📍 المدينة: ${fd.city} - ${fd.district}
-${fd.street ? '🏘️ ' + fd.street + '\n' : ''}
-⏰ وقت التوصيل: ${fd.time}
+${fd.address ? '🏘️ ' + fd.address + '\n' : ''}
 ━━━━━━━━━━━━━━━
 📦 المنتج: ${productName}
 🔢 الكمية: ${qty}
 💰 الإجمالي: ${Math.round(calc.total)} ر.س
-${calc.pct > 0 ? `🎁 الخصم: ${calc.pct}% (وفّرت ${Math.round(calc.discount)} ر.س)\n` : ''}💳 الدفع: ${fd.payment === 'cod' ? 'عند الاستلام' : 'تحويل بنكي'}
-━━━━━━━━━━━━━━━
-${fd.notes ? '💬 ملاحظات: ' + fd.notes : ''}`;
+${calc.pct > 0 ? `🎁 الخصم: ${calc.pct}% (وفّرت ${Math.round(calc.discount)} ر.س)\n` : ''}💳 الدفع: ${fd.payment === 'cod' ? 'عند الاستلام' : 'تحويل بنكي'}`;
     window.open(buildWhatsAppLink(waMsg), '_blank');
-
-    // 3) Show email link to send to customer
-    setTimeout(() => {
-      const emailSubject = encodeURIComponent(`تأكيد طلبك — ${orderNum} — نجمة الخليج`);
-      const emailBody = encodeURIComponent(`مرحباً ${fd.name}،
-
-شكراً لطلبك من نجمة الخليج! 🌟
-
-تفاصيل الطلب:
-• رقم الطلب: ${orderNum}
-• المنتج: ${productName}
-• الكمية: ${qty}
-• الإجمالي: ${Math.round(calc.total)} ر.س
-• المدينة: ${fd.city}
-• ${fd.district}
-
-سنتصل بك خلال 24 ساعة لتأكيد طلبك.
-بعد التأكيد، يصلك خلال 3-5 أيام.
-الدفع عند الاستلام.
-
-تابعنا: @nujmat.sa
-
-نجمة الخليج`);
-      // Show toast
-      showToast('✅ تم إرسال الطلب — سنتصل بك خلال 24 ساعة', 5000);
-    }, 1000);
 
     // 4) Redirect to success
     setTimeout(() => {
-      const successUrl = `success.html?order=${orderNum}&name=${encodeURIComponent(fd.name)}&product=${encodeURIComponent(productName)}&qty=${qty}&total=${Math.round(calc.total)}&city=${encodeURIComponent(fd.city)}&email=${encodeURIComponent(fd.email)}`;
+      const successUrl = `success.html?order=${orderNum}&name=${encodeURIComponent(fd.name)}&product=${encodeURIComponent(productName)}&qty=${qty}&total=${Math.round(calc.total)}&city=${encodeURIComponent(fd.city)}`;
       window.location.href = successUrl;
-    }, 2500);
+    }, 2000);
   }
 
-  // Summary submit
   document.getElementById('summarySubmit').addEventListener('click', () => {
     document.getElementById('checkoutForm').requestSubmit();
   });
+
+  // Exit intent popup
+  let exitShown = false;
+  document.addEventListener('mouseleave', (e) => {
+    if (e.clientY < 10 && !exitShown && !localStorage.getItem('exit_dismissed')) {
+      document.getElementById('exitPopup').classList.add('show');
+      exitShown = true;
+    }
+  });
+
+  function closeExitPopup() {
+    document.getElementById('exitPopup').classList.remove('show');
+    localStorage.setItem('exit_dismissed', '1');
+  }
+
+  function claimExitOffer() {
+    const name = document.getElementById('exitName').value.trim();
+    const phone = document.getElementById('exitPhone').value.trim();
+    if (!name || !phone) {
+      showToast('الرجاء إدخال الاسم ورقم الجوال');
+      return;
+    }
+    // Save to sheet
+    saveToGoogleSheets({
+      orderNum: 'EXIT-LEAD',
+      timestamp: new Date().toISOString(),
+      name,
+      phone,
+      city: '',
+      district: '',
+      productName: 'EXIT-POPUP-10%-OFF',
+      qty: 1,
+      unitPrice: 0,
+      total: 0,
+      payment: 'cod',
+      notes: '10% discount code requested'
+    });
+    // Open WhatsApp
+    const msg = `مرحباً! أنا ${name} وأريد الحصول على كود خصم 10% 🌟`;
+    window.open(`https://wa.me/8801581226134?text=${encodeURIComponent(msg)}`, '_blank');
+    closeExitPopup();
+    showToast('✅ شكراً! سيتم التواصل معك خلال دقائق');
+  }
 </script>
 
 </body>

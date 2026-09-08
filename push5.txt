@@ -1,0 +1,10 @@
+﻿error: pathspec 'High-conversion' did not match any file(s) known to git
+error: pathspec 'audit:' did not match any file(s) known to git
+error: pathspec 'simplify' did not match any file(s) known to git
+error: pathspec 'checkout' did not match any file(s) known to git
+error: pathspec 'policy' did not match any file(s) known to git
+error: pathspec 'pages' did not match any file(s) known to git
+error: pathspec 'urgency' did not match any file(s) known to git
+error: pathspec 'pixels' did not match any file(s) known to git
+error: pathspec 'fix' did not match any file(s) known to git
+error: pathspec 'related\  ' did not match any file(s) known to git
