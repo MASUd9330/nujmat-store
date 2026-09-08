@@ -1,0 +1,8 @@
+﻿warning: in the working copy of 'checkout.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'push.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'style.css', LF will be replaced by CRLF the next time Git touches it
+[master 1d944a0] Make quantity discount tiers prominent + savings badge + email field
+ 5 files changed, 65 insertions(+), 7 deletions(-)
+ create mode 100644 push8.txt
+To https://github.com/MASUd9330/nujmat-store.git
+   b2ef17c..1d944a0  master -> main

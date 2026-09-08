@@ -67,7 +67,7 @@
           <div class="gallery-main-num" id="galleryNum">01 / 04</div>
           <div class="gallery-main-tag" id="galleryTag">صحة · Wellness</div>
           <div class="gallery-main-img" id="galleryMainImg">
-            <img id="galleryImg" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover">
+            <img id="galleryImg" class="gallery-img-real" alt="عافية" loading="eager" decoding="async">
             <div class="gallery-main-monogram" id="galleryMonogram">عافية</div>
           </div>
           <div class="gallery-main-label" id="galleryLabel">Recovery</div>
@@ -368,35 +368,27 @@
     galleryImages.push(fname);
   }
 
-  // Test first image
-  const testImg = new Image();
-  testImg.onload = () => {
-    // Real images available - hide monogram, show img
-    document.getElementById('galleryMonogram').style.display = 'none';
-    const imgEl = document.getElementById('galleryImg');
-    imgEl.style.display = 'block';
-    imgEl.src = galleryImages[0];
-    imgEl.alt = p.ar;
-    document.getElementById('galleryMainImg').style.background = '#FFFFFF';
-  };
-  testImg.onerror = () => {
-    // No real images - keep monogram
-    document.getElementById('galleryImg').style.display = 'none';
-  };
-  testImg.src = galleryImages[0];
+  // Direct image display - no preloading test
+  const imgEl = document.getElementById('galleryImg');
+  const monogramEl = document.getElementById('galleryMonogram');
+  imgEl.src = galleryImages[0];
+  imgEl.alt = p.ar;
+  // Hide monogram when image loads; show on error
+  imgEl.addEventListener('load', () => { monogramEl.style.display = 'none'; });
+  imgEl.addEventListener('error', () => { monogramEl.style.display = 'flex'; });
 
   // Thumbnails click handler
   document.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
     thumb.addEventListener('click', () => {
       document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');
-      const imgEl = document.getElementById('galleryImg');
-      if (imgEl.style.display !== 'none') {
-        imgEl.src = galleryImages[idx];
-      } else {
-        // Monogram fallback
-        const monograms = [p.monogram, p.monogramEn, p.num, p.ar.substring(0, 2), p.num];
-        document.getElementById('galleryMonogram').textContent = monograms[idx];
+      // Show monogram briefly as loading state
+      monogramEl.style.display = 'flex';
+      imgEl.onload = () => { monogramEl.style.display = 'none'; };
+      imgEl.onerror = () => { monogramEl.style.display = 'flex'; };
+      imgEl.src = galleryImages[idx];
+    });
+  });
         const colors = [p.color, p.color + 'E0', p.color + 'C0', p.color + 'D0', p.color + 'B0'];
         document.getElementById('galleryMainImg').style.background = `radial-gradient(circle, ${colors[idx]}, transparent 70%)`;
       }
