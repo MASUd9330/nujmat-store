@@ -129,9 +129,10 @@
           </label>
         </div>
 
-        <!-- STEP 2: Quantity -->
+        <!-- STEP 2: Quantity (with prominent discount tiers) -->
         <div class="checkout-section">
-          <h3><span class="step-num">2</span> الكمية</h3>
+          <h3><span class="step-num">2</span> الكمية <span style="font-size:0.75rem;color:var(--gold);font-weight:500;margin-right:8px">اشترِ أكثر ووفّر أكثر!</span></h3>
+
           <div class="qty-row">
             <span class="qty-label">كم قطعة تريد؟</span>
             <div class="qty-selector">
@@ -139,7 +140,31 @@
               <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="99">
               <button class="qty-btn" id="qtyPlus" type="button">+</button>
             </div>
-            <span style="font-size:0.875rem;color:var(--gold);font-weight:500" id="discountNote"></span>
+            <span style="font-size:0.875rem;color:var(--gold);font-weight:600" id="discountNote"></span>
+          </div>
+
+          <!-- Discount tier table (always visible) -->
+          <div class="discount-tiers-checkout">
+            <div class="dt-row" data-min="1">
+              <span>قطعة واحدة</span>
+              <span class="dt-pct">السعر الكامل</span>
+            </div>
+            <div class="dt-row highlight" data-min="2">
+              <span>قطعتان</span>
+              <span class="dt-pct">وفّر 10% 🔥</span>
+            </div>
+            <div class="dt-row" data-min="3">
+              <span>3 قطع</span>
+              <span class="dt-pct">وفّر 15%</span>
+            </div>
+            <div class="dt-row" data-min="4">
+              <span>4 قطع أو أكثر</span>
+              <span class="dt-pct">وفّر 20%</span>
+            </div>
+            <div class="dt-row" data-min="5">
+              <span>5 قطع أو أكثر</span>
+              <span class="dt-pct">وفّر 25%</span>
+            </div>
           </div>
         </div>
 
@@ -216,9 +241,9 @@
           <span>المجموع الفرعي</span>
           <span class="amt" id="sumSubtotal">139 ر.س</span>
         </div>
-        <div class="summary-line discount" id="sumDiscountRow" style="display:none">
-          <span>الخصم (<span id="sumDiscountPct">0</span>%)</span>
-          <span class="amt" id="sumDiscountAmt">-0 ر.س</span>
+        <div class="summary-line discount-saved" id="sumDiscountRow" style="display:none">
+          <span>🎉 <b>وفّرت</b> (<span id="sumDiscountPct">10</span>%)</span>
+          <span class="amt" id="sumDiscountAmt">-14 ر.س</span>
         </div>
         <div class="summary-line">
           <span>التوصيل</span>
@@ -227,6 +252,9 @@
         <div class="summary-line total">
           <span>الإجمالي</span>
           <span class="amt" id="sumTotal">139 ر.س</span>
+        </div>
+        <div class="savings-badge" id="savingsBadge" style="display:none">
+          🎉 <b id="savingsText">وفّرت 14 ر.س!</b>
         </div>
 
         <button class="checkout-submit" id="summarySubmit" type="button">تأكيد وإرسال الطلب</button>
@@ -325,10 +353,18 @@
       document.getElementById('sumDiscountPct').textContent = calc.pct;
       document.getElementById('sumDiscountAmt').textContent = `-${Math.round(calc.discount)} ر.س`;
       document.getElementById('discountNote').textContent = `🎉 وفّرت ${Math.round(calc.discount)} ر.س!`;
+      document.getElementById('savingsBadge').style.display = 'block';
+      document.getElementById('savingsText').textContent = `وفّرت ${Math.round(calc.discount)} ر.س!`;
     } else {
       document.getElementById('sumDiscountRow').style.display = 'none';
       document.getElementById('discountNote').textContent = 'اشترِ 2 قطعة لتفعيل الخصم';
+      document.getElementById('savingsBadge').style.display = 'none';
     }
+    // Highlight active discount tier in the table
+    document.querySelectorAll('.discount-tiers-checkout .dt-row').forEach(row => {
+      const min = parseInt(row.dataset.min);
+      row.classList.toggle('active', qty >= min);
+    });
   }
   document.getElementById('qtyMinus').addEventListener('click', () => { document.getElementById('qtyInput').value = Math.max(1, qty - 1); updatePricing(); });
   document.getElementById('qtyPlus').addEventListener('click', () => { document.getElementById('qtyInput').value = qty + 1; updatePricing(); });
