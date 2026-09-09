@@ -1,0 +1,13 @@
+﻿cmd : '/d' is not recognized as an internal or external command,
+At line:1 char:51
++ ... ion E:\Talegram\Minimax\myzambeel-store; cmd /c push.bat 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ('/d' is not rec...ternal command,:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+operable program or batch file.
+'t' is not recognized as an internal or external command,
+operable program or batch file.
+'t' is not recognized as an internal or external command,
+operable program or batch file.
+Everything up-to-date

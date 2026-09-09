@@ -1,5 +1,5 @@
 @echo off
 cd /d E:\Talegram\Minimax\myzambeel-store
 git add .
-git commit -m "Car-solution store: 8 car products from Zambeel (phone mount, sun shade, dash cam, neck pillow, polish, inverter, edge guards, tire brush)"
+git commit -m "Premium redesign: dark editorial with problem-solution matrix and 8 car products"
 git push origin master:main

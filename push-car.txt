@@ -1,0 +1,13 @@
+﻿cmd : warning: in the working copy of 'config.json', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:51
++ ... ion E:\Talegram\Minimax\myzambeel-store; cmd /c push.bat 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'push.bat', LF will be replaced by CRLF the next time Git touches it
+[master fbf9e4a] Car-solution store: 8 car products from Zambeel (phone mount, sun shade, dash cam, neck pillow, polish, inverter, edge guards, tire brush)
+ 5 files changed, 514 insertions(+), 163 deletions(-)
+ create mode 100644 push-car.txt
+To https://github.com/MASUd9330/nujmat-store.git
+   517da91..fbf9e4a  master -> main
