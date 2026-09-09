@@ -1,0 +1,24 @@
+﻿cmd : warning: in the working copy of 'config.json', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:51
++ ... ion E:\Talegram\Minimax\myzambeel-store; cmd /c push.bat 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'push.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tmp.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tmp_01.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tmp_02.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tmp_03.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'tmp_04.html', LF will be replaced by CRLF the next time Git touches it
+[master 517da91] Replace 4 products with Zambeel-verified winning picks: Car Phone Holder, Hoco Charger, Smart Watch, Security Camera
+ 11 files changed, 525 insertions(+), 184 deletions(-)
+ create mode 100644 push-new-products.txt
+ create mode 100644 tmp.html
+ create mode 100644 tmp_01.html
+ create mode 100644 tmp_02.html
+ create mode 100644 tmp_03.html
+ create mode 100644 tmp_04.html
+ create mode 100644 winning-products.json
+To https://github.com/MASUd9330/nujmat-store.git
+   4c1b1a0..517da91  master -> main
