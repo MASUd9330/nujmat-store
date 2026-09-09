@@ -2,19 +2,576 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#F7F3EC">
-<meta name="description" content="نجمة الخليج — تفاصيل المنتج">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0a0a0a">
 <title>تفاصيل المنتج | نجمة الخليج</title>
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
-<link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
+<link href="https://fonts.bunny.net/css?family=fraunces:300,400,500,600,700,800|inter-tight:300,400,500,600,700,800|jetbrains-mono:400,500,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<style>
+/* ============== PRODUCT PAGE SPECIFIC ============== */
 
-<!-- Pixels injected by app.js based on config.json -->
+/* Breadcrumb */
+.breadcrumb {
+  padding: 24px 0 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span { color: var(--text-faint); margin: 0 8px; }
+
+/* Product grid - asymmetric editorial */
+.product-page {
+  padding: 32px 0 80px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.product-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .product-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
+/* Gallery */
+.gallery {
+  position: sticky;
+  top: 80px;
+}
+.gallery-main {
+  aspect-ratio: 1/1;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 12px;
+}
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.gallery-main:hover img { transform: scale(1.03); }
+.gallery-zoom-hint {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-main:hover .gallery-zoom-hint { opacity: 1; }
+.gallery-thumbs {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+.gallery-thumb {
+  aspect-ratio: 1/1;
+  background: var(--bg-raised);
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.gallery-thumb:hover img { opacity: 0.8; }
+.gallery-thumb.active { border-color: var(--gold); }
+.gallery-thumb.active img { opacity: 1; }
+
+/* Product info */
+.product-info { padding-top: 16px; }
+.product-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: inline-block;
+  padding: 5px 12px;
+  background: var(--gold-soft);
+  border: 1px solid var(--gold-line);
+  border-radius: 3px;
+}
+.product-name {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.product-name-en {
+  font-size: 1.0625rem;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.stars { color: var(--gold); letter-spacing: 0.05em; font-size: 14px; }
+.rating-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+}
+.rating-text b { color: var(--text); font-weight: 600; }
+
+/* Price block */
+.product-price-block {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.product-price {
+  font-family: 'Fraunces', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--gold);
+  line-height: 1;
+}
+.product-price-cur {
+  font-size: 1.125rem;
+  color: var(--text-2);
+}
+.product-old-price {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+.product-save-badge {
+  background: rgba(74, 222, 128, 0.1);
+  color: var(--success);
+  padding: 4px 10px;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.product-tax {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  margin-bottom: 32px;
+}
+
+/* Trust signals row */
+.trust-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 16px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+}
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+.trust-item-icon {
+  font-size: 20px;
+  color: var(--gold);
+}
+.trust-item-label {
+  font-size: 11px;
+  color: var(--text-2);
+  line-height: 1.3;
+}
+@media (max-width: 600px) {
+  .trust-row { grid-template-columns: 1fr; }
+}
+
+/* Quantity + CTA */
+.qty-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+  margin-bottom: 12px;
+}
+.qty-stepper {
+  display: flex;
+  align-items: center;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.qty-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-2);
+  width: 44px;
+  height: 100%;
+  font-size: 18px;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s;
+}
+.qty-btn:hover { color: var(--gold); background: var(--bg-raised); }
+.qty-input {
+  background: transparent;
+  border: none;
+  color: var(--text);
+  width: 48px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  font-weight: 600;
+}
+.qty-input:focus { outline: none; }
+.qty-input::-webkit-outer-spin-button,
+.qty-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+
+.cta-primary {
+  flex: 1;
+  background: var(--gold);
+  color: #0a0a0a;
+  border: none;
+  border-radius: 6px;
+  padding: 0 32px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+}
+.cta-primary:hover {
+  background: var(--gold-2);
+  transform: translateY(-1px);
+}
+.cta-primary::after { content: '←'; font-size: 18px; }
+
+.cta-secondary {
+  width: 100%;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border-emph);
+  border-radius: 6px;
+  padding: 14px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.cta-secondary:hover {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+/* Tiered discount display */
+.tier-discount {
+  margin-top: 24px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.tier-discount-title {
+  padding: 14px 20px;
+  background: var(--bg-subtle);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-soft);
+}
+.tier-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: 13px;
+  color: var(--text-2);
+  border-bottom: 1px solid var(--border-soft);
+}
+.tier-row:last-child { border-bottom: none; }
+.tier-row.active {
+  background: var(--gold-soft);
+  color: var(--text);
+}
+.tier-row.active .tier-pct { color: var(--gold); font-weight: 600; }
+.tier-pct {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Sticky bar (mobile) */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-soft);
+  padding: 12px 20px;
+  display: none;
+  z-index: 90;
+  align-items: center;
+  gap: 12px;
+}
+.sticky-bar-info { flex: 1; }
+.sticky-bar-name {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+.sticky-bar-price {
+  font-family: 'Fraunces', serif;
+  font-size: 1.25rem;
+  color: var(--gold);
+}
+.sticky-bar-btn {
+  background: var(--gold);
+  color: #0a0a0a;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+@media (max-width: 768px) {
+  .sticky-bar { display: flex; }
+  .product-page { padding-bottom: 100px; }
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 32px;
+  border-bottom: 1px solid var(--border-soft);
+  margin: 80px 0 32px;
+}
+.tab {
+  background: none;
+  border: none;
+  padding: 16px 0;
+  color: var(--text-muted);
+  font-family: 'Fraunces', serif;
+  font-size: 1.0625rem;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s;
+}
+.tab.active { color: var(--text); }
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+}
+.tab-content { display: none; padding: 32px 0 80px; }
+.tab-content.active { display: block; }
+
+/* Specs table */
+.specs-table {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.spec-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--border-soft);
+  transition: background 0.2s;
+}
+.spec-row:hover { background: var(--bg-subtle); }
+.spec-row:last-child { border-bottom: none; }
+.spec-key {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.spec-val {
+  color: var(--text);
+  font-size: 0.9375rem;
+}
+
+/* Description */
+.desc-block { max-width: 720px; line-height: 1.7; color: var(--text-2); }
+.desc-block h3 { color: var(--text); margin: 24px 0 12px; font-size: 1.25rem; }
+.desc-block ul { padding-right: 24px; margin: 16px 0; }
+.desc-block li { margin-bottom: 8px; }
+.desc-block li::marker { color: var(--gold); }
+
+/* Related products */
+.related-section { background: var(--bg-subtle); border-top: 1px solid var(--border-soft); }
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+@media (max-width: 900px) {
+  .related-grid { grid-template-columns: 1fr; }
+}
+.related-card {
+  background: var(--bg);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: all 0.3s;
+}
+.related-card:hover {
+  border-color: var(--border-emph);
+  transform: translateY(-2px);
+}
+.related-img {
+  aspect-ratio: 4/5;
+  background: var(--bg-raised);
+  overflow: hidden;
+}
+.related-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.related-card:hover .related-img img { transform: scale(1.05); }
+.related-body { padding: 20px; }
+.related-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.related-name {
+  font-family: 'Fraunces', serif;
+  font-size: 1.125rem;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+.related-price {
+  font-family: 'Fraunces', serif;
+  font-size: 1.125rem;
+  color: var(--gold);
+  margin-top: 8px;
+}
+
+/* Stock urgency */
+.stock-bar {
+  margin: 16px 0 20px;
+  padding: 12px 16px;
+  background: rgba(248, 113, 113, 0.08);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--danger);
+  font-family: 'JetBrains Mono', monospace;
+}
+.stock-pulse {
+  width: 8px;
+  height: 8px;
+  background: var(--danger);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+/* Live activity ticker */
+.live-ticker {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-2);
+  z-index: 80;
+  max-width: 320px;
+  transform: translateY(120%);
+  transition: transform 0.4s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+.live-ticker.show { transform: translateY(0); }
+.live-ticker-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--success);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.live-ticker strong { color: var(--gold); }
+</style>
 </head>
 <body>
 
-<!-- ============================ NAV ============================ -->
+<!-- NAV -->
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="brand">
@@ -22,510 +579,224 @@
       <span class="brand-en" data-brand="en">Gulf Star</span>
     </a>
     <div class="nav-links">
-      <a href="index.html#products">المختارات</a>
-      <a href="index.html#bundle">العرض</a>
-      <a href="index.html#reviews">آراء العملاء</a>
-      <a href="index.html#faq">الأسئلة</a>
+      <a href="index.html#products">المنتجات</a>
+      <a href="index.html#solutions">الحلول</a>
+      <a href="index.html#bundle">الباقة</a>
     </div>
     <button class="lang-toggle" onclick="toggleLanguage()" title="Switch to English">EN</button>
-    <a href="#cta" class="nav-cta">اطلب الآن</a>
+    <a href="index.html" class="nav-cta">← العودة</a>
   </div>
 </nav>
 
-<!-- ============================ BREADCRUMB ============================ -->
+<!-- BREADCRUMB -->
 <div class="wrap">
   <div class="breadcrumb">
     <a href="index.html">الرئيسية</a>
-    <span class="sep">/</span>
-    <a href="index.html#products">المختارات</a>
-    <span class="sep">/</span>
-    <span class="current" id="bcName">المنتج</span>
+    <span>›</span>
+    <a href="index.html#products">المنتجات</a>
+    <span>›</span>
+    <span id="bcName">منتج</span>
   </div>
 </div>
 
-<!-- ============================ PRODUCT PAGE ============================ -->
-<section class="product-page">
-  <div class="wrap">
+<!-- PRODUCT PAGE -->
+<div id="productPage">
+  <div class="wrap product-page">
     <div class="product-grid">
-
-      <!-- GALLERY -->
-      <div>
-        <div class="gallery-main" id="galleryMain">
-          <div class="gallery-main-num" id="galleryNum">01 / 04</div>
-          <div class="gallery-main-tag" id="galleryTag">صحة · Wellness</div>
-          <div class="gallery-main-img" id="galleryMainImg">
-            <img id="galleryImg" class="gallery-img-real" alt="عافية" loading="eager" decoding="async">
-            <div class="gallery-main-monogram" id="galleryMonogram">عافية</div>
-          </div>
-          <div class="gallery-main-label" id="galleryLabel">Recovery</div>
+      <!-- Gallery -->
+      <div class="gallery">
+        <div class="gallery-main">
+          <img id="galleryImg" src="" alt="منتج">
+          <div class="gallery-zoom-hint">انقر للتكبير</div>
         </div>
-        <div class="gallery-thumbs" id="galleryThumbs">
-          <div class="gallery-thumb active" data-view="0"><span class="gallery-thumb-num">i</span></div>
-          <div class="gallery-thumb" data-view="1"><span class="gallery-thumb-num">ii</span></div>
-          <div class="gallery-thumb" data-view="2"><span class="gallery-thumb-num">iii</span></div>
-          <div class="gallery-thumb" data-view="3"><span class="gallery-thumb-num">iv</span></div>
-          <div class="gallery-thumb" data-view="4"><span class="gallery-thumb-num">v</span></div>
-        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
       </div>
 
-      <!-- PRODUCT INFO -->
-      <div class="product-side">
-        <span class="product-side-tag" id="prodTag">صحة · Wellness</span>
-        <h1 class="product-side-title" id="prodName">مسدس التدليك الذكي</h1>
-        <p class="product-side-title-en" id="prodNameEn">Recovery Smart Massage Gun</p>
+      <!-- Info -->
+      <div class="product-info">
+        <span class="product-tag" id="prodTag">فئة</span>
+        <h1 class="product-name" id="prodName">منتج</h1>
+        <div class="product-name-en" id="prodNameEn">Product Name</div>
+
         <div class="product-rating">
-          <span class="product-rating-stars">★★★★★</span>
-          <span class="product-rating-count" id="prodRating">4.9 · 320 تقييم</span>
+          <span class="stars">★★★★★</span>
+          <span class="rating-text"><b>4.8</b> · 2,847 تقييم · الأكثر مبيعاً</span>
         </div>
-        <p class="product-side-desc" id="prodDesc">أربع رؤوس، ست سرعات، شحن يدوم ست ساعات.</p>
 
-        <div class="product-side-price">
-          <span class="product-side-price-amt" id="prodPrice">139</span>
-          <span style="font-size:1rem;color:var(--muted)">ر.س</span>
-          <span class="product-side-price-old" id="prodOld">199 ر.س</span>
+        <div class="product-price-block">
+          <span class="product-price" id="prodPrice">0</span>
+          <span class="product-price-cur" id="prodCur">ر.س</span>
+          <span class="product-old-price" id="prodOld">0</span>
+          <span class="product-save-badge" id="prodSave">وفّر 0</span>
         </div>
-        <span class="product-side-save" id="prodSave">وفّر 60 ر.س</span>
+        <div class="product-tax">شامل ضريبة القيمة المضافة · الدفع عند الاستلام</div>
 
-        <!-- QUANTITY -->
+        <div class="stock-bar" id="stockBar">
+          <div class="stock-pulse"></div>
+          <span id="stockText">متبقي <b>8 قطع</b> فقط في المخزون</span>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <div class="trust-item-icon">🚚</div>
+            <div class="trust-item-label">توصيل 3-5 أيام</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-item-icon">💵</div>
+            <div class="trust-item-label">دفع عند الاستلام</div>
+          </div>
+          <div class="trust-item">
+            <div class="trust-item-icon">↩️</div>
+            <div class="trust-item-label">استبدال 7 أيام</div>
+          </div>
+        </div>
+
         <div class="qty-row">
-          <span class="qty-label">الكمية</span>
-          <div class="qty-selector">
-            <button class="qty-btn" id="qtyMinus" type="button">−</button>
-            <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="99">
-            <button class="qty-btn" id="qtyPlus" type="button">+</button>
+          <div class="qty-stepper">
+            <button class="qty-btn" id="qtyMinus">−</button>
+            <input type="number" class="qty-input" id="qtyInput" value="1" min="1" max="20">
+            <button class="qty-btn" id="qtyPlus">+</button>
           </div>
+          <button class="cta-primary" id="orderBtn">اطلب الآن</button>
         </div>
+        <button class="cta-secondary" id="waBtn">
+          <span>💬</span> استفسر عبر واتساب
+        </button>
 
-        <!-- DISCOUNT TIERS -->
-        <div class="discount-tiers" id="discountTiers">
-          <div class="discount-tier" data-min="1">
-            <span class="qty">قطعة واحدة</span>
-            <span class="pct">السعر الكامل</span>
-          </div>
-          <div class="discount-tier" data-min="2">
-            <span class="qty">قطعتان</span>
-            <span class="pct">خصم 10%</span>
-          </div>
-          <div class="discount-tier" data-min="3">
-            <span class="qty">3 قطع</span>
-            <span class="pct">خصم 15%</span>
-          </div>
-          <div class="discount-tier" data-min="4">
-            <span class="qty">4 قطع أو أكثر</span>
-            <span class="pct">خصم 20%</span>
-          </div>
-          <div class="discount-tier" data-min="5">
-            <span class="qty">5 قطع أو أكثر</span>
-            <span class="pct">خصم 25%</span>
-          </div>
-        </div>
-
-        <!-- ACTIONS -->
-        <div class="product-side-actions" id="cta">
-          <a href="#" class="btn-primary full" id="orderNow">اطلب الآن — <span id="totalDisplay">139 ر.س</span></a>
-          <div class="product-side-secondary">
-            <a href="https://wa.me/966500000000" class="btn-primary" target="_blank">💬 استفسر</a>
-            <button class="btn-primary" id="addBundle">🎁 احصل على الباقة</button>
-          </div>
-        </div>
-
-        <!-- TRUST -->
-        <div class="product-trust">
-          <div class="trust-item">
-            <div class="trust-icon">✓</div>
-            <div class="trust-label">دفع عند الاستلام</div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">🚚</div>
-            <div class="trust-label">توصيل 3-5 أيام</div>
-          </div>
-          <div class="trust-item">
-            <div class="trust-icon">🔄</div>
-            <div class="trust-label">استبدال 7 أيام</div>
-          </div>
+        <!-- Tiered discount -->
+        <div class="tier-discount">
+          <div class="tier-discount-title">خصم الكمية · كل قطعة إضافية أرخص</div>
+          <div class="tier-row" data-min="1"><span>قطعة واحدة</span><span class="tier-pct">0% خصم</span></div>
+          <div class="tier-row" data-min="2"><span>قطعتان</span><span class="tier-pct">10% خصم</span></div>
+          <div class="tier-row" data-min="3"><span>3 قطع</span><span class="tier-pct">15% خصم</span></div>
+          <div class="tier-row" data-min="4"><span>4 قطع أو أكثر</span><span class="tier-pct">20% خصم</span></div>
+          <div class="tier-row" data-min="5"><span>5 قطع أو أكثر</span><span class="tier-pct">25% خصم</span></div>
         </div>
       </div>
     </div>
 
-    <!-- TABS -->
-    <div class="product-tabs">
-      <div class="tabs-nav">
-        <button class="tab-btn active" data-tab="desc">الوصف الكامل</button>
-        <button class="tab-btn" data-tab="specs">المواصفات</button>
-        <button class="tab-btn" data-tab="shipping">الشحن والإرجاع</button>
-        <button class="tab-btn" data-tab="reviews">التقييمات</button>
-      </div>
+    <!-- Tabs -->
+    <div class="tabs" id="prodTabs">
+      <button class="tab active" data-tab="desc">الوصف</button>
+      <button class="tab" data-tab="specs">المواصفات</button>
+      <button class="tab" data-tab="shipping">الشحن والإرجاع</button>
+    </div>
 
-      <div class="tab-panel active" data-tab="desc">
-        <p id="tabDesc">أربع رؤوس مختلفة، ست سرعات، شحن يدوم ست ساعات. مسدس التدليك الذكي مصمم لتخفيف آلام العضلات بعد التمرين أو يوم العمل الطويل. خفيف الوزن، هادئ تماماً.</p>
-        <h4 style="margin-top:24px">لماذا تختار هذه القطعة؟</h4>
-        <ul>
-          <li><b>الاستخدام اليومي</b><span>مصممة للاستخدام المتواصل بدون إزعاج</span></li>
-          <li><b>متانة طويلة</b><span>مواد عالية الجودة وضمان شامل</span></li>
-          <li><b>سهولة الاستخدام</b><span>واجهة بسيطة — جاهزة للاستخدام فوراً</span></li>
-          <li><b>دعم محلي</b><span>فريق دعم سعودي جاهز للمساعدة</span></li>
-        </ul>
-      </div>
-
-      <div class="tab-panel" data-tab="specs">
-        <ul id="tabSpecs">
-          <li><b>الرؤوس</b><span>4 رؤوس مختلفة</span></li>
-          <li><b>السرعات</b><span>6 سرعات</span></li>
-          <li><b>البطارية</b><span>6 ساعات</span></li>
-        </ul>
-      </div>
-
-      <div class="tab-panel" data-tab="shipping">
-        <h4>الشحن</h4>
-        <p>نوصل طلبك خلال 3-5 أيام عمل لجميع مدن المملكة العربية السعودية. التوصيل مجاني للطلبات فوق 150 ر.س. التوصيل للرياض وجدة والدمام عادة 2-3 أيام.</p>
-        <h4 style="margin-top:24px">الإرجاع والاستبدال</h4>
-        <p>نضمن لك حق الاستبدال أو الاسترجاع خلال 7 أيام من الاستلام. تواصل معنا عبر واتساب وسنرتب لك ذلك بدون أي سؤال.</p>
-        <h4 style="margin-top:24px">الضمان</h4>
-        <p>كل قطعة تأتي مع ضمان شامل ضد عيوب الصناعة. الضمان لا يشمل الأضرار الناتجة عن سوء الاستخدام.</p>
-      </div>
-
-      <div class="tab-panel" data-tab="reviews">
-        <div class="test-grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:0">
-          <div class="test-card">
-            <div class="testimonial-stars" style="color:#FFC107;font-size:0.875rem;margin-bottom:8px">★★★★★</div>
-            <p class="test-text">"استخدمته شهر كامل. الآلام اختفت تماماً. أنصح به بشدة."</p>
-            <div class="test-author">
-              <div class="test-avatar">م</div>
-              <div>
-                <div class="test-name">محمد العتيبي</div>
-                <div class="test-meta">الرياض · عميل منذ 60 يوم</div>
-              </div>
-            </div>
-          </div>
-          <div class="test-card">
-            <div class="testimonial-stars" style="color:#FFC107;font-size:0.875rem;margin-bottom:8px">★★★★★</div>
-            <p class="test-text">"أفضل استثمار في صحتي. أستخدمه كل يوم بعد الجيم."</p>
-            <div class="test-author">
-              <div class="test-avatar">ن</div>
-              <div>
-                <div class="test-name">نورة الزهراني</div>
-                <div class="test-meta">جدة · عميلة منذ 45 يوم</div>
-              </div>
-            </div>
-          </div>
-          <div class="test-card">
-            <div class="testimonial-stars" style="color:#FFC107;font-size:0.875rem;margin-bottom:8px">★★★★★</div>
-            <p class="test-text">"هدية جميلة لزوجتي. صارت تستخدمه كل ليلة."</p>
-            <div class="test-author">
-              <div class="test-avatar">س</div>
-              <div>
-                <div class="test-name">سعد الدوسري</div>
-                <div class="test-meta">الدمام · عميل منذ 30 يوم</div>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="tab-content active" data-tab="desc">
+      <div class="desc-block" id="tabDesc">
+        <p>جاري التحميل...</p>
       </div>
     </div>
 
-    <!-- RELATED -->
-    <div style="margin-top:80px">
-      <div class="intro-label"><span class="num">قد يعجبك أيضاً</span></div>
-      <h2 class="h2 serif" style="margin-bottom:32px">قطع أخرى من مختاراتنا.</h2>
-      <div class="test-grid" id="relatedGrid" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr))">
-        <!-- Filled by JS -->
+    <div class="tab-content" data-tab="specs">
+      <div class="specs-table" id="tabSpecs"></div>
+    </div>
+
+    <div class="tab-content" data-tab="shipping">
+      <div class="specs-table" id="tabShipping">
+        <div class="spec-row"><div class="spec-key">السعودية</div><div class="spec-val">3-5 أيام عمل</div></div>
+        <div class="spec-row"><div class="spec-key">الإمارات</div><div class="spec-val">4-6 أيام عمل</div></div>
+        <div class="spec-row"><div class="spec-key">دول الخليج</div><div class="spec-val">5-7 أيام عمل</div></div>
+        <div class="spec-row"><div class="spec-key">الاستبدال</div><div class="spec-val">7 أيام من الاستلام</div></div>
+        <div class="spec-row"><div class="spec-key">الضمان</div><div class="spec-val">6 أشهر شامل</div></div>
+        <div class="spec-row"><div class="spec-key">الدفع</div><div class="spec-val">عند الاستلام — نقداً</div></div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- RELATED PRODUCTS -->
+<section class="related-section section" id="relatedSection">
+  <div class="wrap">
+    <div class="section-header">
+      <div>
+        <span class="section-eyebrow">منتجات ذات صلة</span>
+        <h2 class="section-title">قد <em>يهمك</em> أيضاً</h2>
+      </div>
+    </div>
+    <div class="related-grid" id="relatedGrid"></div>
   </div>
 </section>
 
-<!-- ============================ EXIT POPUP ============================ -->
-<div class="exit-popup" id="exitPopup">
-  <div class="exit-popup-content">
-    <button class="exit-popup-close" onclick="closeExitPopup()">×</button>
-    <div class="exit-popup-icon">🎁</div>
-    <h3 class="exit-popup-title">قبل ما تطلع...</h3>
-    <p class="exit-popup-sub">احصل على <strong>خصم 10%</strong> على طلبك الأول</p>
-    <input type="text" class="exit-popup-input" id="exitName" placeholder="اسمك">
-    <input type="tel" class="exit-popup-input" id="exitPhone" placeholder="رقم جوالك (واتساب)">
-    <button class="exit-popup-btn" onclick="claimExitOffer()">احصل على الخصم 🔥</button>
-    <p class="exit-popup-note">سيصلك رمز الخصم عبر واتساب خلال دقيقة</p>
+<!-- STICKY MOBILE BAR -->
+<div class="sticky-bar">
+  <div class="sticky-bar-info">
+    <div class="sticky-bar-name" id="stickyName">منتج</div>
+    <div class="sticky-bar-price"><span id="stickyPrice">0</span> <span id="stickyCur">ر.س</span></div>
   </div>
+  <button class="sticky-bar-btn" id="stickyBtn">اطلب الآن</button>
 </div>
 
-<!-- ============================ STICKY MOBILE CTA ============================ -->
-<div class="sticky-cta">
-  <div class="sticky-cta-info">
-    <div class="sticky-cta-price" id="stickyPrice">139 ر.س</div>
-    <div class="sticky-cta-name" id="stickyName">مسدس التدليك</div>
-  </div>
-  <a href="#cta" class="btn-primary gold">اطلب الآن</a>
+<!-- LIVE TICKER -->
+<div class="live-ticker" id="liveTicker">
+  <div class="live-ticker-dot"></div>
+  <span><strong>أحمد من الرياض</strong> اشترى للتو</span>
 </div>
 
-<!-- ============================ FOOTER ============================ -->
-<footer>
+<!-- FOOTER -->
+<footer class="footer">
   <div class="wrap">
     <div class="footer-grid">
-      <div class="footer-brand">
-        <div class="brand">
-          <span class="brand-ar">نجمة الخليج</span>
-          <span class="brand-en">Gulf Star</span>
-        </div>
-        <p>متجرك المنتقى لأحدث المنتجات الذكية في المملكة والخليج.</p>
+      <div>
+        <div class="footer-brand">نجمة الخليج</div>
+        <p class="footer-desc" data-footer="about">نجمة الخليج — متجر حلول السيارة الأول في المملكة.</p>
       </div>
       <div class="footer-col">
         <h4>المتجر</h4>
         <ul>
-          <li><a href="index.html#products">المختارات</a></li>
-          <li><a href="index.html#bundle">العرض المجمّع</a></li>
-          <li><a href="index.html#how">كيف نعمل</a></li>
-          <li><a href="index.html#order">أكمل الطلب</a></li>
+          <li><a href="index.html">الرئيسية</a></li>
+          <li><a href="index.html#products">المنتجات</a></li>
+          <li><a href="index.html#bundle">الباقة</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>الدعم</h4>
         <ul>
-          <li><a href="index.html#faq">الأسئلة الشائعة</a></li>
-          <li><a href="https://wa.me/966500000000" target="_blank">واتساب</a></li>
-          <li><a href="mailto:hello@nejmat.sa">البريد الإلكتروني</a></li>
+          <li><a href="#" data-whatsapp>واتساب</a></li>
+          <li><a href="returns.html">سياسة الإرجاع</a></li>
+          <li><a href="terms.html">الشروط</a></li>
+          <li><a href="privacy.html">الخصوصية</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>تابعنا</h4>
         <ul>
-          <li><a href="#">TikTok · @nujmat.sa</a></li>
-          <li><a href="#">Instagram · @nujmat.sa</a></li>
-          <li><a href="#">Snapchat · nujmat.sa</a></li>
+          <li><a href="https://www.tiktok.com/@nujmat.sa" data-social="tiktok" target="_blank" rel="noopener">TikTok</a></li>
+          <li><a href="https://www.instagram.com/nujmat.sa" data-social="instagram" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.snapchat.com/add/nujmat.sa" data-social="snapchat" target="_blank" rel="noopener">Snapchat</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 نجمة الخليج. جميع الحقوق محفوظة.</span>
-      <span class="flags">SA · AE · KW · BH · OM · QA · IQ</span>
+      <span data-footer="copyright">© 2026 نجمة الخليج</span>
+      <span class="mono">SAUDI ARABIA · COD</span>
     </div>
   </div>
 </footer>
 
-<!-- ============================ FLOATING WHATSAPP ============================ -->
-<a href="https://wa.me/966500000000?text=مرحباً، أريد الاستفسار عن منتج" class="wa-float" target="_blank" aria-label="تواصل عبر واتساب">
-  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  <span>واتساب</span>
-</a>
-
 <script src="app.js"></script>
 <script>
-  // Wait for config to load before rendering
+  // === Wait for config + render product ===
   window.configReady.then(() => {
     initProductPage();
+    // Live ticker
+    setTimeout(showLiveTicker, 5000);
   });
-
-  // Expose for language toggle
   window.initProductPage = initProductPage;
 
-  function initProductPage() {
-  // Get product ID
-  const prodId = getParam('id') || '01';
-  const p = PRODUCTS[prodId];
-  if (!p) { window.location.href = 'index.html'; }
-
-  // Page state
-  let qty = parseInt(getParam('qty')) || 1;
-  const lang = CURRENT_LANG;
-  const cur = (lang === 'en') ? (CONFIG.site.currencyEn || 'SAR') : (CONFIG.site.currency || 'ر.س');
-  const siteName = (lang === 'en') ? (CONFIG.site.nameEn || 'Gulf Star') : (CONFIG.site.name || 'نجمة الخليج');
-
-  // Populate (language-aware)
-  document.getElementById('bcName').textContent = lang === 'en' ? p.en : p.ar;
-  document.title = `${lang === 'en' ? p.en : p.ar} | ${siteName}`;
-  document.getElementById('galleryNum').textContent = `${p.num} / 04`;
-  document.getElementById('galleryTag').textContent = lang === 'en' ? (p.tagEn || p.tag) : p.tag;
-  document.getElementById('galleryMonogram').textContent = lang === 'en' ? p.monogramEn : p.monogram;
-  document.getElementById('galleryLabel').textContent = lang === 'en' ? p.monogram : p.monogramEn;
-  document.getElementById('prodTag').textContent = lang === 'en' ? (p.tagEn || p.tag) : p.tag;
-  document.getElementById('prodName').textContent = lang === 'en' ? p.en : p.ar;
-  document.getElementById('prodNameEn').textContent = lang === 'en' ? p.ar : p.en;
-  document.getElementById('prodDesc').textContent = lang === 'en' ? p.descEn : p.desc;
-  document.getElementById('prodPrice').textContent = p.price;
-  document.getElementById('prodOld').textContent = `${p.oldPrice} ${cur}`;
-  document.getElementById('prodSave').textContent = lang === 'en' ? `Save ${p.save} ${cur}` : `وفّر ${p.save} ${cur}`;
-  document.getElementById('stickyName').textContent = lang === 'en' ? p.en : p.ar;
-  document.getElementById('qtyInput').value = qty;
-
-  // Specs (language-aware)
-  const tabSpecs = document.getElementById('tabSpecs');
-  tabSpecs.innerHTML = p.specs.map(s =>
-    `<li><b>${lang === 'en' ? (s.kEn || s.k) : s.k}</b><span>${lang === 'en' ? (s.vEn || s.v) : s.v}</span></li>`
-  ).join('');
-
-  // Long desc (language-aware)
-  const descText = lang === 'en' ? p.descLongEn : p.descLong;
-  const bulletsList = lang === 'en' ? p.bulletsEn : p.bullets;
-  const keyFeaturesHeading = lang === 'en' ? 'Key Features' : 'المميزات الرئيسية';
-  document.getElementById('tabDesc').innerHTML = `<p>${descText}</p><h4 style="margin-top:24px">${keyFeaturesHeading}</h4><ul>${bulletsList.map(b => `<li><b>•</b><span>${b}</span></li>`).join('')}</ul>`;
-
-  // Gallery: try real images first, fall back to monogram
-  const hasImages = [0, 1, 2, 3, 4].some(i => {
-    const img = new Image();
-    img.src = `images/p${prodId}-${i === 0 ? 'main' : i}.jpg`;
-    return true; // we'll attempt, browser will 404 if missing
-  });
-
-  // Try to load real images for this product via jsDelivr CDN (bypasses Vercel deployment protection)
-  const galleryImages = [];
-  for (let i = 0; i < 5; i++) {
-    const fname = i === 0 ? `p${prodId}-main.jpg` : `p${prodId}-${i}.jpg`;
-    const cdn = `https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/${fname}`;
-    galleryImages.push(cdn);
+  // Live ticker random names from SA cities
+  const saNames = ['أحمد', 'خالد', 'محمد', 'فهد', 'سعود', 'عبدالله', 'يوسف', 'ناصر', 'سالم', 'عمر', 'بدر', 'ماجد', 'تركي', 'سلطان'];
+  const saCities = ['الرياض', 'جدة', 'الدمام', 'مكة', 'المدينة', 'الخبر', 'الطائف', 'أبها', 'تبوك', 'بريدة'];
+  function showLiveTicker() {
+    const name = saNames[Math.floor(Math.random() * saNames.length)];
+    const city = saCities[Math.floor(Math.random() * saCities.length)];
+    document.getElementById('liveTicker').innerHTML = `<div class="live-ticker-dot"></div><span><strong>${name} من ${city}</strong> اشترى للتو</span>`;
+    document.getElementById('liveTicker').classList.add('show');
+    setTimeout(() => {
+      document.getElementById('liveTicker').classList.remove('show');
+      setTimeout(showLiveTicker, 15000 + Math.random() * 20000);
+    }, 6000);
   }
-
-  // Direct image display - no preloading test
-  const imgEl = document.getElementById('galleryImg');
-  const monogramEl = document.getElementById('galleryMonogram');
-  imgEl.src = galleryImages[0];
-  imgEl.alt = p.ar;
-  // Hide monogram when image loads; show on error
-  imgEl.addEventListener('load', () => { monogramEl.style.display = 'none'; });
-  imgEl.addEventListener('error', () => { monogramEl.style.display = 'flex'; });
-
-  // Thumbnails click handler
-  document.querySelectorAll('.gallery-thumb').forEach((thumb, idx) => {
-    thumb.addEventListener('click', () => {
-      document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
-      thumb.classList.add('active');
-      // Show monogram briefly as loading state
-      monogramEl.style.display = 'flex';
-      imgEl.onload = () => { monogramEl.style.display = 'none'; };
-      imgEl.onerror = () => { monogramEl.style.display = 'flex'; };
-      imgEl.src = galleryImages[idx];
-    });
-  });
-        const colors = [p.color, p.color + 'E0', p.color + 'C0', p.color + 'D0', p.color + 'B0'];
-        document.getElementById('galleryMainImg').style.background = `radial-gradient(circle, ${colors[idx]}, transparent 70%)`;
-      }
-    });
-  });
-
-  // Quantity + pricing
-  function updatePricing() {
-    qty = Math.max(1, parseInt(document.getElementById('qtyInput').value) || 1);
-    document.getElementById('qtyInput').value = qty;
-    const calc = calcPrice(p.price, qty);
-    document.getElementById('totalDisplay').textContent = `${Math.round(calc.total)} ر.س`;
-    document.getElementById('stickyPrice').textContent = `${Math.round(calc.total)} ر.س`;
-    // Active tier
-    document.querySelectorAll('.discount-tier').forEach(tier => {
-      const min = parseInt(tier.dataset.min);
-      tier.classList.toggle('active', qty >= min);
-    });
-  }
-  document.getElementById('qtyMinus').addEventListener('click', () => { document.getElementById('qtyInput').value = Math.max(1, qty - 1); updatePricing(); });
-  document.getElementById('qtyPlus').addEventListener('click', () => { document.getElementById('qtyInput').value = qty + 1; updatePricing(); });
-  document.getElementById('qtyInput').addEventListener('input', updatePricing);
-  updatePricing();
-
-  // Order now → checkout
-  document.getElementById('orderNow').addEventListener('click', (e) => {
-    e.preventDefault();
-    window.location.href = `checkout.html?id=${prodId}&qty=${qty}`;
-  });
-  document.getElementById('addBundle').addEventListener('click', () => {
-    window.location.href = 'checkout.html?bundle=1';
-  });
-
-  // Tabs
-  document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.querySelector(`.tab-panel[data-tab="${btn.dataset.tab}"]`).classList.add('active');
-    });
-  });
-
-  // Related products (exclude current product — bug fix)
-  const related = Object.entries(PRODUCTS).filter(([id]) => id !== prodId).slice(0, 3);
-  document.getElementById('relatedGrid').innerHTML = related.map(([id, rp]) => `
-    <a href="product.html?id=${id}" class="test-card" style="text-decoration:none;display:block">
-      <div class="product-visual has-image ${rp.visualClass}" style="height:200px;margin-bottom:16px;background:#fff">
-        <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p${id}-main.jpg" alt="${rp.ar}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
-        <div class="product-monogram" style="font-size:5rem">${rp.monogram}</div>
-      </div>
-      <h3 style="font-family:'Aref Ruqaa',serif;font-size:1.125rem;margin-bottom:4px">${rp.ar}</h3>
-      <p style="font-size:0.875rem;color:var(--muted);margin-bottom:12px">${rp.en}</p>
-      <div style="display:flex;align-items:baseline;gap:8px">
-        <span style="font-family:'Fraunces',serif;font-size:1.25rem;font-weight:500">${rp.price}</span>
-        <span style="color:var(--muted);font-size:0.875rem">ر.س</span>
-      </div>
-    </a>
-  `).join('');
-
-  // ====== STOCK COUNTER (scarcity) ======
-  const stockEl = document.createElement('div');
-  stockEl.className = 'stock-counter';
-  const stockNum = Math.floor(Math.random() * 8) + 4; // 4-11
-  stockEl.innerHTML = `<span class="pulse-dot"></span> <span>متبقي <b>${stockNum} قطع</b> فقط في المخزون — اطلب قبل النفاد</span>`;
-  document.querySelector('.product-side-actions').after(stockEl);
-
-  // ====== COUNTDOWN TIMER (24h) ======
-  const cdEl = document.createElement('div');
-  cdEl.className = 'countdown-timer';
-  cdEl.style.marginTop = '12px';
-  cdEl.style.width = '100%';
-  cdEl.style.justifyContent = 'center';
-  cdEl.innerHTML = '<span class="ct-label">🔥 عرض اليوم ينتهي خلال:</span><span class="ct-digits"><span id="cdH2">08</span>:<span id="cdM2">45</span>:<span id="cdS2">12</span></span>';
-  document.querySelector('.product-side-actions').after(cdEl);
-
-  (function() {
-    const now = new Date();
-    const endOfDay = new Date(now);
-    endOfDay.setHours(23, 59, 59, 999);
-    function tick() {
-      const now = new Date();
-      let diff = endOfDay - now;
-      if (diff < 0) { endOfDay.setDate(endOfDay.getDate() + 1); diff = endOfDay - now; }
-      const h = Math.floor(diff / 3600000), m = Math.floor((diff % 3600000) / 60000), s = Math.floor((diff % 60000) / 1000);
-      const pad = n => String(n).padStart(2, '0');
-      const h2 = document.getElementById('cdH2'), m2 = document.getElementById('cdM2'), s2 = document.getElementById('cdS2');
-      if (h2) { h2.textContent = pad(h); m2.textContent = pad(m); s2.textContent = pad(s); }
-    }
-    tick(); setInterval(tick, 1000);
-  })();
-
-  // ====== EXIT POPUP (also on product page) ======
-  let exitShown2 = false;
-  document.addEventListener('mouseleave', (e) => {
-    if (e.clientY < 10 && !exitShown2 && !sessionStorage.getItem('exit_dismissed')) {
-      const p = document.getElementById('exitPopup');
-      if (p) { p.classList.add('show'); exitShown2 = true; }
-    }
-  });
-
-  // Track ViewContent
-  if (typeof fbq !== 'undefined') fbq('track', 'ViewContent', { content_name: p.ar, value: p.price, currency: 'SAR' });
-  if (typeof ttq !== 'undefined') ttq.track('ViewContent', { content_name: p.ar, value: p.price, currency: 'SAR' });
-
-  // Exit popup functions
-  function closeExitPopup() {
-    const p = document.getElementById('exitPopup');
-    if (p) p.classList.remove('show');
-    sessionStorage.setItem('exit_dismissed', '1');
-  }
-  function claimExitOffer() {
-    const name = document.getElementById('exitName').value.trim();
-    const phone = document.getElementById('exitPhone').value.trim();
-    if (!name || !phone) { showToast('الرجاء إدخال الاسم ورقم الجوال'); return; }
-    if (typeof fbq !== 'undefined') fbq('track', 'Lead', { content_name: 'exit-popup-10pct' });
-    if (typeof ttq !== 'undefined') ttq.track('SubmitForm');
-    saveToGoogleSheets({
-      orderNum: 'EXIT-LEAD-' + Date.now().toString(36).toUpperCase(),
-      timestamp: new Date().toISOString(),
-      name, phone, city: '', district: '',
-      productName: 'EXIT-10%-OFFER', qty: 1, unitPrice: 0,
-      subtotal: 0, discountPct: 0, discountAmt: 0, total: 0,
-      payment: 'cod'
-    });
-    const msg = `مرحباً! أنا ${name} وأريد الحصول على كود خصم 10% من نجمة الخليج 🌟`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
-    closeExitPopup();
-    showToast('✅ شكراً! سيتم التواصل معك خلال دقائق');
-  }
-  } // end initProductPage
 </script>
-
 </body>
 </html>
