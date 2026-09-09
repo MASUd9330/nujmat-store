@@ -1,0 +1,280 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2026-01-15T00:00:00Z",
+
+  "site": {
+    "name": "نجمة الخليج",
+    "nameEn": "Nujmat Al-Khalij",
+    "tagline": "Gulf Star",
+    "phone": "+880158126134",
+    "phoneDisplay": "+880 0158-126134",
+    "whatsapp": "880158126134",
+    "email": "",
+    "address": "الرياض، المملكة العربية السعودية",
+    "currency": "ر.س",
+    "supplier": "Zambeel KSA"
+  },
+
+  "hero": {
+    "badge": "متجر الخليج المميز",
+    "title": "اكتشف منتجات تجمع بين الأناقة والعملية",
+    "subtitle": "أربع قطع مختارة بعناية لكل بيت خليجي — توصيل سريع، الدفع عند الاستلام، وضمان ذهبي.",
+    "ctaPrimary": "تصفّح المنتجات",
+    "ctaSecondary": "اطلب الآن — كاش عند التوصيل",
+    "trustLine": "✓ توصيل 3-5 أيام في السعودية  ·  ✓ دفع عند الاستلام  ·  ✓ ضمان ذهبي 6 أشهر"
+  },
+
+  "design": {
+    "accentColor": "#B8860B",
+    "backgroundColor": "#F7F3EC",
+    "textColor": "#2A1A0A",
+    "mutedColor": "#6B5A45",
+    "cardBackground": "#FFFFFF",
+    "borderColor": "#E8DDC6"
+  },
+
+  "products": [
+    {
+      "id": "01",
+      "num": "01",
+      "ar": "مسدس التدليك الذكي",
+      "en": "Recovery Smart Massage Gun",
+      "tag": "صحة · Wellness",
+      "monogram": "عافية",
+      "monogramEn": "Recovery",
+      "price": 139,
+      "oldPrice": 199,
+      "save": 60,
+      "desc": "أربع رؤوس، ست سرعات، شحن يدوم ست ساعات. يخفف آلام العضلات بعد التمرين أو يوم العمل الطويل — في صمت تام، وأنت في بيتك.",
+      "descLong": "مسدس التدليك الذكي بـ 4 رؤوس مختلفة يخفف آلام العضلات بعد التمرين أو يوم العمل الطويل. خفيف الوزن، هادئ تماماً، مع 6 سرعات مختلفة للعلاج العميق والسطحي. مصمم للاستخدام اليومي بدون إزعاج.",
+      "color": "#E8DDC6",
+      "visualClass": "pv-1",
+      "stock": 47,
+      "badge": "الأكثر مبيعاً",
+      "specs": [
+        { "k": "الرؤوس", "v": "4 رؤوس مختلفة (كرة، مخروط، شوكة، مسطح)" },
+        { "k": "السرعات", "v": "6 سرعات (1500-3200 لفة/دقيقة)" },
+        { "k": "البطارية", "v": "6 ساعات من التشغيل المتواصل" },
+        { "k": "الوزن", "v": "700 جرام" },
+        { "k": "الضوضاء", "v": "أقل من 40 ديسيبل" },
+        { "k": "الشحن", "v": "USB-C" },
+        { "k": "الضمان", "v": "6 أشهر شامل" }
+      ],
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "bullets": [
+        "يخفف آلام العضلات في 60 ثانية",
+        "4 رؤوس لكل عضلة في الجسم",
+        "هادئ كهمس — أقل من 40 ديسيبل",
+        "يدوم 6 ساعات بشحنة واحدة"
+      ],
+      "images": [
+        "images/p01-main.jpg",
+        "images/p01-1.jpg",
+        "images/p01-2.jpg",
+        "images/p01-3.jpg",
+        "images/p01-4.jpg"
+      ]
+    },
+    {
+      "id": "02",
+      "num": "02",
+      "ar": "حامل الجوال الثلاثي",
+      "en": "Bluetooth Tripod Selfie Stick",
+      "tag": "إبداع · Creator",
+      "monogram": "إبداع",
+      "monogramEn": "Creator",
+      "price": 129,
+      "oldPrice": 199,
+      "save": 70,
+      "desc": "يرتفع حتى ١.٧ متر، ريموت بلوتوث مدمج، قاعدة ثابتة لا تهتز. صوّر نفسك في البث المباشر، أو أجمع العائلة في صورة واحدة بدون أن تطلب مساعدة.",
+      "descLong": "حامل جوال ثلاثي احترافي مع ريموت بلوتوث مدمج. ارتفاع قابل للتعديل حتى 1.7 متر. قاعدة ثابتة بدون اهتزاز. مثالي لصناع المحتوى والبث المباشر والتصوير العائلي.",
+      "color": "#DDD3BD",
+      "visualClass": "pv-2",
+      "stock": 32,
+      "badge": "جديد",
+      "specs": [
+        { "k": "الارتفاع", "v": "قابل للتعديل حتى 1.7 متر" },
+        { "k": "البلوتوث", "v": "مدمج — ريموت للتحكم عن بعد" },
+        { "k": "الدوران", "v": "360°" },
+        { "k": "التوافق", "v": "جميع الجوالات 4.7-7 بوصة" },
+        { "k": "الوزن", "v": "350 جرام" },
+        { "k": "الطوي", "v": "قابل للطي بالكامل" },
+        { "k": "الضمان", "v": "6 أشهر" }
+      ],
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "bullets": [
+        "صوّر نفسك بدون مساعدة",
+        "ارتفاع 1.7 متر + ريموت بلوتوث",
+        "ثابت تماماً — لا اهتزاز",
+        "خفيف وقابل للطي"
+      ],
+      "images": [
+        "images/p02-main.jpg",
+        "images/p02-1.jpg",
+        "images/p02-2.jpg",
+        "images/p02-3.jpg",
+        "images/p02-4.jpg"
+      ]
+    },
+    {
+      "id": "03",
+      "num": "03",
+      "ar": "الشاحن السريع GaN",
+      "en": "65W GaN 6-Port Fast Charger",
+      "tag": "تكنولوجيا · Tech",
+      "monogram": "قوّة",
+      "monogramEn": "Power",
+      "price": 149,
+      "oldPrice": 229,
+      "save": 80,
+      "desc": "ستة منافذ في قطعة واحدة. شحن آمن وسريع لكل أجهزتك — من الجوال إلى اللابتوب. تقنية GaN تجعله أصغر وأقوى من أي شاحن آخر.",
+      "descLong": "شاحن GaN السريع بـ 6 منافذ — 2 USB-C و 4 USB-A. شحن 65 واط إجمالاً. تقنية GaN المتطورة تجعله أصغر وأقوى. حماية كاملة من الحرارة والتيار الزائد.",
+      "color": "#D4C9AE",
+      "visualClass": "pv-3",
+      "stock": 58,
+      "badge": "الأكثر طلباً",
+      "specs": [
+        { "k": "الطاقة", "v": "65 واط إجمالي" },
+        { "k": "المنافذ", "v": "2 USB-C + 4 USB-A" },
+        { "k": "التقنية", "v": "GaN (نيتريد الغاليوم)" },
+        { "k": "الحماية", "v": "حماية من الحرارة، التيار، الجهد" },
+        { "k": "التوافق", "v": "iPhone, Samsung, iPad, لابتوب" },
+        { "k": "الشحن", "v": "كابل طاقة مرفق" },
+        { "k": "الضمان", "v": "12 شهر" }
+      ],
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "bullets": [
+        "6 منافذ في شاحن واحد",
+        "تقنية GaN — شحن 3x أسرع",
+        "آمن ومحمي بالكامل",
+        "يكفي لابتوب + 5 أجهزة"
+      ],
+      "images": [
+        "images/p03-main.jpg",
+        "images/p03-1.jpg",
+        "images/p03-2.jpg",
+        "images/p03-3.jpg",
+        "images/p03-4.jpg"
+      ]
+    },
+    {
+      "id": "04",
+      "num": "04",
+      "ar": "موزع الروائح الذكي",
+      "en": "Smart Aroma Diffuser · 300ml",
+      "tag": "سكينة · Serenity",
+      "monogram": "سكينة",
+      "monogramEn": "Serenity",
+      "price": 119,
+      "oldPrice": 179,
+      "save": 60,
+      "desc": "سبعة ألوان متغيرة، ترطيب بالموجات الفوق صوتية، تايمر ذكي. حوّل غرفتك إلى مساحة هادئة — للنوم العميق، أو لاستقبال الضيوف بأجواء مميزة.",
+      "descLong": "موزع الروائح الذكي بالموجات الفوق صوتية — تقنية هادئة تماماً بدون حرارة. 7 ألوان LED متغيرة، تايمر ذكي 1/3/6 ساعات، سعة 300 مل تدوم 10+ ساعات. إيقاف تلقائي آمن عند نفاد الماء.",
+      "color": "#E1D5BB",
+      "visualClass": "pv-4",
+      "stock": 24,
+      "badge": "محدود",
+      "specs": [
+        { "k": "السعة", "v": "300 مل" },
+        { "k": "المدة", "v": "10+ ساعات متواصلة" },
+        { "k": "الألوان", "v": "7 ألوان LED متغيرة" },
+        { "k": "التايمر", "v": "1 / 3 / 6 ساعات" },
+        { "k": "الأمان", "v": "إيقاف تلقائي عند نفاد الماء" },
+        { "k": "التقنية", "v": "موجات فوق صوتية — بدون حرارة" },
+        { "k": "الضمان", "v": "6 أشهر" }
+      ],
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "bullets": [
+        "ترطيب + عطور + إضاءة في جهاز",
+        "هادئ تماماً — مثالي للنوم",
+        "7 ألوان LED للإضاءة المزاجية",
+        "آمن للأطفال بدون حرارة"
+      ],
+      "images": [
+        "images/p04-main.jpg",
+        "images/p04-1.jpg",
+        "images/p04-2.jpg",
+        "images/p04-3.jpg",
+        "images/p04-4.jpg"
+      ]
+    }
+  ],
+
+  "bundle": {
+    "enabled": true,
+    "products": ["01", "02", "03", "04"],
+    "title": "باقة نجمة الخليج الكاملة",
+    "subtitle": "الأربع قطع معاً بسعر مذهل",
+    "totalPrice": 536,
+    "bundlePrice": 399,
+    "save": 137,
+    "badge": "وفّر 137 ر.س"
+  },
+
+  "discountTiers": [
+    { "min": 1, "discount": 0, "label": "قطعة واحدة" },
+    { "min": 2, "discount": 10, "label": "قطعتان" },
+    { "min": 3, "discount": 15, "label": "3 قطع" },
+    { "min": 4, "discount": 20, "label": "4 قطع أو أكثر" },
+    { "min": 5, "discount": 25, "label": "5 قطع أو أكثر" }
+  ],
+
+  "marketing": {
+    "countdownEnd": "2026-12-31T23:59:59",
+    "countdownLabel": "ينتهي العرض خلال",
+    "countdownEnabled": true,
+    "exitPopup": {
+      "enabled": true,
+      "title": "انتظر! عرض خاص قبل أن تخرج",
+      "text": "احصل على خصم إضافي 10% على طلبك الأول — أدخل رقم واتسابك الآن",
+      "discount": "10",
+      "buttonText": "أريد الخصم"
+    },
+    "stockCounterEnabled": true,
+    "stockMin": 3,
+    "stockMax": 12,
+    "liveActivityEnabled": true,
+    "liveActivityInterval": 18000
+  },
+
+  "footer": {
+    "about": "نجمة الخليج — متجر مميز لأصحاب الذوق الرفيع في السعودية والخليج. أربع قطع مختارة بعناية، توصيل سريع، دفع عند الاستلام، وضمان ذهبي.",
+    "links": [
+      { "label": "الرئيسية", "url": "index.html" },
+      { "label": "المنتجات", "url": "index.html#products" },
+      { "label": "كيف تطلب", "url": "index.html#how" },
+      { "label": "الشحن", "url": "index.html#shipping" },
+      { "label": "الأسئلة الشائعة", "url": "index.html#faq" },
+      { "label": "سياسة الإرجاع", "url": "returns.html" },
+      { "label": "الشروط والأحكام", "url": "terms.html" },
+      { "label": "الخصوصية", "url": "privacy.html" }
+    ],
+    "social": {
+      "tiktok": "https://www.tiktok.com/@nujmat.sa",
+      "snapchat": "https://www.snapchat.com/add/nujmat.sa",
+      "instagram": "https://www.instagram.com/nujmat.sa",
+      "twitter": "https://twitter.com/nujmat_sa",
+      "youtube": ""
+    },
+    "copyright": "© 2026 نجمة الخليج · جميع الحقوق محفوظة"
+  },
+
+  "analytics": {
+    "metaPixelId": "",
+    "tiktokPixelId": "",
+    "googleAnalyticsId": "",
+    "snapchatPixelId": ""
+  },
+
+  "integrations": {
+    "googleSheetsUrl": "https://script.google.com/macros/s/AKfycbyaCfntf-L_XnleTMALCnTo3lr7oivEFVJ_-3QQSvk4eyVdLcKi_WmDDbfc4Bqe-h93Jg/exec",
+    "mailchimpUrl": "",
+    "whatsappNumber": "880158126134"
+  },
+
+  "imageCdn": {
+    "enabled": true,
+    "provider": "jsdelivr",
+    "base": "https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main"
+  }
+}

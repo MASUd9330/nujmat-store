@@ -10,21 +10,7 @@
 <link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-// fbq('init', 'YOUR_META_PIXEL_ID');
-// fbq('track', 'PageView');
-// fbq('track', 'ViewContent');
-</script>
-
-<!-- TikTok Pixel -->
-<script>
-!function(w,d,t){w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq.methods.length;e--;)var n=ttq.methods[e];n=n.split("."),n=n[0],n=t[n];return n},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._.u=i,ttq._i[e]._.t=1*new Date,ttq._i[e]._.e=n,n=n||{};for(var o=["sdk.php","track.php","identify.php","disable.php","enable.php"],c=0;c<o.length;c++){var a="https://analytics.tiktok.com/i18n/pixel/"+o[c];ttq._i[e]._.o||(ttq._i[e]._.o=[]),ttq._i[e]._.o.push(o[c])};var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src=i+"?sdkid="+e+"&lib="+t;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(s,r)};
-// ttq.load('YOUR_TIKTOK_PIXEL_ID');
-// ttq.page();
-}(window, document, 'ttq');
-</script>
+<!-- Pixels injected by app.js based on config.json -->
 </head>
 <body>
 
@@ -322,6 +308,12 @@
 
 <script src="app.js"></script>
 <script>
+  // Wait for config to load before rendering
+  window.configReady.then(() => {
+    initProductPage();
+  });
+
+  function initProductPage() {
   // Get product ID
   const prodId = getParam('id') || '01';
   const p = PRODUCTS[prodId];
@@ -361,11 +353,12 @@
     return true; // we'll attempt, browser will 404 if missing
   });
 
-  // Try to load real images for this product
+  // Try to load real images for this product via jsDelivr CDN (bypasses Vercel deployment protection)
   const galleryImages = [];
   for (let i = 0; i < 5; i++) {
-    const fname = i === 0 ? `images/p${prodId}-main.jpg` : `images/p${prodId}-${i}.jpg`;
-    galleryImages.push(fname);
+    const fname = i === 0 ? `p${prodId}-main.jpg` : `p${prodId}-${i}.jpg`;
+    const cdn = `https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/${fname}`;
+    galleryImages.push(cdn);
   }
 
   // Direct image display - no preloading test
@@ -437,7 +430,7 @@
   document.getElementById('relatedGrid').innerHTML = related.map(([id, rp]) => `
     <a href="product.html?id=${id}" class="test-card" style="text-decoration:none;display:block">
       <div class="product-visual has-image ${rp.visualClass}" style="height:200px;margin-bottom:16px;background:#fff">
-        <img src="images/p${id}-main.jpg" alt="${rp.ar}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
+        <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p${id}-main.jpg" alt="${rp.ar}" loading="lazy" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">
         <div class="product-monogram" style="font-size:5rem">${rp.monogram}</div>
       </div>
       <h3 style="font-family:'Aref Ruqaa',serif;font-size:1.125rem;margin-bottom:4px">${rp.ar}</h3>
@@ -515,10 +508,11 @@
       payment: 'cod'
     });
     const msg = `مرحباً! أنا ${name} وأريد الحصول على كود خصم 10% من نجمة الخليج 🌟`;
-    window.open(`https://wa.me/8801581226134?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     closeExitPopup();
     showToast('✅ شكراً! سيتم التواصل معك خلال دقائق');
   }
+  } // end initProductPage
 </script>
 
 </body>

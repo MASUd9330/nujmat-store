@@ -10,24 +10,7 @@
 <link href="https://fonts.bunny.net/css?family=aref-ruqaa:400,700|reem-kufi:400,500,700|fraunces:300,400,600,800|tajawal:300,400,500,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 
-<!-- Meta Pixel Code (replace ID below) -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-// fbq('init', 'YOUR_META_PIXEL_ID');
-// fbq('track', 'PageView');
-// fbq('track', 'InitiateCheckout');
-</script>
-<!-- End Meta Pixel Code -->
-
-<!-- TikTok Pixel Code (replace ID below) -->
-<script>
-!function (w, d, t) {
-  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(var e=ttq.methods.length;e--;)var n=ttq.methods[e];n=n.split("."),n=n[0],n=t[n];return n},ttq.load=function(e,n){var i="https://analytics.tiktok.com/i18n/pixel/events.js";ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._.u=i,ttq._i[e]._.t=1*new Date,ttq._i[e]._.e=n,n=n||{};for(var o=["sdk.php","track.php","identify.php","disable.php","enable.php"],c=0;c<o.length;c++){var a="https://analytics.tiktok.com/i18n/pixel/"+o[c];ttq._i[e]._.o||(ttq._i[e]._.o=[]),ttq._i[e]._.o.push(o[c])};var s=document.createElement("script");s.type="text/javascript",s.async=!0,s.src=i+"?sdkid="+e+"&lib="+t;var r=document.getElementsByTagName("script")[0];r.parentNode.insertBefore(s,r)};
-  // ttq.load('YOUR_TIKTOK_PIXEL_ID');
-  // ttq.page();
-}(window, document, 'ttq');
-</script>
-<!-- End TikTok Pixel Code -->
+<!-- Pixels injected by app.js based on config.json -->
 </head>
 <body>
 
@@ -302,6 +285,12 @@
 
 <script src="app.js"></script>
 <script>
+  // Wait for config to load
+  window.configReady.then(() => {
+    initCheckoutPage();
+  });
+
+  function initCheckoutPage() {
   // Determine what's being ordered
   const isBundle = getParam('bundle') === '1';
   const prodId = getParam('id') || '01';
@@ -315,7 +304,7 @@
     productName = 'الباقة الكاملة (4 قطع)';
     productMonogram = '★';
     productColor = '#D4C9AE';
-    productImage = 'images/p02-main.jpg';
+    productImage = 'https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p02-main.jpg';
   } else {
     unitPrice = product.price;
     productName = product.ar;
@@ -488,10 +477,11 @@ ${calc.pct > 0 ? `🎁 الخصم: ${calc.pct}% (وفّرت ${Math.round(calc.di
     });
     // Open WhatsApp
     const msg = `مرحباً! أنا ${name} وأريد الحصول على كود خصم 10% 🌟`;
-    window.open(`https://wa.me/8801581226134?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     closeExitPopup();
     showToast('✅ شكراً! سيتم التواصل معك خلال دقائق');
   }
+  } // end initCheckoutPage
 </script>
 
 </body>
