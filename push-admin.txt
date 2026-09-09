@@ -1,0 +1,23 @@
+﻿cmd : warning: in the working copy of 'app.js', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:51
++ ... ion E:\Talegram\Minimax\myzambeel-store; cmd /c push.bat 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'checkout.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'push.bat', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'admin.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'admin/admin.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'admin/app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'config.json', LF will be replaced by CRLF the next time Git touches it
+[master a69903c] Add admin panel: config.json, admin.html, admin/app.js, admin/admin.css; refactor app.js to load config; jsDelivr for all product images; remove inline pixel scripts
+ 11 files changed, 2703 insertions(+), 231 deletions(-)
+ create mode 100644 admin.html
+ create mode 100644 admin/admin.css
+ create mode 100644 admin/app.js
+ create mode 100644 config.json
+ create mode 100644 git-status.txt
+ create mode 100644 push-admin.txt
+To https://github.com/MASUd9330/nujmat-store.git
+   24a9e58..a69903c  master -> main
