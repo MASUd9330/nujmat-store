@@ -1,0 +1,16 @@
+﻿cmd : warning: in the working copy of 'app.js', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:51
++ ... ion E:\Talegram\Minimax\myzambeel-store; cmd /c push.bat 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'checkout.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'config.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'push.bat', LF will be replaced by CRLF the next time Git touches it
+[master 4c1b1a0] Add bilingual support: EN/AR toggle button, English content for all products, LTR mode CSS
+ 10 files changed, 286 insertions(+), 77 deletions(-)
+ create mode 100644 push-lang.txt
+ create mode 100644 redeploy-log.txt
+To https://github.com/MASUd9330/nujmat-store.git
+   0527151..4c1b1a0  master -> main

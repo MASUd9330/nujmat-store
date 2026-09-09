@@ -1,0 +1,34 @@
+﻿[
+    {
+        "images":  [
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Mobile_Banner.png",
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Banner.png"
+                   ],
+        "id":  "01",
+        "slug":  "dashboard-phone-holder-for-car"
+    },
+    {
+        "images":  [
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Mobile_Banner.png",
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Banner.png"
+                   ],
+        "id":  "02",
+        "slug":  "hoco-6-in-1-fast-charger"
+    },
+    {
+        "images":  [
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Mobile_Banner.png",
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Banner.png"
+                   ],
+        "id":  "03",
+        "slug":  "men-smart-watch"
+    },
+    {
+        "images":  [
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Mobile_Banner.png",
+                       "https://cdn.shopify.com/s/files/1/0777/4122/8329/files/Web_Product_Page_Banner.png"
+                   ],
+        "id":  "04",
+        "slug":  "mini-cube-security-camera"
+    }
+]

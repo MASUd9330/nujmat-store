@@ -1,5 +1,5 @@
 @echo off
 cd /d E:\Talegram\Minimax\myzambeel-store
 git add .
-git commit -m "Add bilingual support: EN/AR toggle button, English content for all products, LTR mode CSS"
+git commit -m "Replace 4 products with Zambeel-verified winning picks: Car Phone Holder, Hoco Charger, Smart Watch, Security Camera"
 git push origin master:main
