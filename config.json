@@ -11,17 +11,25 @@
     "whatsapp": "880158126134",
     "email": "",
     "address": "الرياض، المملكة العربية السعودية",
+    "addressEn": "Riyadh, Saudi Arabia",
     "currency": "ر.س",
+    "currencyEn": "SAR",
     "supplier": "Zambeel KSA"
   },
 
   "hero": {
     "badge": "متجر الخليج المميز",
+    "badgeEn": "The Gulf's Curated Store",
     "title": "اكتشف منتجات تجمع بين الأناقة والعملية",
+    "titleEn": "Discover products that blend elegance with purpose",
     "subtitle": "أربع قطع مختارة بعناية لكل بيت خليجي — توصيل سريع، الدفع عند الاستلام، وضمان ذهبي.",
+    "subtitleEn": "Four pieces, hand-picked for every Gulf home — fast delivery, cash on arrival, and a golden warranty.",
     "ctaPrimary": "تصفّح المنتجات",
+    "ctaPrimaryEn": "Browse the Collection",
     "ctaSecondary": "اطلب الآن — كاش عند التوصيل",
-    "trustLine": "✓ توصيل 3-5 أيام في السعودية  ·  ✓ دفع عند الاستلام  ·  ✓ ضمان ذهبي 6 أشهر"
+    "ctaSecondaryEn": "Order Now — Pay on Delivery",
+    "trustLine": "✓ توصيل 3-5 أيام في السعودية  ·  ✓ دفع عند الاستلام  ·  ✓ ضمان ذهبي 6 أشهر",
+    "trustLineEn": "✓ 3-5 day delivery in Saudi Arabia  ·  ✓ Cash on delivery  ·  ✓ 6-month golden warranty"
   },
 
   "design": {
@@ -40,32 +48,43 @@
       "ar": "مسدس التدليك الذكي",
       "en": "Recovery Smart Massage Gun",
       "tag": "صحة · Wellness",
+      "tagEn": "Wellness",
       "monogram": "عافية",
       "monogramEn": "Recovery",
       "price": 139,
       "oldPrice": 199,
       "save": 60,
       "desc": "أربع رؤوس، ست سرعات، شحن يدوم ست ساعات. يخفف آلام العضلات بعد التمرين أو يوم العمل الطويل — في صمت تام، وأنت في بيتك.",
+      "descEn": "Four heads, six speeds, six-hour battery. Relieves muscle soreness after a workout or a long work day — in complete silence, at home.",
       "descLong": "مسدس التدليك الذكي بـ 4 رؤوس مختلفة يخفف آلام العضلات بعد التمرين أو يوم العمل الطويل. خفيف الوزن، هادئ تماماً، مع 6 سرعات مختلفة للعلاج العميق والسطحي. مصمم للاستخدام اليومي بدون إزعاج.",
+      "descLongEn": "The smart massage gun with 4 different heads relieves muscle soreness after workouts or long work days. Lightweight, whisper-quiet, with 6 speeds for deep and surface therapy. Built for daily use without disturbance.",
       "color": "#E8DDC6",
       "visualClass": "pv-1",
       "stock": 47,
       "badge": "الأكثر مبيعاً",
+      "badgeEn": "Best Seller",
       "specs": [
-        { "k": "الرؤوس", "v": "4 رؤوس مختلفة (كرة، مخروط، شوكة، مسطح)" },
-        { "k": "السرعات", "v": "6 سرعات (1500-3200 لفة/دقيقة)" },
-        { "k": "البطارية", "v": "6 ساعات من التشغيل المتواصل" },
-        { "k": "الوزن", "v": "700 جرام" },
-        { "k": "الضوضاء", "v": "أقل من 40 ديسيبل" },
-        { "k": "الشحن", "v": "USB-C" },
-        { "k": "الضمان", "v": "6 أشهر شامل" }
+        { "k": "الرؤوس", "kEn": "Heads", "v": "4 رؤوس مختلفة (كرة، مخروط، شوكة، مسطح)", "vEn": "4 different (ball, cone, fork, flat)" },
+        { "k": "السرعات", "kEn": "Speeds", "v": "6 سرعات (1500-3200 لفة/دقيقة)", "vEn": "6 speeds (1500-3200 RPM)" },
+        { "k": "البطارية", "kEn": "Battery", "v": "6 ساعات من التشغيل المتواصل", "vEn": "6 hours continuous use" },
+        { "k": "الوزن", "kEn": "Weight", "v": "700 جرام", "vEn": "700g" },
+        { "k": "الضوضاء", "kEn": "Noise", "v": "أقل من 40 ديسيبل", "vEn": "Under 40 decibels" },
+        { "k": "الشحن", "kEn": "Charging", "v": "USB-C", "vEn": "USB-C" },
+        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر شامل", "vEn": "6 months full" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
+                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
         "يخفف آلام العضلات في 60 ثانية",
         "4 رؤوس لكل عضلة في الجسم",
         "هادئ كهمس — أقل من 40 ديسيبل",
         "يدوم 6 ساعات بشحنة واحدة"
+      ],
+      "bulletsEn": [
+        "Relieves muscle pain in 60 seconds",
+        "4 heads for every muscle",
+        "Whisper-quiet — under 40 dB",
+        "6 hours on a single charge"
       ],
       "images": [
         "images/p01-main.jpg",
@@ -81,32 +100,43 @@
       "ar": "حامل الجوال الثلاثي",
       "en": "Bluetooth Tripod Selfie Stick",
       "tag": "إبداع · Creator",
+      "tagEn": "Creator",
       "monogram": "إبداع",
       "monogramEn": "Creator",
       "price": 129,
       "oldPrice": 199,
       "save": 70,
       "desc": "يرتفع حتى ١.٧ متر، ريموت بلوتوث مدمج، قاعدة ثابتة لا تهتز. صوّر نفسك في البث المباشر، أو أجمع العائلة في صورة واحدة بدون أن تطلب مساعدة.",
+      "descEn": "Extends to 1.7m, built-in Bluetooth remote, rock-steady base. Film yourself live, or gather the family in one shot without asking for help.",
       "descLong": "حامل جوال ثلاثي احترافي مع ريموت بلوتوث مدمج. ارتفاع قابل للتعديل حتى 1.7 متر. قاعدة ثابتة بدون اهتزاز. مثالي لصناع المحتوى والبث المباشر والتصوير العائلي.",
+      "descLongEn": "Professional 3-in-1 phone tripod with built-in Bluetooth remote. Adjustable height up to 1.7m. Vibration-free stable base. Perfect for content creators, live streaming, and family photos.",
       "color": "#DDD3BD",
       "visualClass": "pv-2",
       "stock": 32,
       "badge": "جديد",
+      "badgeEn": "New",
       "specs": [
-        { "k": "الارتفاع", "v": "قابل للتعديل حتى 1.7 متر" },
-        { "k": "البلوتوث", "v": "مدمج — ريموت للتحكم عن بعد" },
-        { "k": "الدوران", "v": "360°" },
-        { "k": "التوافق", "v": "جميع الجوالات 4.7-7 بوصة" },
-        { "k": "الوزن", "v": "350 جرام" },
-        { "k": "الطوي", "v": "قابل للطي بالكامل" },
-        { "k": "الضمان", "v": "6 أشهر" }
+        { "k": "الارتفاع", "kEn": "Height", "v": "قابل للتعديل حتى 1.7 متر", "vEn": "Adjustable up to 1.7m" },
+        { "k": "البلوتوث", "kEn": "Bluetooth", "v": "مدمج — ريموت للتحكم عن بعد", "vEn": "Built-in remote control" },
+        { "k": "الدوران", "kEn": "Rotation", "v": "360°", "vEn": "360°" },
+        { "k": "التوافق", "kEn": "Compatibility", "v": "جميع الجوالات 4.7-7 بوصة", "vEn": "All phones 4.7-7 inches" },
+        { "k": "الوزن", "kEn": "Weight", "v": "350 جرام", "vEn": "350g" },
+        { "k": "الطوي", "kEn": "Folding", "v": "قابل للطي بالكامل", "vEn": "Fully foldable" },
+        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
+                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
         "صوّر نفسك بدون مساعدة",
         "ارتفاع 1.7 متر + ريموت بلوتوث",
         "ثابت تماماً — لا اهتزاز",
         "خفيف وقابل للطي"
+      ],
+      "bulletsEn": [
+        "Film yourself hands-free",
+        "1.7m height + Bluetooth remote",
+        "Rock solid — no vibration",
+        "Lightweight and foldable"
       ],
       "images": [
         "images/p02-main.jpg",
@@ -122,32 +152,43 @@
       "ar": "الشاحن السريع GaN",
       "en": "65W GaN 6-Port Fast Charger",
       "tag": "تكنولوجيا · Tech",
+      "tagEn": "Tech",
       "monogram": "قوّة",
       "monogramEn": "Power",
       "price": 149,
       "oldPrice": 229,
       "save": 80,
       "desc": "ستة منافذ في قطعة واحدة. شحن آمن وسريع لكل أجهزتك — من الجوال إلى اللابتوب. تقنية GaN تجعله أصغر وأقوى من أي شاحن آخر.",
+      "descEn": "Six ports in one. Fast, safe charging for all your devices — from phone to laptop. GaN tech makes it smaller and more powerful than any other charger.",
       "descLong": "شاحن GaN السريع بـ 6 منافذ — 2 USB-C و 4 USB-A. شحن 65 واط إجمالاً. تقنية GaN المتطورة تجعله أصغر وأقوى. حماية كاملة من الحرارة والتيار الزائد.",
+      "descLongEn": "65W GaN fast charger with 6 ports — 2 USB-C and 4 USB-A. 65 watts total power. Advanced GaN technology makes it smaller and more powerful. Full protection against heat and overcurrent.",
       "color": "#D4C9AE",
       "visualClass": "pv-3",
       "stock": 58,
       "badge": "الأكثر طلباً",
+      "badgeEn": "Most Wanted",
       "specs": [
-        { "k": "الطاقة", "v": "65 واط إجمالي" },
-        { "k": "المنافذ", "v": "2 USB-C + 4 USB-A" },
-        { "k": "التقنية", "v": "GaN (نيتريد الغاليوم)" },
-        { "k": "الحماية", "v": "حماية من الحرارة، التيار، الجهد" },
-        { "k": "التوافق", "v": "iPhone, Samsung, iPad, لابتوب" },
-        { "k": "الشحن", "v": "كابل طاقة مرفق" },
-        { "k": "الضمان", "v": "12 شهر" }
+        { "k": "الطاقة", "kEn": "Power", "v": "65 واط إجمالي", "vEn": "65W total" },
+        { "k": "المنافذ", "kEn": "Ports", "v": "2 USB-C + 4 USB-A", "vEn": "2 USB-C + 4 USB-A" },
+        { "k": "التقنية", "kEn": "Technology", "v": "GaN (نيتريد الغاليوم)", "vEn": "GaN (Gallium Nitride)" },
+        { "k": "الحماية", "kEn": "Protection", "v": "حماية من الحرارة، التيار، الجهد", "vEn": "Heat, current, voltage protection" },
+        { "k": "التوافق", "kEn": "Compatibility", "v": "iPhone, Samsung, iPad, لابتوب", "vEn": "iPhone, Samsung, iPad, laptop" },
+        { "k": "الشحن", "kEn": "Charging", "v": "كابل طاقة مرفق", "vEn": "Power cable included" },
+        { "k": "الضمان", "kEn": "Warranty", "v": "12 شهر", "vEn": "12 months" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
+                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
         "6 منافذ في شاحن واحد",
         "تقنية GaN — شحن 3x أسرع",
         "آمن ومحمي بالكامل",
         "يكفي لابتوب + 5 أجهزة"
+      ],
+      "bulletsEn": [
+        "6 ports in one charger",
+        "GaN tech — 3x faster charging",
+        "Safe and fully protected",
+        "Powers laptop + 5 devices"
       ],
       "images": [
         "images/p03-main.jpg",
@@ -163,32 +204,43 @@
       "ar": "موزع الروائح الذكي",
       "en": "Smart Aroma Diffuser · 300ml",
       "tag": "سكينة · Serenity",
+      "tagEn": "Serenity",
       "monogram": "سكينة",
       "monogramEn": "Serenity",
       "price": 119,
       "oldPrice": 179,
       "save": 60,
       "desc": "سبعة ألوان متغيرة، ترطيب بالموجات الفوق صوتية، تايمر ذكي. حوّل غرفتك إلى مساحة هادئة — للنوم العميق، أو لاستقبال الضيوف بأجواء مميزة.",
+      "descEn": "Seven color-changing lights, ultrasonic humidification, smart timer. Transform your room into a calm space — for deep sleep, or to welcome guests with a special atmosphere.",
       "descLong": "موزع الروائح الذكي بالموجات الفوق صوتية — تقنية هادئة تماماً بدون حرارة. 7 ألوان LED متغيرة، تايمر ذكي 1/3/6 ساعات، سعة 300 مل تدوم 10+ ساعات. إيقاف تلقائي آمن عند نفاد الماء.",
+      "descLongEn": "Ultrasonic smart aroma diffuser — completely quiet, no heat. 7 color-changing LEDs, smart timer 1/3/6 hours, 300ml capacity lasts 10+ hours. Auto-shutoff when water runs out.",
       "color": "#E1D5BB",
       "visualClass": "pv-4",
       "stock": 24,
       "badge": "محدود",
+      "badgeEn": "Limited",
       "specs": [
-        { "k": "السعة", "v": "300 مل" },
-        { "k": "المدة", "v": "10+ ساعات متواصلة" },
-        { "k": "الألوان", "v": "7 ألوان LED متغيرة" },
-        { "k": "التايمر", "v": "1 / 3 / 6 ساعات" },
-        { "k": "الأمان", "v": "إيقاف تلقائي عند نفاد الماء" },
-        { "k": "التقنية", "v": "موجات فوق صوتية — بدون حرارة" },
-        { "k": "الضمان", "v": "6 أشهر" }
+        { "k": "السعة", "kEn": "Capacity", "v": "300 مل", "vEn": "300ml" },
+        { "k": "المدة", "kEn": "Duration", "v": "10+ ساعات متواصلة", "vEn": "10+ hours continuous" },
+        { "k": "الألوان", "kEn": "Colors", "v": "7 ألوان LED متغيرة", "vEn": "7 color-changing LEDs" },
+        { "k": "التايمر", "kEn": "Timer", "v": "1 / 3 / 6 ساعات", "vEn": "1 / 3 / 6 hours" },
+        { "k": "الأمان", "kEn": "Safety", "v": "إيقاف تلقائي عند نفاد الماء", "vEn": "Auto shutoff when empty" },
+        { "k": "التقنية", "kEn": "Technology", "v": "موجات فوق صوتية — بدون حرارة", "vEn": "Ultrasonic — no heat" },
+        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام" },
+      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
+                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
         "ترطيب + عطور + إضاءة في جهاز",
         "هادئ تماماً — مثالي للنوم",
         "7 ألوان LED للإضاءة المزاجية",
         "آمن للأطفال بدون حرارة"
+      ],
+      "bulletsEn": [
+        "Humidifier + fragrance + lighting in one",
+        "Whisper-quiet — perfect for sleep",
+        "7 LED colors for mood lighting",
+        "Child-safe with no heat"
       ],
       "images": [
         "images/p04-main.jpg",
@@ -239,15 +291,16 @@
 
   "footer": {
     "about": "نجمة الخليج — متجر مميز لأصحاب الذوق الرفيع في السعودية والخليج. أربع قطع مختارة بعناية، توصيل سريع، دفع عند الاستلام، وضمان ذهبي.",
+    "aboutEn": "Nujmat Al-Khalij — a curated store for those with refined taste in Saudi Arabia and the Gulf. Four hand-picked pieces, fast delivery, cash on arrival, and a golden warranty.",
     "links": [
-      { "label": "الرئيسية", "url": "index.html" },
-      { "label": "المنتجات", "url": "index.html#products" },
-      { "label": "كيف تطلب", "url": "index.html#how" },
-      { "label": "الشحن", "url": "index.html#shipping" },
-      { "label": "الأسئلة الشائعة", "url": "index.html#faq" },
-      { "label": "سياسة الإرجاع", "url": "returns.html" },
-      { "label": "الشروط والأحكام", "url": "terms.html" },
-      { "label": "الخصوصية", "url": "privacy.html" }
+      { "label": "الرئيسية", "labelEn": "Home", "url": "index.html" },
+      { "label": "المنتجات", "labelEn": "Products", "url": "index.html#products" },
+      { "label": "كيف تطلب", "labelEn": "How to order", "url": "index.html#how" },
+      { "label": "الشحن", "labelEn": "Shipping", "url": "index.html#shipping" },
+      { "label": "الأسئلة الشائعة", "labelEn": "FAQ", "url": "index.html#faq" },
+      { "label": "سياسة الإرجاع", "labelEn": "Returns", "url": "returns.html" },
+      { "label": "الشروط والأحكام", "labelEn": "Terms", "url": "terms.html" },
+      { "label": "الخصوصية", "labelEn": "Privacy", "url": "privacy.html" }
     ],
     "social": {
       "tiktok": "https://www.tiktok.com/@nujmat.sa",
@@ -256,7 +309,8 @@
       "twitter": "https://twitter.com/nujmat_sa",
       "youtube": ""
     },
-    "copyright": "© 2026 نجمة الخليج · جميع الحقوق محفوظة"
+    "copyright": "© 2026 نجمة الخليج · جميع الحقوق محفوظة",
+    "copyrightEn": "© 2026 Nujmat Al-Khalij · All rights reserved"
   },
 
   "analytics": {

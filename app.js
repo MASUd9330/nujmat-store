@@ -210,6 +210,53 @@ const DEFAULT_CONFIG = {
 let CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
 
 // ============================================
+// LANGUAGE STATE
+// ============================================
+let CURRENT_LANG = (() => {
+  // 1. localStorage takes priority
+  const saved = localStorage.getItem('nujmat_lang');
+  if (saved === 'ar' || saved === 'en') return saved;
+  // 2. Browser language
+  const browser = (navigator.language || 'ar').toLowerCase();
+  if (browser.startsWith('en')) return 'en';
+  return 'ar';
+})();
+
+function t(arText, enText) {
+  return CURRENT_LANG === 'en' ? (enText || arText) : arText;
+}
+
+function toggleLanguage() {
+  CURRENT_LANG = CURRENT_LANG === 'ar' ? 'en' : 'ar';
+  localStorage.setItem('nujmat_lang', CURRENT_LANG);
+  applyLanguage();
+  // Re-render product if it exists
+  if (typeof window.initProductPage === 'function' && document.getElementById('productPage')) {
+    window.initProductPage();
+  }
+  // Re-render checkout if it exists
+  if (typeof window.initCheckoutPage === 'function' && document.getElementById('checkoutPage')) {
+    window.initCheckoutPage();
+  }
+  // Trigger custom event for other scripts
+  window.dispatchEvent(new CustomEvent('lang:change', { detail: { lang: CURRENT_LANG } }));
+}
+
+function applyLanguage() {
+  const lang = CURRENT_LANG;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  document.body.classList.toggle('lang-en', lang === 'en');
+  document.body.classList.toggle('lang-ar', lang === 'ar');
+  // Update all toggle buttons
+  document.querySelectorAll('.lang-toggle').forEach(btn => {
+    btn.innerHTML = lang === 'ar' ? 'EN' : 'ع';
+    btn.title = lang === 'ar' ? 'Switch to English' : 'التبديل إلى العربية';
+  });
+}
+window.toggleLanguage = toggleLanguage;
+
+// ============================================
 // HELPERS
 // ============================================
 function imageUrl(filename) {
@@ -241,6 +288,7 @@ window.configReady = (async () => {
     console.warn('[config] using defaults:', err.message);
   }
   applyDesign();
+  applyLanguage();
   applyPageContent();
   // Sync backwards-compat exports after config load
   syncExports();
@@ -311,20 +359,23 @@ function applyDesign() {
 // APPLY PAGE CONTENT (hero, footer, social)
 // ============================================
 function applyPageContent() {
+  const lang = CURRENT_LANG;
+  const pick = (ar, en) => lang === 'en' ? (en || ar) : ar;
+
   // Site name in title
-  document.title = `${CONFIG.site.name} — ${CONFIG.site.nameEn}`;
+  document.title = `${pick(CONFIG.site.name, CONFIG.site.nameEn)} — ${CONFIG.site.tagline || 'Gulf Star'}`;
 
   // Hero
-  setText('[data-hero="badge"]', CONFIG.hero.badge);
-  setText('[data-hero="title"]', CONFIG.hero.title);
-  setText('[data-hero="subtitle"]', CONFIG.hero.subtitle);
-  setText('[data-hero="ctaPrimary"]', CONFIG.hero.ctaPrimary);
-  setText('[data-hero="ctaSecondary"]', CONFIG.hero.ctaSecondary);
-  setText('[data-hero="trustLine"]', CONFIG.hero.trustLine);
+  setText('[data-hero="badge"]', pick(CONFIG.hero.badge, CONFIG.hero.badgeEn));
+  setText('[data-hero="title"]', pick(CONFIG.hero.title, CONFIG.hero.titleEn));
+  setText('[data-hero="subtitle"]', pick(CONFIG.hero.subtitle, CONFIG.hero.subtitleEn));
+  setText('[data-hero="ctaPrimary"]', pick(CONFIG.hero.ctaPrimary, CONFIG.hero.ctaPrimaryEn));
+  setText('[data-hero="ctaSecondary"]', pick(CONFIG.hero.ctaSecondary, CONFIG.hero.ctaSecondaryEn));
+  setText('[data-hero="trustLine"]', pick(CONFIG.hero.trustLine, CONFIG.hero.trustLineEn));
 
   // Footer
-  setText('[data-footer="about"]', CONFIG.footer.about);
-  setText('[data-footer="copyright"]', CONFIG.footer.copyright);
+  setText('[data-footer="about"]', pick(CONFIG.footer.about, CONFIG.footer.aboutEn));
+  setText('[data-footer="copyright"]', pick(CONFIG.footer.copyright, CONFIG.footer.copyrightEn));
 
   // Phone numbers
   setHref('[data-phone]', `tel:${CONFIG.site.phone}`);
@@ -343,9 +394,15 @@ function applyPageContent() {
   const linksWrap = document.querySelector('[data-footer="links"]');
   if (linksWrap && CONFIG.footer.links?.length) {
     linksWrap.innerHTML = CONFIG.footer.links.map(l =>
-      `<a href="${l.url}">${l.label}</a>`
+      `<a href="${l.url}">${pick(l.label, l.labelEn)}</a>`
     ).join('');
   }
+
+  // Brand name in nav
+  const brandAr = document.querySelector('[data-brand="ar"]');
+  const brandEn = document.querySelector('[data-brand="en"]');
+  if (brandAr) brandAr.style.display = lang === 'ar' ? '' : 'none';
+  if (brandEn) brandEn.style.display = lang === 'en' ? '' : 'none';
 }
 
 function setText(sel, text) {

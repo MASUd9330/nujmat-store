@@ -1,0 +1,14 @@
+﻿cmd : warning: in the working copy of 'push.bat', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:51
++ ... ion E:\Talegram\Minimax\myzambeel-store; cmd /c push.bat 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'admin-guide.md', LF will be replaced by CRLF the next time Git touches it
+[master de6a428] Add admin-guide.md (Bangla instructions for store owner)
+ 4 files changed, 182 insertions(+), 1 deletion(-)
+ create mode 100644 admin-guide.md
+ create mode 100644 push-guide.txt
+To https://github.com/MASUd9330/nujmat-store.git
+   a69903c..de6a428  master -> main

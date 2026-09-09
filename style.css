@@ -559,3 +559,65 @@ footer { background: var(--dark); color: rgba(247, 243, 236, 0.6); padding: 64px
 /* Reduce monogram size as fallback (was clamp(8rem, 20vw, 18rem) = too big) */
 .gallery-main-monogram { font-size: clamp(2.5rem, 8vw, 5rem) !important; opacity: 0.85; }
 .product-monogram { font-size: clamp(4rem, 12vw, 8rem) !important; }
+
+/* ============== LANGUAGE TOGGLE ============== */
+.lang-toggle {
+  background: transparent;
+  border: 1.5px solid var(--gold, #B8860B);
+  color: var(--ink, #2A1A0A);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+  font-family: 'Fraunces', 'Tajawal', sans-serif;
+  transition: all 0.2s;
+  margin: 0 4px;
+}
+.lang-toggle:hover {
+  background: var(--gold, #B8860B);
+  color: #fff;
+}
+
+/* ============== ENGLISH (LTR) MODE ============== */
+body.lang-en { direction: ltr; text-align: left; }
+body.lang-en .nav-inner { direction: ltr; }
+body.lang-en .nav-links { flex-direction: row; }
+body.lang-en .brand-en { display: inline; }
+body.lang-en .brand-ar { display: none; }
+body.lang-en .nav-cta,
+body.lang-en .nav-links a { font-family: 'Fraunces', 'Inter', system-ui, sans-serif; }
+
+/* In Arabic mode, hide English brand */
+body.lang-ar .brand-en { display: none; }
+body.lang-ar .brand-ar { display: inline; }
+
+/* Font swap for English */
+body.lang-en .hero-title,
+body.lang-en .product-title-ar,
+body.lang-en .h2,
+body.lang-en .exit-popup-title,
+body.lang-en h1, body.lang-en h2, body.lang-en h3,
+body.lang-en .nav-cta {
+  font-family: 'Fraunces', 'Inter', system-ui, sans-serif;
+}
+
+/* Reusable utility: hide in opposite language */
+body.lang-en [data-lang="ar"] { display: none !important; }
+body.lang-ar [data-lang="en"] { display: none !important; }
+
+/* Product page: in LTR, gallery and content side swap back naturally */
+body.lang-en .product-page-grid { direction: ltr; }
+body.lang-en .related-grid { direction: ltr; }
+
+/* Forms: align labels left in English */
+body.lang-en label { text-align: left; }
+body.lang-en input, body.lang-en textarea, body.lang-en select { text-align: left; direction: ltr; }
+body.lang-en .form-grid { direction: ltr; }
+body.lang-en .checkout-grid { direction: ltr; }
+body.lang-en .checkout-summary { text-align: left; }
+
+/* Countdown timer: keep LTR digits even in Arabic mode */
+.countdown-timer, .ct-digits { direction: ltr; display: inline-flex; gap: 4px; }
+

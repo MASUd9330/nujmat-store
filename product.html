@@ -18,8 +18,8 @@
 <nav class="nav">
   <div class="nav-inner">
     <a href="index.html" class="brand">
-      <span class="brand-ar">نجمة الخليج</span>
-      <span class="brand-en">Gulf Star</span>
+      <span class="brand-ar" data-brand="ar">نجمة الخليج</span>
+      <span class="brand-en" data-brand="en">Gulf Star</span>
     </a>
     <div class="nav-links">
       <a href="index.html#products">المختارات</a>
@@ -27,6 +27,7 @@
       <a href="index.html#reviews">آراء العملاء</a>
       <a href="index.html#faq">الأسئلة</a>
     </div>
+    <button class="lang-toggle" onclick="toggleLanguage()" title="Switch to English">EN</button>
     <a href="#cta" class="nav-cta">اطلب الآن</a>
   </div>
 </nav>
@@ -313,6 +314,9 @@
     initProductPage();
   });
 
+  // Expose for language toggle
+  window.initProductPage = initProductPage;
+
   function initProductPage() {
   // Get product ID
   const prodId = getParam('id') || '01';
@@ -321,30 +325,38 @@
 
   // Page state
   let qty = parseInt(getParam('qty')) || 1;
+  const lang = CURRENT_LANG;
+  const cur = (lang === 'en') ? (CONFIG.site.currencyEn || 'SAR') : (CONFIG.site.currency || 'ر.س');
+  const siteName = (lang === 'en') ? (CONFIG.site.nameEn || 'Gulf Star') : (CONFIG.site.name || 'نجمة الخليج');
 
-  // Populate
-  document.getElementById('bcName').textContent = p.ar;
-  document.title = `${p.ar} | نجمة الخليج`;
+  // Populate (language-aware)
+  document.getElementById('bcName').textContent = lang === 'en' ? p.en : p.ar;
+  document.title = `${lang === 'en' ? p.en : p.ar} | ${siteName}`;
   document.getElementById('galleryNum').textContent = `${p.num} / 04`;
-  document.getElementById('galleryTag').textContent = p.tag;
-  document.getElementById('galleryMonogram').textContent = p.monogram;
-  document.getElementById('galleryLabel').textContent = p.monogramEn;
-  document.getElementById('prodTag').textContent = p.tag;
-  document.getElementById('prodName').textContent = p.ar;
-  document.getElementById('prodNameEn').textContent = p.en;
-  document.getElementById('prodDesc').textContent = p.desc;
+  document.getElementById('galleryTag').textContent = lang === 'en' ? (p.tagEn || p.tag) : p.tag;
+  document.getElementById('galleryMonogram').textContent = lang === 'en' ? p.monogramEn : p.monogram;
+  document.getElementById('galleryLabel').textContent = lang === 'en' ? p.monogram : p.monogramEn;
+  document.getElementById('prodTag').textContent = lang === 'en' ? (p.tagEn || p.tag) : p.tag;
+  document.getElementById('prodName').textContent = lang === 'en' ? p.en : p.ar;
+  document.getElementById('prodNameEn').textContent = lang === 'en' ? p.ar : p.en;
+  document.getElementById('prodDesc').textContent = lang === 'en' ? p.descEn : p.desc;
   document.getElementById('prodPrice').textContent = p.price;
-  document.getElementById('prodOld').textContent = `${p.oldPrice} ر.س`;
-  document.getElementById('prodSave').textContent = `وفّر ${p.save} ر.س`;
-  document.getElementById('stickyName').textContent = p.ar;
+  document.getElementById('prodOld').textContent = `${p.oldPrice} ${cur}`;
+  document.getElementById('prodSave').textContent = lang === 'en' ? `Save ${p.save} ${cur}` : `وفّر ${p.save} ${cur}`;
+  document.getElementById('stickyName').textContent = lang === 'en' ? p.en : p.ar;
   document.getElementById('qtyInput').value = qty;
 
-  // Specs
+  // Specs (language-aware)
   const tabSpecs = document.getElementById('tabSpecs');
-  tabSpecs.innerHTML = p.specs.map(s => `<li><b>${s.k}</b><span>${s.v}</span></li>`).join('');
+  tabSpecs.innerHTML = p.specs.map(s =>
+    `<li><b>${lang === 'en' ? (s.kEn || s.k) : s.k}</b><span>${lang === 'en' ? (s.vEn || s.v) : s.v}</span></li>`
+  ).join('');
 
-  // Long desc
-  document.getElementById('tabDesc').innerHTML = `<p>${p.descLong}</p><h4 style="margin-top:24px">المميزات الرئيسية</h4><ul>${p.bullets.map(b => `<li><b>•</b><span>${b}</span></li>`).join('')}</ul>`;
+  // Long desc (language-aware)
+  const descText = lang === 'en' ? p.descLongEn : p.descLong;
+  const bulletsList = lang === 'en' ? p.bulletsEn : p.bullets;
+  const keyFeaturesHeading = lang === 'en' ? 'Key Features' : 'المميزات الرئيسية';
+  document.getElementById('tabDesc').innerHTML = `<p>${descText}</p><h4 style="margin-top:24px">${keyFeaturesHeading}</h4><ul>${bulletsList.map(b => `<li><b>•</b><span>${b}</span></li>`).join('')}</ul>`;
 
   // Gallery: try real images first, fall back to monogram
   const hasImages = [0, 1, 2, 3, 4].some(i => {

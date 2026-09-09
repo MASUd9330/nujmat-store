@@ -1,0 +1,8 @@
+﻿git : To https://github.com/MASUd9330/nujmat-store.git
+At line:1 char:154
++ ... cel redeploy" --allow-empty; git push origin master:main 2>&1 | Out-F ...
++                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (To https://gith...ujmat-store.git:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+   de6a428..0527151  master -> main
