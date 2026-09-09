@@ -1,0 +1,37 @@
+﻿============================================================
+Generating 8 product images for nujmat-store (Premium)
+============================================================
+
+[1/8] p01: Sleek black magnetic car phone holder mounted on a car dashb...
+  Generating: p01-main.jpg...
+python : Traceback (most recent call last):
+At line:1 char:51
++ ... egram\Minimax\myzambeel-store; python generate-images.py 2>&1 | Out-F ...
++                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Traceback (most recent call last)::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+  File "E:\Talegram\Minimax\myzambeel-store\generate-images.py", line 61, in generate_image
+    print(f"  \u2713 Saved: {output_path} ({len(response.content)//1024} KB)")
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenevo\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2713' in position 2: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\Talegram\Minimax\myzambeel-store\generate-images.py", line 86, in <module>
+    main()
+    ~~~~^^
+  File "E:\Talegram\Minimax\myzambeel-store\generate-images.py", line 78, in main
+    if generate_image(p['prompt'], out):
+       ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+  File "E:\Talegram\Minimax\myzambeel-store\generate-images.py", line 67, in generate_image
+    print(f"  \u2717 Error: {e}")
+    ~~~~~^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lenevo\AppData\Local\Python\pythoncore-3.14-64\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2717' in position 2: character maps to <undefined>

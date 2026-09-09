@@ -1,5 +1,5 @@
 @echo off
 cd /d E:\Talegram\Minimax\myzambeel-store
 git add .
-git commit -m "Advanced product and checkout pages: sticky galleries, real-time validation, live activity ticker, success modal"
+git commit -m "Generate 8 premium product images via Pollinations.ai (free, no API key)"
 git push origin master:main

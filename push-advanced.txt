@@ -1,0 +1,14 @@
+﻿cmd : warning: in the working copy of 'checkout.html', LF will be replaced by CRLF the next time Git touches it
+At line:1 char:51
++ ... ion E:\Talegram\Minimax\myzambeel-store; cmd /c push.bat 2>&1 | Out-F ...
++                                              ~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (warning: in the... Git touches it:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+warning: in the working copy of 'product.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'push.bat', LF will be replaced by CRLF the next time Git touches it
+[master dee99e2] Advanced product and checkout pages: sticky galleries, real-time validation, live activity ticker, success modal
+ 5 files changed, 1484 insertions(+), 836 deletions(-)
+ create mode 100644 push-advanced.txt
+To https://github.com/MASUd9330/nujmat-store.git
+   a044b5e..dee99e2  master -> main
