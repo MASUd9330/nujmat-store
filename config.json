@@ -302,7 +302,7 @@
   },
   "imageCdn": {
     "enabled": true,
-    "provider": "jsdelivr",
-    "base": "https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main"
+    "provider": "raw-github",
+    "base": "https://raw.githubusercontent.com/MASUd9330/nujmat-store/main"
   }
 }
