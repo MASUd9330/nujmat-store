@@ -796,3 +796,22 @@ document.addEventListener('click', (e) => {
   if (typeof fbq !== 'undefined') fbq('trackCustom', 'CTAClick', { id: trackId });
   if (typeof ttq !== 'undefined') ttq.track('CTAClick', { id: trackId });
 });
+
+// ---- AOS safety net: ensure content shows even if AOS fails ----
+// 1.5s grace period for AOS to fire animations. After that, force everything visible.
+setTimeout(() => {
+  document.body.classList.add('loaded');
+  document.querySelectorAll('[data-aos]').forEach(el => {
+    if (!el.classList.contains('aos-animate')) {
+      el.classList.add('aos-animate');
+    }
+  });
+}, 1500);
+
+// Even faster: if DOMContentLoaded already fired and body is in first paint,
+// show critical hero content immediately
+if (document.readyState !== 'loading') {
+  document.querySelectorAll('header.hero [data-aos]').forEach(el => {
+    requestAnimationFrame(() => el.classList.add('aos-animate'));
+  });
+}

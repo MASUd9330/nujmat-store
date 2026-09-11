@@ -1798,6 +1798,14 @@ body.lang-en .float-wa:hover .float-wa-label { transform: translateY(-50%) trans
 [data-aos="fade-up"] { transform: translateY(20px); }
 [data-aos="fade-up"].aos-animate { transform: translateY(0); }
 
+/* AOS safety net: if AOS fails to init, force show all content */
+body.loaded [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+}
+/* Show content immediately if AOS CSS class not loaded */
+.no-aos [data-aos] { opacity: 1 !important; transform: none !important; }
+
 /* ============== 17. RTL/LTR FIXES FOR NEW COMPONENTS ============== */
 body.lang-en .ba-tag { right: auto; left: 12px; }
 body.lang-en .curate-step { grid-template-columns: 1fr 70px; }
