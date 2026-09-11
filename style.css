@@ -1794,6 +1794,13 @@ body.lang-en .float-wa:hover .float-wa-label { transform: translateY(-50%) trans
 }
 
 /* ============== 16. AOS OVERRIDES ============== */
+/* CRITICAL: Force AOS content to always be visible regardless of AOS init state.
+   AOS library may fail to load, but content must show. Animations lost > content hidden. */
+[data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  pointer-events: auto !important;
+}
 [data-aos] { will-change: transform, opacity; }
 [data-aos="fade-up"] { transform: translateY(20px); }
 [data-aos="fade-up"].aos-animate { transform: translateY(0); }
