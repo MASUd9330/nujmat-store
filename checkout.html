@@ -7,6 +7,7 @@
 <title>إتمام الطلب | نجمة الخليج</title>
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link href="https://fonts.bunny.net/css?family=fraunces:300,400,500,600,700,800|inter-tight:300,400,500,600,700,800|jetbrains-mono:400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
 /* ============== CHECKOUT SPECIFIC ============== */
@@ -766,6 +767,8 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   // Checkbox toggle
   document.querySelectorAll('[data-toggle]').forEach(el => {
@@ -836,6 +839,12 @@
     // Show success
     document.getElementById('successOrderNum').textContent = orderData.orderNum;
     document.getElementById('successModal').classList.add('show');
+    // Fire confetti! (Pick Ameen DNA — order delight)
+    if (typeof fireConfetti === 'function') {
+      fireConfetti({ big: true, particleCount: 120, spread: 90 });
+      // Second wave after 400ms
+      setTimeout(() => fireConfetti({ particleCount: 60, angle: 90, spread: 120, origin: { x: 0.5, y: 0.5 } }), 400);
+    }
     // WhatsApp button
     const msg = `مرحباً! أنا ${orderData.name} وأؤكد طلبي ${orderData.orderNum} من نجمة الخليج. المبلغ: ${orderData.total} ر.س`;
     document.getElementById('whatsappConfirm').onclick = () => {

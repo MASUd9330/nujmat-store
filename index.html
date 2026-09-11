@@ -8,10 +8,38 @@
 <title>نجمة الخليج · Car Solutions</title>
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link href="https://fonts.bunny.net/css?family=fraunces:300,400,500,600,700,800|inter-tight:300,400,500,600,700,800|jetbrains-mono:400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <!-- Pixels injected by app.js based on config.json -->
 </head>
 <body>
+
+<!-- ============================ MARQUEE ============================ -->
+<div class="marquee" aria-label="عروض وتأكيدات">
+  <div class="marquee-track">
+    <span class="marquee-item"><span class="marquee-dot">✓</span> توصيل مجاني للطلبات فوق 200 ر.س</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> دفع عند الاستلام في كل مدن المملكة</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> ضمان ذهبي 6 أشهر على كل قطعة</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> استبدال مجاني خلال 7 أيام</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> دعم واتساب 24/7</span>
+    <span class="marquee-sep">·</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><span class="marquee-dot">✓</span> توصيل مجاني للطلبات فوق 200 ر.س</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> دفع عند الاستلام في كل مدن المملكة</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> ضمان ذهبي 6 أشهر على كل قطعة</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> استبدال مجاني خلال 7 أيام</span>
+    <span class="marquee-sep">·</span>
+    <span class="marquee-item"><span class="marquee-dot">✓</span> دعم واتساب 24/7</span>
+    <span class="marquee-sep">·</span>
+  </div>
+</div>
 
 <!-- ============================ NAV ============================ -->
 <nav class="nav">
@@ -25,6 +53,7 @@
       <a href="#problems">المشاكل</a>
       <a href="#solutions">الحلول</a>
       <a href="#bundle">الباقة</a>
+      <a href="#reviews">التقييمات</a>
       <a href="#faq">الأسئلة</a>
     </div>
     <button class="lang-toggle" onclick="toggleLanguage()" title="Switch to English">EN</button>
@@ -34,9 +63,10 @@
 
 <!-- ============================ HERO ============================ -->
 <header class="hero">
+  <div id="tsparticles" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-grid">
-      <div>
+      <div data-aos="fade-up" data-aos-duration="800">
         <div class="hero-eyebrow">
           <span class="hero-eyebrow-text">CAR SOLUTIONS · منذ 2026</span>
         </div>
@@ -48,8 +78,8 @@
           ثماني قطع مختارة بعناية من حامل الجوال إلى الكاميرا والملحقات — كلها تحل مشكلة حقيقية في سيارتك، مصممة للسائق السعودي، تُسلَّم خلال أيام مع الدفع عند الاستلام.
         </p>
         <div class="hero-actions">
-          <a href="#products" class="btn btn-primary">تصفّح المنتجات</a>
-          <a href="#bundle" class="btn btn-ghost">باقة السيارة الكاملة</a>
+          <a href="#products" class="btn btn-primary" data-track="hero-cta-primary">تصفّح المنتجات</a>
+          <a href="#bundle" class="btn btn-ghost" data-track="hero-cta-bundle">باقة السيارة الكاملة</a>
         </div>
         <div class="hero-stats">
           <div class="stat">
@@ -70,7 +100,7 @@
           </div>
         </div>
       </div>
-      <div class="hero-visual reveal">
+      <div class="hero-visual reveal tilt-card" data-aos="fade-left" data-aos-duration="900" data-aos-delay="200">
         <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p01-main.jpg" alt="حامل جوال السيارة المغناطيسي" loading="eager">
         <div class="hero-visual-overlay">
           <div>
@@ -84,10 +114,38 @@
   </div>
 </header>
 
+<!-- ============================ CATEGORY TILES ============================ -->
+<section class="section-tight" id="categories">
+  <div class="wrap">
+    <div class="category-tiles" data-aos="fade-up" data-aos-duration="600">
+      <a href="#products" class="category-tile" data-aos="zoom-in" data-aos-delay="0">
+        <span class="category-tile-icon">🛡️</span>
+        <div class="category-tile-label">حماية وسلامة</div>
+        <div class="category-tile-count">04 قطع</div>
+      </a>
+      <a href="#products" class="category-tile" data-aos="zoom-in" data-aos-delay="100">
+        <span class="category-tile-icon">🧴</span>
+        <div class="category-tile-label">بريق وتلميع</div>
+        <div class="category-tile-count">02 قطعة</div>
+      </a>
+      <a href="#products" class="category-tile" data-aos="zoom-in" data-aos-delay="200">
+        <span class="category-tile-icon">⚡</span>
+        <div class="category-tile-label">طاقة</div>
+        <div class="category-tile-count">01 قطعة</div>
+      </a>
+      <a href="#products" class="category-tile" data-aos="zoom-in" data-aos-delay="300">
+        <span class="category-tile-icon">🛋️</span>
+        <div class="category-tile-label">راحة</div>
+        <div class="category-tile-count">01 قطعة</div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ THE PROBLEM ============================ -->
 <section class="problem section" id="problems">
   <div class="wrap">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <div>
         <span class="section-eyebrow">المشكلة</span>
         <h2 class="section-title">في <em>السعودية</em>،<br>سيارتك تتحمل أكثر</h2>
@@ -96,17 +154,17 @@
     </div>
 
     <div class="problem-grid">
-      <div class="problem-card">
+      <div class="problem-card" data-aos="fade-up" data-aos-delay="0">
         <div class="problem-num">01 / 03</div>
         <h3 class="problem-title">الحرارة تدمّر سيارتك</h3>
         <p class="problem-desc">الصيف السعودي يرفع درجة الحرارة داخل السيارة لـ 70°C. تكسّر لوحة القيادة، بهتان المقاعد، وتلف الإلكترونيات — كل هذا بدون حماية.</p>
       </div>
-      <div class="problem-card">
+      <div class="problem-card" data-aos="fade-up" data-aos-delay="150">
         <div class="problem-num">02 / 03</div>
         <h3 class="problem-title">الهاتف خطر أثناء القيادة</h3>
         <p class="problem-desc">بدون حامل، تستخدم يد واحدة للقيادة. 60% من حوادث السيارات في السعودية سببها تشتت الانتباه — وأكبر مصدر: الجوال.</p>
       </div>
-      <div class="problem-card">
+      <div class="problem-card" data-aos="fade-up" data-aos-delay="300">
         <div class="problem-num">03 / 03</div>
         <h3 class="problem-title">لا دليل قانوني عند الحوادث</h3>
         <p class="problem-desc">حادث بسيط في موقف سيارات بدون dash cam = كلامك ضد كلامهم. أنت تخسر القضية لأن لا يوجد فيديو يثبت ما حدث.</p>
@@ -118,7 +176,7 @@
 <!-- ============================ SOLUTION MATRIX ============================ -->
 <section class="section" id="solutions">
   <div class="wrap">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <div>
         <span class="section-eyebrow">الحل</span>
         <h2 class="section-title">ثماني قطع.<br><em>كل واحدة تحل مشكلة.</em></h2>
@@ -126,7 +184,7 @@
       <p class="lede">لا نبيع "اكسسوارات". نبيع حلول لمشاكل حقيقية في سيارتك. كل قطعة اخترناها بسبب مشكلة محددة تحلها — لا غير.</p>
     </div>
 
-    <div class="solution-table">
+    <div class="solution-table" data-aos="fade-up" data-aos-delay="100">
       <div class="solution-row solution-header-row">
         <div class="solution-cell solution-num">#</div>
         <div class="solution-cell">المشكلة</div>
@@ -194,10 +252,102 @@
   </div>
 </section>
 
+<!-- ============================ WHY NUJMAT (TRUST PILLARS) ============================ -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow">لماذا نجمة الخليج</span>
+        <h2 class="section-title">أربع <em>ركائز</em><br>نبني عليها ثقتكم</h2>
+      </div>
+      <p class="lede">لسنا مجرد متجر dropshipping. كل قطعة في موقعنا مرت بفلتر صارم قبل أن نعرضها عليك. لأن ثقة العميل أهم من أي عملية بيع.</p>
+    </div>
+
+    <div class="trust-pillars">
+      <div class="trust-pillar" data-aos="fade-up" data-aos-delay="0">
+        <div class="trust-pillar-num">01 / 04</div>
+        <span class="trust-pillar-icon">✓</span>
+        <h3 class="trust-pillar-title">مختار بعناية</h3>
+        <p class="trust-pillar-desc">كل قطعة مرت باختبار جودة صارم، مراجعة أمازون السعودية، وتحقق من زامبيل قبل الإدراج.</p>
+      </div>
+      <div class="trust-pillar" data-aos="fade-up" data-aos-delay="100">
+        <div class="trust-pillar-num">02 / 04</div>
+        <span class="trust-pillar-icon">🛡️</span>
+        <h3 class="trust-pillar-title">مضمون 6 أشهر</h3>
+        <p class="trust-pillar-desc">ضمان ذهبي شامل على كل قطعة. إذا وصل معطوباً، استبدالك مجاني خلال 7 أيام — بدون أسئلة.</p>
+      </div>
+      <div class="trust-pillar" data-aos="fade-up" data-aos-delay="200">
+        <div class="trust-pillar-num">03 / 04</div>
+        <span class="trust-pillar-icon">🚚</span>
+        <h3 class="trust-pillar-title">توصيل سريع</h3>
+        <p class="trust-pillar-desc">3-5 أيام عمل لكل مدن المملكة. شركات لوجستيات محلية، لا انتظار من الصين. دفع عند الاستلام.</p>
+      </div>
+      <div class="trust-pillar" data-aos="fade-up" data-aos-delay="300">
+        <div class="trust-pillar-num">04 / 04</div>
+        <span class="trust-pillar-icon">💬</span>
+        <h3 class="trust-pillar-title">دعم 24/7</h3>
+        <p class="trust-pillar-desc">فريق دعم سعودي على واتساب يرد عليك خلال دقائق. قبل الطلب، أثناء التوصيل، وبعد الاستلام.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ HOW WE CURATE ============================ -->
+<section class="section" id="curate" style="background: var(--bg-subtle); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);">
+  <div class="wrap">
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow">كيف نختار</span>
+        <h2 class="section-title">ليش <em>تأخذ 8 قطع فقط</em><br>لا 80؟</h2>
+      </div>
+      <p class="lede">المنافسون يبيعون كل شيء — وهذا بالضبط المشكلة. نحن نبيع فقط ما نختبره ونثق فيه. قصة كل قطعة تبدأ قبل أشهر من وصولها للموقع.</p>
+    </div>
+
+    <div class="curate-grid">
+      <div class="curate-steps">
+        <div class="curate-step" data-aos="fade-left" data-aos-delay="0">
+          <div class="curate-step-num">01</div>
+          <div class="curate-step-content">
+            <h4>بحث السوق السعودي</h4>
+            <p>ندرس أمازون السعودية، نون، وزامبيل لتحديد المنتجات اللي عليها طلب حقيقي، لا مجرد ترندات مؤقتة.</p>
+          </div>
+        </div>
+        <div class="curate-step" data-aos="fade-left" data-aos-delay="100">
+          <div class="curate-step-num">02</div>
+          <div class="curate-step-content">
+            <h4>اختبار الجودة</h4>
+            <p>كل قطعة تُفحص يدوياً — الخامة، المتانة، الأداء. لو ما عجبتنا النتيجة، نرفض المورد حتى لو كانت الأكثر مبيعاً.</p>
+          </div>
+        </div>
+        <div class="curate-step" data-aos="fade-left" data-aos-delay="200">
+          <div class="curate-step-num">03</div>
+          <div class="curate-step-content">
+            <h4>تحقق من المراجعات</h4>
+            <p>نتأكد من تقييمات حقيقية 4+ نجوم، عدد مراجعات كبير (1000+)، وعدم وجود شكاوى متكررة في الجودة أو التوصيل.</p>
+          </div>
+        </div>
+        <div class="curate-step" data-aos="fade-left" data-aos-delay="300">
+          <div class="curate-step-num">04</div>
+          <div class="curate-step-content">
+            <h4>ضمان ذهبي</h4>
+            <p>نقف خلف كل قطعة بضمان 6 أشهر. لو حصلت مشكلة، نتحملها كاملة. ثقتك أغلى من هامش الربح.</p>
+          </div>
+        </div>
+      </div>
+      <div class="curate-visual" data-aos="fade-left" data-aos-delay="200">
+        <div class="curate-visual-text">
+          مختار<br>بعناية
+          <small>8 من 200+</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ PRODUCTS ============================ -->
 <section class="products-section section" id="products">
   <div class="wrap">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <div>
         <span class="section-eyebrow">المنتجات</span>
         <h2 class="section-title">اختر <em>ما تحتاجه سيارتك.</em></h2>
@@ -206,7 +356,7 @@
     </div>
 
     <div class="products-grid">
-      <a href="product.html?id=01" class="product-card">
+      <a href="product.html?id=01" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="0">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p01-main.jpg" alt="حامل جوال السيارة المغناطيسي" loading="lazy">
           <div class="product-card-num">01</div>
@@ -226,7 +376,7 @@
         </div>
       </a>
 
-      <a href="product.html?id=02" class="product-card">
+      <a href="product.html?id=02" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="100">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p02-main.jpg" alt="شمسية车窗 السيارة" loading="lazy">
           <div class="product-card-num">02</div>
@@ -246,7 +396,7 @@
         </div>
       </a>
 
-      <a href="product.html?id=03" class="product-card">
+      <a href="product.html?id=03" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="200">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p03-main.jpg" alt="كاميرا dash cam" loading="lazy">
           <div class="product-card-num">03</div>
@@ -266,7 +416,7 @@
         </div>
       </a>
 
-      <a href="product.html?id=04" class="product-card">
+      <a href="product.html?id=04" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="300">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p04-main.jpg" alt="وسادة الرقبة للسيارة" loading="lazy">
           <div class="product-card-num">04</div>
@@ -286,7 +436,7 @@
         </div>
       </a>
 
-      <a href="product.html?id=05" class="product-card">
+      <a href="product.html?id=05" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="0">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p05-main.jpg" alt="بخاخ تلميع السيارة" loading="lazy">
           <div class="product-card-num">05</div>
@@ -306,7 +456,7 @@
         </div>
       </a>
 
-      <a href="product.html?id=06" class="product-card">
+      <a href="product.html?id=06" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="100">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p06-main.jpg" alt="محول طاقة السيارة" loading="lazy">
           <div class="product-card-num">06</div>
@@ -315,7 +465,7 @@
           <div class="product-card-tag">طاقة · Power</div>
           <h3 class="product-card-title">محول طاقة السيارة 150 واط</h3>
           <div class="product-card-en">150W Car Power Inverter</div>
-          <p class="product-desc" style="font-size:0.875rem;color:var(--text-2);line-height:1.5;margin-bottom:20px">220V من سيارتك، USB مزدوج، حماية شاملة.</p>
+          <p class="product-card-desc">220V من سيارتك، USB مزدوج، حماية شاملة.</p>
           <div class="product-card-foot">
             <div>
               <span class="product-card-old">349</span>
@@ -326,7 +476,7 @@
         </div>
       </a>
 
-      <a href="product.html?id=07" class="product-card">
+      <a href="product.html?id=07" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="200">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p07-main.jpg" alt="حماية حواف أبواب السيارة" loading="lazy">
           <div class="product-card-num">07</div>
@@ -346,7 +496,7 @@
         </div>
       </a>
 
-      <a href="product.html?id=08" class="product-card">
+      <a href="product.html?id=08" class="product-card tilt-card" data-aos="fade-up" data-aos-delay="300">
         <div class="product-card-image">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p08-main.jpg" alt="فرشاة تلميع الإطارات" loading="lazy">
           <div class="product-card-num">08</div>
@@ -373,7 +523,7 @@
 <section class="bundle section" id="bundle">
   <div class="wrap">
     <div class="bundle-grid">
-      <div>
+      <div data-aos="fade-left">
         <div class="bundle-badge">وفر 118 ر.س</div>
         <h2 class="bundle-title">باقة <em>الأمان</em><br>الكاملة</h2>
         <p class="bundle-desc">حامل جوال + كاميرا dash cam + حماية حواف الأبواب. كل ما تحتاجه لجعل سيارتك آمنة ومحمية في حزمة واحدة بسعر مخفض.</p>
@@ -388,10 +538,10 @@
           <span class="bundle-old-price">517 ر.س</span>
           <span class="bundle-save">وفّر 118</span>
         </div>
-        <a href="checkout.html?bundle=1" class="btn btn-primary">اطلب الباقة كاملة</a>
+        <a href="checkout.html?bundle=1" class="btn btn-primary" data-track="bundle-cta">اطلب الباقة كاملة</a>
       </div>
-      <div>
-        <div class="hero-visual">
+      <div data-aos="fade-right" data-aos-delay="200">
+        <div class="hero-visual tilt-card">
           <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p03-main.jpg" alt="باقة الأمان الكاملة" loading="lazy">
           <div class="hero-visual-overlay">
             <div>
@@ -406,10 +556,249 @@
   </div>
 </section>
 
+<!-- ============================ BUNDLE COMPARISON ============================ -->
+<section class="section" id="compare">
+  <div class="wrap">
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow">قارن وقرر</span>
+        <h2 class="section-title">أي <em>خيار</em> يناسبك؟</h2>
+      </div>
+      <p class="lede">مقارنة صريحة بين الشراء المفرد والباقة. اختر حسب احتياجك الفعلي — لا أكثر.</p>
+    </div>
+
+    <div class="bundle-compare" data-aos="fade-up" data-aos-delay="100">
+      <div class="bundle-compare-head">
+        <div>الميزة</div>
+        <div>قطعة واحدة</div>
+        <div>قطعتان</div>
+        <div>الباقة</div>
+      </div>
+      <div class="bundle-compare-row">
+        <div class="bundle-compare-feature">حماية جوال أثناء القيادة</div>
+        <div class="bundle-compare-cell yes">✓</div>
+        <div class="bundle-compare-cell yes">✓</div>
+        <div class="bundle-compare-cell highlight">✓</div>
+      </div>
+      <div class="bundle-compare-row">
+        <div class="bundle-compare-feature">دليل قانوني في الحوادث</div>
+        <div class="bundle-compare-cell no">—</div>
+        <div class="bundle-compare-cell yes">✓</div>
+        <div class="bundle-compare-cell highlight">✓</div>
+      </div>
+      <div class="bundle-compare-row">
+        <div class="bundle-compare-feature">حماية جسم السيارة</div>
+        <div class="bundle-compare-cell no">—</div>
+        <div class="bundle-compare-cell no">—</div>
+        <div class="bundle-compare-cell highlight">✓</div>
+      </div>
+      <div class="bundle-compare-row">
+        <div class="bundle-compare-feature">خصم الكمية</div>
+        <div class="bundle-compare-cell no">0%</div>
+        <div class="bundle-compare-cell">10%</div>
+        <div class="bundle-compare-cell highlight">23%</div>
+      </div>
+      <div class="bundle-compare-row featured">
+        <div class="bundle-compare-feature">السعر الإجمالي</div>
+        <div class="bundle-compare-cell">149+ ر.س</div>
+        <div class="bundle-compare-cell">403 ر.س</div>
+        <div class="bundle-compare-cell highlight">399 ر.س</div>
+      </div>
+    </div>
+    <div class="bundle-compare-cta">
+      <a href="checkout.html?bundle=1" class="btn btn-primary" data-track="bundle-compare-cta">اطلب الباقة الآن</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BEFORE / AFTER ============================ -->
+<section class="section" id="beforeafter" style="background: var(--bg-subtle); border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft);">
+  <div class="wrap">
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow">قبل وبعد</span>
+        <h2 class="section-title">النتيجة <em>الفعلية</em><br>تظهر في 5 دقائق</h2>
+      </div>
+      <p class="lede">أربع قطع من مجموعتنا تعطي نتائج فورية وملموسة. الفرق واضح قبل وبعد.</p>
+    </div>
+
+    <div class="before-after">
+      <a href="product.html?id=05" class="ba-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="ba-images">
+          <div class="ba-img">
+            <span class="ba-tag">قبل</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p05-main.jpg" alt="قبل البخاخ" loading="lazy" style="filter: grayscale(0.7) brightness(0.7);">
+          </div>
+          <div class="ba-img">
+            <span class="ba-tag after">بعد</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p05-main.jpg" alt="بعد البخاخ" loading="lazy">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-body">
+          <h4>بخاخ التلميع السحري</h4>
+          <p>طلاء باهت ومخدوش ← لمعان احترافي فوري. 5 دقائق فقط من التطبيق.</p>
+        </div>
+      </a>
+
+      <a href="product.html?id=02" class="ba-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="ba-images">
+          <div class="ba-img">
+            <span class="ba-tag">قبل</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p02-main.jpg" alt="قبل الشمسية" loading="lazy" style="filter: sepia(0.5) brightness(0.85) saturate(1.4);">
+          </div>
+          <div class="ba-img">
+            <span class="ba-tag after">بعد</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p02-main.jpg" alt="بعد الشمسية" loading="lazy">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-body">
+          <h4>الشمسية الشبكية</h4>
+          <p>حرارة 70°C داخل السيارة ← تنخفض 15°C. حماية من UV بنسبة 97%.</p>
+        </div>
+      </a>
+
+      <a href="product.html?id=07" class="ba-card" data-aos="fade-up" data-aos-delay="0">
+        <div class="ba-images">
+          <div class="ba-img">
+            <span class="ba-tag">قبل</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p07-main.jpg" alt="قبل الحماية" loading="lazy" style="filter: grayscale(0.4);">
+          </div>
+          <div class="ba-img">
+            <span class="ba-tag after">بعد</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p07-main.jpg" alt="بعد الحماية" loading="lazy">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-body">
+          <h4>حماية الحواف</h4>
+          <p>حواف أبواب مكشوفة ومخدوشة ← حماية كاملة بسيليكون U-shaped شفاف.</p>
+        </div>
+      </a>
+
+      <a href="product.html?id=08" class="ba-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="ba-images">
+          <div class="ba-img">
+            <span class="ba-tag">قبل</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p08-main.jpg" alt="قبل الفرشاة" loading="lazy" style="filter: grayscale(0.5) brightness(0.85);">
+          </div>
+          <div class="ba-img">
+            <span class="ba-tag after">بعد</span>
+            <img src="https://cdn.jsdelivr.net/gh/MASUd9330/nujmat-store@main/images/p08-main.jpg" alt="بعد الفرشاة" loading="lazy">
+          </div>
+          <div class="ba-divider"></div>
+        </div>
+        <div class="ba-body">
+          <h4>فرشاة تلميع الإطارات</h4>
+          <p>تطبيق متفاوت باليد ← تطبيق متساوي احترافي بدون فوضى.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="section" id="reviews">
+  <div class="wrap">
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <span class="section-eyebrow">آراء العملاء</span>
+        <h2 class="section-title">ليش <em>يثقون</em><br>بنا في سيارتهم</h2>
+      </div>
+      <p class="lede">آراء حقيقية من عملاء حقيقيين في السعودية. كل مراجعة من طلب فعلي تم تسليمه — لا شهادات مدفوعة.</p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testimonial" data-aos="fade-up" data-aos-delay="0">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-text">"الـ dash cam أنقذتني في حادث بسيط بموقف الراشد مول. السائق الثاني حاول ينكر، لكن الفيديو كل شيء. استرجعت تكاليف الإصلاح كاملة."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">م</div>
+          <div>
+            <div class="testimonial-name">محمد العنزي</div>
+            <div class="testimonial-meta">RIYADH · CAMRY 2023</div>
+            <div class="testimonial-verified">✓ عميل موثّق</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial" data-aos="fade-up" data-aos-delay="100">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-text">"حامل الجوال المغناطيسي فعلاً قوي. كنت متخوفة من المغناطيس يضعف الجهاز، بس بعد شهر استخدام يومي ممتاز. والتصميم أنيق جداً."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">س</div>
+          <div>
+            <div class="testimonial-name">سارة القحطاني</div>
+            <div class="testimonial-meta">JEDDAH · LEXUS ES350</div>
+            <div class="testimonial-verified">✓ عميل موثّق</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial" data-aos="fade-up" data-aos-delay="200">
+        <div class="testimonial-stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-text">"الشمسية شبكية غيّرت شكل سيارتي. قبل كنت أرجع للسيارة ولوحة القيادة ساخنة جداً. الحين أقدر أتحمل جلستها 5 دقائق بدون مشكل."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">خ</div>
+          <div>
+            <div class="testimonial-name">خالد الزهراني</div>
+            <div class="testimonial-meta">DAMMAM · HILUX 2024</div>
+            <div class="testimonial-verified">✓ عميل موثّق</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ NEWSLETTER / WHATSAPP CAPTURE ============================ -->
+<section class="newsletter-section" id="newsletter">
+  <div class="wrap">
+    <div class="newsletter-grid">
+      <div data-aos="fade-left">
+        <span class="section-eyebrow">ابقى على اطلاع</span>
+        <h2 class="section-title">عروض <em>حصرية</em><br>كل أسبوع</h2>
+        <p class="lede" style="margin-top: 20px;">أدخل رقم واتسابك لتصلك عروض الجمعة، خصومات الباقات، وإطلاق المنتجات الجديدة قبل الجميع. لا رسائل مزعجة — وعد.</p>
+        <div style="margin-top: 32px; display: flex; gap: 32px; flex-wrap: wrap;">
+          <div>
+            <div class="stat-num" style="font-size: 2.5rem;">2,400+</div>
+            <div class="stat-label">مشترك نشط</div>
+          </div>
+          <div>
+            <div class="stat-num" style="font-size: 2.5rem;">1</div>
+            <div class="stat-label">رسالة أسبوعياً فقط</div>
+          </div>
+          <div>
+            <div class="stat-num" style="font-size: 2.5rem;">0</div>
+            <div class="stat-label">رسائل مزعجة</div>
+          </div>
+        </div>
+      </div>
+      <form class="newsletter-form" data-aos="fade-right" onsubmit="event.preventDefault(); showToast('تم الاشتراك! سنتواصل معك قريباً.'); this.reset();">
+        <div>
+          <label style="font-size: 12px; color: var(--gold); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.15em; text-transform: uppercase;">رقم الواتساب</label>
+          <input type="tel" class="newsletter-input" placeholder="+966 5X XXX XXXX" required pattern="(\+966|0)?5\d{8}">
+        </div>
+        <div>
+          <label style="font-size: 12px; color: var(--gold); font-family: 'JetBrains Mono', monospace; letter-spacing: 0.15em; text-transform: uppercase;">المدينة</label>
+          <input type="text" class="newsletter-input" placeholder="الرياض، جدة، الدمام..." required>
+        </div>
+        <button type="submit" class="btn btn-primary" data-track="newsletter-submit" style="width: 100%; justify-content: center;">اشترك في العروض</button>
+        <div class="newsletter-trust">
+          <span>مجاني تماماً</span>
+          <span>إلغاء في أي وقت</span>
+          <span>لا مشاركة للبيانات</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
 <!-- ============================ FAQ ============================ -->
 <section class="section" id="faq">
   <div class="wrap">
-    <div class="section-header">
+    <div class="section-header" data-aos="fade-up">
       <div>
         <span class="section-eyebrow">الأسئلة الشائعة</span>
         <h2 class="section-title">أسئلة <em>السائقين</em></h2>
@@ -417,7 +806,7 @@
       <p class="lede">إجابات صريحة على الأسئلة اللي يطرحها عملاؤنا قبل الطلب. بدون لف ودوران.</p>
     </div>
 
-    <div class="faq-list">
+    <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
       <div class="faq-item">
         <button class="faq-q">هل القطع أصلية ومضمونة؟</button>
         <div class="faq-a">
@@ -461,10 +850,26 @@
 <!-- ============================ FOOTER ============================ -->
 <footer class="footer">
   <div class="wrap">
+    <div class="footer-trust" data-aos="fade-up">
+      <div class="footer-trust-item"><span class="footer-trust-icon">✓</span> دفع عند الاستلام</div>
+      <div class="footer-trust-item"><span class="footer-trust-icon">↻</span> استبدال مجاني 7 أيام</div>
+      <div class="footer-trust-item"><span class="footer-trust-icon">★</span> ضمان ذهبي 6 أشهر</div>
+      <div class="footer-trust-item"><span class="footer-trust-icon">⚡</span> توصيل 3-5 أيام</div>
+      <div class="footer-trust-item"><span class="footer-trust-icon">💬</span> دعم واتساب 24/7</div>
+    </div>
+
     <div class="footer-grid">
       <div>
         <div class="footer-brand">نجمة الخليج</div>
         <p class="footer-desc" data-footer="about">نجمة الخليج — متجر حلول السيارة الأول في المملكة. ثماني قطع مختارة بعناية. توصيل سريع، دفع عند الاستلام، وضمان ذهبي.</p>
+        <div class="footer-payments">
+          <span class="footer-payment">COD</span>
+          <span class="footer-payment">Mada</span>
+          <span class="footer-payment">Visa</span>
+          <span class="footer-payment">MC</span>
+          <span class="footer-payment">Apple Pay</span>
+          <span class="footer-payment">Tabby</span>
+        </div>
       </div>
       <div class="footer-col">
         <h4>المتجر</h4>
@@ -474,6 +879,7 @@
           <li><a href="index.html#problems">المشاكل</a></li>
           <li><a href="index.html#solutions">الحلول</a></li>
           <li><a href="index.html#bundle">الباقة</a></li>
+          <li><a href="index.html#compare">قارن</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -498,12 +904,20 @@
     </div>
     <div class="footer-bottom">
       <span data-footer="copyright">© 2026 نجمة الخليج · جميع الحقوق محفوظة</span>
-      <span class="mono">SAUDI ARABIA · COD · EST. 2026</span>
+      <span class="mono">
+        <span class="footer-saudi"><span class="footer-saudi-flag"></span> SAUDI ARABIA · COD · EST. 2026</span>
+      </span>
     </div>
   </div>
 </footer>
 
+<!-- ============================ LIBRARIES ============================ -->
 <script src="app.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles-slim@2.12.0/tsparticles.slim.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+
 <script>
   // FAQ toggle
   document.querySelectorAll('.faq-q').forEach(btn => {
@@ -514,27 +928,6 @@
       if (!wasOpen) item.classList.add('open');
     });
   });
-
-  // Reveal on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('reveal');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('section, .product-card, .problem-card, .hero-visual, .bundle-grid > div').forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(20px)';
-    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    observer.observe(el);
-  });
-
-  // Style observer
-  const styleEl = document.createElement('style');
-  styleEl.textContent = '.reveal { opacity: 1 !important; transform: translateY(0) !important; }';
-  document.head.appendChild(styleEl);
 </script>
 </body>
 </html>

@@ -7,6 +7,7 @@
 <title>تفاصيل المنتج | نجمة الخليج</title>
 <link rel="preconnect" href="https://fonts.bunny.net" crossorigin>
 <link href="https://fonts.bunny.net/css?family=fraunces:300,400,500,600,700,800|inter-tight:300,400,500,600,700,800|jetbrains-mono:400,500,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
 /* ============== PRODUCT PAGE SPECIFIC ============== */
@@ -605,7 +606,7 @@
     <div class="product-grid">
       <!-- Gallery -->
       <div class="gallery">
-        <div class="gallery-main">
+        <div class="gallery-main tilt-card">
           <img id="galleryImg" src="" alt="منتج">
           <div class="gallery-zoom-hint">انقر للتكبير</div>
         </div>
@@ -775,6 +776,8 @@
 </footer>
 
 <script src="app.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 <script>
   // === Wait for config + render product ===
   window.configReady.then(() => {
