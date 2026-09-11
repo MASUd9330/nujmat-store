@@ -683,3 +683,35 @@ document.addEventListener('click', (e) => {
   if (typeof fbq !== 'undefined') fbq('trackCustom', 'CTAClick', { id: trackId });
   if (typeof ttq !== 'undefined') ttq.track('CTAClick', { id: trackId });
 });
+
+// ---- Simple add-to-cart (delegated) ----
+document.addEventListener('click', (e) => {
+  const addBtn = e.target.closest('[data-add]');
+  if (!addBtn) return;
+  const productId = addBtn.getAttribute('data-add');
+  if (!productId) return;
+  e.preventDefault();
+  let cart = {};
+  try { cart = JSON.parse(localStorage.getItem('nujmat_cart') || '{}'); } catch (err) { cart = {}; }
+  cart[productId] = (cart[productId] || 0) + 1;
+  localStorage.setItem('nujmat_cart', JSON.stringify(cart));
+  const count = Object.values(cart).reduce((a, b) => a + b, 0);
+  const counter = document.querySelector('.cart-count');
+  if (counter) counter.textContent = count;
+  if (typeof showToast === 'function') showToast('✓ تمت إضافة المنتج للسلة');
+  if (typeof confetti !== 'undefined') {
+    confetti({ particleCount: 30, spread: 40, origin: { y: 0.7 }, colors: ['#d4a853', '#e8c075', '#b88a3e'] });
+  }
+});
+
+// ---- Restore cart count on load ----
+function restoreCartCount() {
+  try {
+    const cart = JSON.parse(localStorage.getItem('nujmat_cart') || '{}');
+    const count = Object.values(cart).reduce((a, b) => a + b, 0);
+    const counter = document.querySelector('.cart-count');
+    if (counter) counter.textContent = count;
+  } catch (err) {}
+}
+if (document.readyState !== 'loading') restoreCartCount();
+else document.addEventListener('DOMContentLoaded', restoreCartCount);
