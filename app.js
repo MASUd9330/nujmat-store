@@ -815,3 +815,15 @@ if (document.readyState !== 'loading') {
     requestAnimationFrame(() => el.classList.add('aos-animate'));
   });
 }
+
+// Also init AOS on window.load (final fallback)
+window.addEventListener('load', () => {
+  if (typeof AOS !== 'undefined') {
+    try { AOS.refresh(); } catch (e) {}
+  }
+  // Belt + suspenders: ensure all animated content is visible
+  document.querySelectorAll('[data-aos]:not(.aos-animate)').forEach(el => {
+    el.classList.add('aos-animate');
+  });
+  document.body.classList.add('loaded');
+});
