@@ -1,15 +1,14 @@
 {
-  "version": "2.0.0",
-  "lastUpdated": "2026-09-09T22:30:00Z",
-
+  "version": "3.0.0",
+  "lastUpdated": "2026-09-11T12:30:00Z",
   "site": {
     "name": "نجمة الخليج",
-    "nameEn": "Nujmat Al-Khalij",
-    "tagline": "Gulf Star · Car Edition",
+    "nameEn": "Gulf Star",
+    "tagline": "Car Solutions · KSA",
     "phone": "+880158126134",
     "phoneDisplay": "+880 0158-126134",
     "whatsapp": "880158126134",
-    "email": "",
+    "email": "hello@nujmat.sa",
     "address": "الرياض، المملكة العربية السعودية",
     "addressEn": "Riyadh, Saudi Arabia",
     "currency": "ر.س",
@@ -19,515 +18,288 @@
     "nicheAr": "متجر حلول السيارة",
     "nicheEn": "Car Solutions Store"
   },
-
   "hero": {
     "badge": "متجر سيارتك الأول في الخليج",
     "badgeEn": "Your Car's First Store in the Gulf",
     "title": "كل ما تحتاجه سيارتك في مكان واحد",
     "titleEn": "Everything your car needs, in one place",
-    "subtitle": "ثماني قطع مختارة خصيصاً لسائق سعودي — حامل جوال، كاميرا dash cam، شمسية، حماية الأبواب، وأكثر. توصيل سريع، الدفع عند الاستلام.",
-    "subtitleEn": "Eight hand-picked pieces for the Saudi driver — phone mount, dash cam, sun shade, door protection, and more. Fast delivery, cash on arrival.",
+    "subtitle": "ست قطع مختارة بعناية للسائق السعودي — حامل جوال، حماية车窗، منظم، راحة. توصيل سريع، دفع عند الاستلام، ضمان ذهبي.",
+    "subtitleEn": "Six hand-picked pieces for the Saudi driver — phone mount, sun protection, organizer, comfort. Fast delivery, cash on arrival, golden warranty.",
     "ctaPrimary": "تصفّح المنتجات",
     "ctaPrimaryEn": "Browse Products",
     "ctaSecondary": "اطلب الآن — كاش عند التوصيل",
     "ctaSecondaryEn": "Order Now — Pay on Delivery",
-    "trustLine": "✓ توصيل 3-5 أيام لكل المملكة  ·  ✓ دفع عند الاستلام  ·  ✓ ضمان ذهبي 6 أشهر",
-    "trustLineEn": "✓ 3-5 day delivery across KSA  ·  ✓ Cash on delivery  ·  ✓ 6-month golden warranty"
+    "trustLine": "✓ توصيل 3-5 أيام لكل المملكة  ·  ✓ دفع عند الاستلام  ·  ✓ ضمان ذهبي 6 أشهر"
   },
-
   "products": [
     {
-      "id": "01",
+      "id": "p01",
       "num": "01",
-      "ar": "حامل جوال السيارة المغناطيسي",
-      "en": "Magnetic Car Phone Holder",
-      "tag": "قيادة · Driving",
-      "tagEn": "Driving",
-      "monogram": "قيادة",
-      "monogramEn": "Drive",
+      "slug": "dashboard-car-phone-holder",
+      "ar": "حامل جوال لوحة القيادة",
+      "en": "Dashboard Car Phone Holder",
+      "tag": "قيادة · Phone Holders",
+      "tagEn": "Driving · Phone Holders",
+      "category": "phone-holders",
       "price": 149,
       "oldPrice": 229,
       "save": 80,
-      "desc": "حامل جوال مغناطيسي قوي للسيارة — يثبت في لوحة القيادة بدون أي أدوات. ذراع قابل للتعديل 360°، مغناطيس N52 قوي يثبت الجوال حتى في الطرق الوعرة.",
-      "descEn": "Strong magnetic car phone holder — mounts to your dashboard without any tools. 360° adjustable arm, N52 magnet holds your phone even on rough roads.",
-      "descLong": "حامل جوال مغناطيسي احترافي للسيارة، يثبت بسهولة على لوحة القيادة أو الزجاج الأمامي. مصنوع من سبائك الألمنيوم المتينة مع ذراع قابل للتعديل بزاوية 360°. المغناطيس القوي من نوع N52 يضمن ثبات جوالك بشكل آمن حتى أثناء القيادة السريعة أو الفرملة المفاجئة. مناسب لجميع مقاسات الجوالات من 4.7 إلى 7 بوصات. التثبيت خلال 30 ثانية بدون أي أدوات.",
-      "descLongEn": "Professional magnetic car phone holder that mounts easily to your dashboard or windshield. Made of durable aluminum alloy with 360° adjustable arm. Strong N52 magnet ensures your phone stays secure even during fast driving or sudden braking. Compatible with all phone sizes from 4.7 to 7 inches. 30-second tool-free installation.",
-      "color": "#E8DDC6",
-      "visualClass": "pv-1",
+      "desc": "مغناطيس N52 قوي، تثبيت بدون أدوات، دوران 360°.",
+      "descLong": "حامل جوال مغناطيسي يثبت على لوحة القيادة بقوة. مغناطيس N52 يضمن ثبات الجوال حتى في الطرق الوعرة. دوران 360° يتيح لك وضع الجوال عمودياً أو أفقياً.",
+      "zambeel": "https://products.myzambeel.com/products/dashboard-phone-holder-for-car",
       "stock": 47,
       "badge": "الأكثر مبيعاً",
-      "badgeEn": "Best Seller",
       "specs": [
-        { "k": "المغناطيس", "kEn": "Magnet", "v": "N52 نيوديميوم قوي", "vEn": "N52 neodymium" },
-        { "k": "الدوران", "kEn": "Rotation", "v": "360°", "vEn": "360°" },
-        { "k": "المادة", "kEn": "Material", "v": "سبائك ألمنيوم", "vEn": "Aluminum alloy" },
-        { "k": "التثبيت", "kEn": "Mounting", "v": "لاصق 3M VHB قوي", "vEn": "3M VHB adhesive" },
-        { "k": "التوافق", "kEn": "Compatibility", "v": "4.7-7 بوصة", "vEn": "4.7-7 inches" },
-        { "k": "الوزن", "kEn": "Weight", "v": "180 جرام", "vEn": "180g" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
+        { "k": "المغناطيس", "v": "N52 نيوديميم" },
+        { "k": "الدوران", "v": "360°" },
+        { "k": "التوافق", "v": "جميع الجوالات حتى 7 بوصة" },
+        { "k": "التركيب", "v": "لاصق 3M قوي" },
+        { "k": "الضمان", "v": "6 أشهر" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
-        "يحرر يديك أثناء القيادة بأمان كامل",
-        "مغناطيس N52 قوي — يثبت حتى في المطبات",
-        "تثبيت بدون أي أدوات — خلال 30 ثانية",
-        "مناسب لجميع الجوالات"
+        "مغناطيس N52 يثبّت الجوال بقوة",
+        "دوران 360° لأي وضعية",
+        "تركيب بدون أدوات في دقيقة"
       ],
-      "bulletsEn": [
-        "Frees your hands for safer driving",
-        "Strong N52 magnet — holds even on bumps",
-        "Tool-free installation in 30 seconds",
-        "Works with all smartphones"
-      ],
-      "images": [
-        "images/p01-main.jpg",
-        "images/p01-1.jpg",
-        "images/p01-2.jpg",
-        "images/p01-3.jpg",
-        "images/p01-4.jpg"
-      ]
+      "images": ["images/p01-main.jpg"]
     },
     {
-      "id": "02",
+      "id": "p02",
       "num": "02",
+      "slug": "retractable-car-window-sun-shades",
       "ar": "شمسية车窗 السيارة القابلة للطي",
-      "en": "Retractable Car Window Sun Shade",
-      "tag": "حماية · Protection",
-      "tagEn": "Protection",
-      "monogram": "حماية",
-      "monogramEn": "Shield",
+      "en": "Retractable Car Window Sun Shades",
+      "tag": "حماية · Sun Protection",
+      "tagEn": "Protection · Sun Protection",
+      "category": "sun-protection",
       "price": 119,
       "oldPrice": 189,
       "save": 70,
-      "desc": "شمسية شبكية قابلة للطي لنوافذ السيارة — تحجب 97% من أشعة الشمس الحارقة. ثبّت بماصات شفط، تطوى تلقائياً عند رفعها.",
-      "descEn": "Foldable mesh sun shade for car windows — blocks 97% of harsh sunlight. Suction-cup mounted, auto-folds when raised.",
-      "descLong": "شمسية شبكية قابلة للطي مصممة خصيصاً لمناخ السعودية الحار. تحجب 97% من الأشعة فوق البنفسجية، تخفض درجة حرارة داخل السيارة حتى 15 درجة مئوية. تركيب بماصات شفط قوية، تطوى تلقائياً عند رفعها. مناسبة لمعظم السيارات (sedan, SUV). مصنوعة من مادة متينة تتحمل حرارة الصيف الحارقة.",
-      "descLongEn": "Foldable mesh sun shade designed specifically for Saudi Arabia's hot climate. Blocks 97% of UV rays, lowers interior car temperature by up to 15°C. Suction-cup installation, auto-folds when raised. Fits most cars (sedan, SUV). Made of durable material that withstands scorching summer heat.",
-      "color": "#D4C9AE",
-      "visualClass": "pv-2",
-      "stock": 35,
-      "badge": "ضروري",
-      "badgeEn": "Essential",
+      "desc": "تحجب 97% من الأشعة، تخفض الحرارة 15°C، تطوى تلقائياً.",
+      "descLong": "شمسية车窗 شبكية قابلة للطي التلقائي. تحجب 97% من الأشعة فوق البنفسجية وتخفض درجة حرارة المقصورة بـ 15°C. تصميم شبكي يتيح الرؤية من الداخل.",
+      "zambeel": "https://products.myzambeel.com/products/retractable-car-window-sun-shades",
+      "stock": 32,
+      "badge": "جديد",
       "specs": [
-        { "k": "حجب UV", "kEn": "UV Block", "v": "97% من الأشعة", "vEn": "97% rays blocked" },
-        { "k": "خفض الحرارة", "kEn": "Temp Reduction", "v": "حتى 15°C", "vEn": "Up to 15°C" },
-        { "k": "التثبيت", "kEn": "Mounting", "v": "ماصات شفط", "vEn": "Suction cups" },
-        { "k": "الطي", "kEn": "Folding", "v": "تلقائي", "vEn": "Auto-fold" },
-        { "k": "التوافق", "kEn": "Compatibility", "v": "معظم السيارات", "vEn": "Most cars" },
-        { "k": "المادة", "kEn": "Material", "v": "شبك حراري", "vEn": "Heat-resistant mesh" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
+        { "k": "حجب الأشعة", "v": "97% UV" },
+        { "k": "خفض الحرارة", "v": "15°C" },
+        { "k": "الطي", "v": "تلقائي" },
+        { "k": "التوافق", "v": "جميع车窗 الجانبية" },
+        { "k": "الضمان", "v": "6 أشهر" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
-        "تخفض حرارة السيارة 15°C في الصيف",
-        "تحجب 97% من الأشعة فوق البنفسجية الضارة",
-        "تطوى تلقائياً — سهلة التخزين",
-        "تحمي الداخلية من التشقق والباهتان"
+        "تحجب 97% من الأشعة فوق البنفسجية",
+        "تخفض حرارة المقصورة 15°C",
+        "تطوى تلقائياً في ثانية"
       ],
-      "bulletsEn": [
-        "Cuts interior temp by 15°C in summer",
-        "Blocks 97% of harmful UV rays",
-        "Auto-folds — easy to store",
-        "Protects interior from cracking and fading"
-      ],
-      "images": [
-        "images/p02-main.jpg",
-        "images/p02-1.jpg",
-        "images/p02-2.jpg",
-        "images/p02-3.jpg",
-        "images/p02-4.jpg"
-      ]
+      "images": ["images/p02-main.jpg"]
     },
     {
-      "id": "03",
+      "id": "p03",
       "num": "03",
-      "ar": "كاميرا dash cam للسيارة",
-      "en": "Car Dash Camera",
-      "tag": "أمان · Safety",
-      "tagEn": "Safety",
-      "monogram": "أمان",
-      "monogramEn": "Safe",
-      "price": 299,
-      "oldPrice": 449,
-      "save": 150,
-      "desc": "كاميرا dash cam بدقة 1080p HD مع رؤية ليلية، تسجيل حلقي، كشف الحركة، شاشة LCD. الدليل القانوني في حالة الحوادث.",
-      "descEn": "1080p HD dash cam with night vision, loop recording, motion detection, LCD screen. Your legal evidence in case of accidents.",
-      "descLong": "كاميرا dash cam احترافية بدقة 1080p Full HD — دليل قانوني موثوق في حالة الحوادث. تسجيل حلقي تلقائي (عند امتلاء الذاكرة، تستبدل أقدم ملف). رؤية ليلية بالأشعة تحت الحمراء تعمل في الظلام الكامل. كشف الحركة مع وضع الانتظار (تراقب حتى والسيارة مغلقة). شاشة LCD 2.4 بوصة للمعاينة المباشرة. دعم بطاقة microSD حتى 128GB. تثبيت بماصات شفط قوي على الزجاج الأمامي.",
-      "descLongEn": "Professional 1080p Full HD dash cam — reliable legal evidence in case of accidents. Automatic loop recording (overwrites oldest file when memory is full). Infrared night vision works in complete darkness. Motion detection with parking mode (monitors even when car is off). 2.4-inch LCD screen for live preview. Supports microSD up to 128GB. Strong suction cup mount on windshield.",
-      "color": "#DDD3BD",
-      "visualClass": "pv-3",
-      "stock": 22,
-      "badge": "مميز",
-      "badgeEn": "Premium",
+      "slug": "windshield-sun-shade",
+      "ar": "مظلة车窗 الأمامية للسيارة",
+      "en": "Windshield Sun Shade",
+      "tag": "حماية · Sun Protection",
+      "tagEn": "Protection · Sun Protection",
+      "category": "sun-protection",
+      "price": 199,
+      "oldPrice": 299,
+      "save": 100,
+      "desc": "عاكس للحرارة، مطوية كأوراق أكورديون، تغطي الزجاج الأمامي كاملاً.",
+      "descLong": "مظلة车窗 أمامية عاكسة للحرارة بتصميم أكورديون. تغطي الزجاج الأمامي كاملاً، تعكس 99% من الأشعة. تحمي لوحة القيادة والمقاعد من التشقق والبهتان.",
+      "zambeel": "https://products.myzambeel.com/products/car-windshield-sun-shade-3",
+      "stock": 28,
+      "badge": "الأكثر طلباً",
       "specs": [
-        { "k": "الدقة", "kEn": "Resolution", "v": "1080p Full HD", "vEn": "1080p Full HD" },
-        { "k": "الشاشة", "kEn": "Screen", "v": "LCD 2.4 بوصة", "vEn": "LCD 2.4 inch" },
-        { "k": "الرؤية الليلية", "kEn": "Night Vision", "v": "IR بالأشعة تحت الحمراء", "vEn": "Infrared IR" },
-        { "k": "التسجيل", "kEn": "Recording", "v": "حلقي تلقائي", "vEn": "Loop recording" },
-        { "k": "كشف الحركة", "kEn": "Motion Detection", "v": "مع وضع الانتظار", "vEn": "With parking mode" },
-        { "k": "التخزين", "kEn": "Storage", "v": "microSD حتى 128GB", "vEn": "microSD up to 128GB" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "12 شهر", "vEn": "12 months" }
+        { "k": "العزل الحراري", "v": "99% من الأشعة" },
+        { "k": "التصميم", "v": "أكورديون قابل للطي" },
+        { "k": "التغطية", "v": "الزجاج الأمامي كاملاً" },
+        { "k": "الخامة", "v": "فويل ألمنيوم عاكس" },
+        { "k": "الضمان", "v": "6 أشهر" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
-        "دليل قانوني موثوق في حالة الحوادث",
-        "رؤية ليلية واضحة — حتى في الظلام الكامل",
-        "وضع الانتظار — تراقب حتى والسيارة مغلقة",
-        "تسجيل حلقي تلقائي — لا تفقد أي لحظة"
+        "تعكس 99% من الأشعة الحرارية",
+        "تحمي لوحة القيادة من التشقق",
+        "تطوى في 5 ثوانٍ"
       ],
-      "bulletsEn": [
-        "Reliable legal evidence in accidents",
-        "Clear night vision — even in complete darkness",
-        "Parking mode — monitors even when car is off",
-        "Loop recording — never miss a moment"
-      ],
-      "images": [
-        "images/p03-main.jpg",
-        "images/p03-1.jpg",
-        "images/p03-2.jpg",
-        "images/p03-3.jpg",
-        "images/p03-4.jpg"
-      ]
+      "images": ["images/p03-main.jpg"]
     },
     {
-      "id": "04",
+      "id": "p04",
       "num": "04",
+      "slug": "360-rotatable-car-phone-holder",
+      "ar": "حامل جوال 360° قابل للدوران",
+      "en": "360° Rotatable Car Phone Holder",
+      "tag": "قيادة · Phone Holders",
+      "tagEn": "Driving · Phone Holders",
+      "category": "phone-holders",
+      "price": 129,
+      "oldPrice": 199,
+      "save": 70,
+      "desc": "قاعدة شفط قوية، دوران 360°، ارتفاع قابل للتعديل، مغناطيس N52.",
+      "descLong": "حامل جوال احترافي مع قاعدة شفط قوية ودوران كامل 360°. ارتفاع قابل للتعديل يناسب جميع أوضاع القيادة. مغناطيس N52 للثبات القوي.",
+      "zambeel": "https://products.myzambeel.com/products/strong-magnetic-rotation-height-adjustable-car-phone-holder-1",
+      "stock": 35,
+      "badge": "احترافي",
+      "specs": [
+        { "k": "القاعدة", "v": "شفط قوي + لاصق 3M" },
+        { "k": "الدوران", "v": "360° كروي" },
+        { "k": "الارتفاع", "v": "قابل للتعديل" },
+        { "k": "المغناطيس", "v": "N52" },
+        { "k": "الضمان", "v": "6 أشهر" }
+      ],
+      "bullets": [
+        "قاعدة شفط تثبّت في كل مكان",
+        "دوران 360° مع تعديل الارتفاع",
+        "مغناطيس N52 للثبات"
+      ],
+      "images": ["images/p04-main.jpg"]
+    },
+    {
+      "id": "p05",
+      "num": "05",
+      "slug": "quilted-car-neck-pillow",
       "ar": "وسادة الرقبة للسيارة",
       "en": "Quilted Car Neck Pillow",
-      "tag": "راحة · Comfort",
-      "tagEn": "Comfort",
-      "monogram": "راحة",
-      "monogramEn": "Comfort",
+      "tag": "راحة · Driving Comfort",
+      "tagEn": "Comfort · Driving Comfort",
+      "category": "driving-comfort",
       "price": 89,
       "oldPrice": 149,
       "save": 60,
-      "desc": "وسادة رقبة مبطنة للسيارة — دعم مثالي للرقبة في الرحلات الطويلة. تثبيت بأحزمة، قابلة للغسل، لجميع مقاعد السيارة.",
-      "descEn": "Quilted neck pillow for car — perfect neck support on long drives. Strap-mounted, washable, fits all car seats.",
-      "descLong": "وسادة رقبة مبطنة توفر دعماً ممتازاً للرقبة أثناء الرحلات الطويلة. حشوة إسفنجية ميموري فوم تتكيف مع شكل رقبتك. غطاء خارجي قابل للغسل. تثبيت بأحزمة مرنة تناسب جميع مقاعد السيارة. مثالية للسائق والركاب على حد سواء.",
-      "descLongEn": "Quilted neck pillow providing excellent neck support on long drives. Memory foam filling adapts to your neck shape. Washable outer cover. Elastic strap mount fits all car seats. Perfect for both driver and passengers.",
-      "color": "#E1D5BB",
-      "visualClass": "pv-4",
-      "stock": 60,
+      "desc": "حشوة ميموري فوم، قابلة للغسل، دعم مثالي للرقبة في الرحلات.",
+      "descLong": "وسادة رقبة للسيارة بحشوة ميموري فوم توفر دعماً مثالياً للرقبة في الرحلات الطويلة. غطاء قابل للغسل. مناسبة لجميع المقاعد.",
+      "zambeel": "https://products.myzambeel.com/products/quilted-car-neck-pillows",
+      "stock": 52,
       "badge": "مريح",
-      "badgeEn": "Comfort",
       "specs": [
-        { "k": "الحشوة", "kEn": "Filling", "v": "ميموري فوم", "vEn": "Memory foam" },
-        { "k": "الغطاء", "kEn": "Cover", "v": "قابل للغسل", "vEn": "Washable" },
-        { "k": "التثبيت", "kEn": "Mounting", "v": "أحزمة مرنة", "vEn": "Elastic straps" },
-        { "k": "التوافق", "kEn": "Compatibility", "v": "جميع المقاعد", "vEn": "All seats" },
-        { "k": "اللون", "kEn": "Color", "v": "أسود + بيج", "vEn": "Black + Beige" },
-        { "k": "الوزن", "kEn": "Weight", "v": "300 جرام", "vEn": "300g" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
+        { "k": "الحشوة", "v": "ميموري فوم" },
+        { "k": "الغطاء", "v": "قابل للغسل" },
+        { "k": "التوافق", "v": "جميع مقاعد السيارة" },
+        { "k": "اللون", "v": "بيج + أسود" },
+        { "k": "الضمان", "v": "6 أشهر" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
-        "دعم مثالي للرقبة في الرحلات الطويلة",
-        "حشوة ميموري فوم تتكيف معك",
-        "قابلة للغسل — سهلة التنظيف",
-        "تثبيت بأحزمة — لجميع المقاعد"
+        "ميموري فوم يدعم الرقبة",
+        "غطاء قابل للغسل بسهولة",
+        "مثالية للرحلات الطويلة"
       ],
-      "bulletsEn": [
-        "Perfect neck support on long drives",
-        "Memory foam adapts to your shape",
-        "Washable — easy to clean",
-        "Strap mount — fits all seats"
-      ],
-      "images": [
-        "images/p04-main.jpg",
-        "images/p04-1.jpg",
-        "images/p04-2.jpg",
-        "images/p04-3.jpg",
-        "images/p04-4.jpg"
-      ]
+      "images": ["images/p05-main.jpg"]
     },
     {
-      "id": "05",
-      "num": "05",
-      "ar": "بخاخ تلميع السيارة السحري",
-      "en": "Magic Car Polish Spray",
-      "tag": "بريق · Shine",
-      "tagEn": "Shine",
-      "monogram": "بريق",
-      "monogramEn": "Shine",
-      "price": 79,
-      "oldPrice": 129,
-      "save": 50,
-      "desc": "بخاخ تلميع سريع المفعول — يعطي لمعاناً فورياً ويحمي الطلاء من الخدوش. سهل الاستخدام، لا يحتاج خبرة.",
-      "descEn": "Quick-effect polish spray — instant shine and protects paint from scratches. Easy to use, no expertise needed.",
-      "descLong": "بخاخ تلميع السيارة السحري — نتائج احترافية في دقائق. تركيبة متطورة تزيل الأوساخ والخدوش السطحية وتعطي لمعاناً عميقاً. يحمي طلاء السيارة من الأشعة فوق البنفسجية والغبار. آمن على جميع أنواع الطلاء. الاستخدام: رش على سطح بارد، امسح بقطعة قماش ناعمة.",
-      "descLongEn": "Magic car polish spray — professional results in minutes. Advanced formula removes dirt and surface scratches, gives deep shine. Protects paint from UV rays and dust. Safe on all paint types. Use: spray on cool surface, wipe with soft cloth.",
-      "color": "#C9B894",
-      "visualClass": "pv-1",
-      "stock": 55,
-      "badge": "سهل",
-      "badgeEn": "Easy",
-      "specs": [
-        { "k": "الحجم", "kEn": "Size", "v": "500 مل", "vEn": "500ml" },
-        { "k": "اللمعان", "kEn": "Shine", "v": "فوري", "vEn": "Instant" },
-        { "k": "الحماية", "kEn": "Protection", "v": "UV + غبار", "vEn": "UV + dust" },
-        { "k": "الاستخدام", "kEn": "Application", "v": "رش + مسح", "vEn": "Spray + wipe" },
-        { "k": "السلامة", "kEn": "Safety", "v": "آمن لكل أنواع الطلاء", "vEn": "All paint types" },
-        { "k": "النتيجة", "kEn": "Result", "v": "في 5 دقائق", "vEn": "5 minutes" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
-      ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
-      "bullets": [
-        "لمعان فوري في 5 دقائق فقط",
-        "يحمي الطلاء من الخدوش والأشعة",
-        "سهل الاستخدام — لا يحتاج خبرة",
-        "آمن على جميع أنواع الطلاء"
-      ],
-      "bulletsEn": [
-        "Instant shine in just 5 minutes",
-        "Protects paint from scratches and UV",
-        "Easy to use — no expertise needed",
-        "Safe on all paint types"
-      ],
-      "images": [
-        "images/p05-main.jpg",
-        "images/p05-1.jpg",
-        "images/p05-2.jpg",
-        "images/p05-3.jpg",
-        "images/p05-4.jpg"
-      ]
-    },
-    {
-      "id": "06",
+      "id": "p06",
       "num": "06",
-      "ar": "محول طاقة السيارة 150 واط",
-      "en": "150W Car Power Inverter",
-      "tag": "طاقة · Power",
-      "tagEn": "Power",
-      "monogram": "طاقة",
-      "monogramEn": "Power",
-      "price": 229,
-      "oldPrice": 349,
-      "save": 120,
-      "desc": "محول طاقة 150 واط يحول 12V من سيارتك إلى 220V — اشحن لابتوبك أو شغل أجهزتك في أي مكان. حماية كاملة ضد الحرارة والحمل الزائد.",
-      "descEn": "150W power inverter converts your car's 12V to 220V — charge your laptop or run devices anywhere. Full protection against heat and overload.",
-      "descLong": "محول طاقة السيارة 150 واط — حرر نفسك من قيود شاحن السيارة. يحول 12V DC من ولاعة السجائر إلى 220V AC. مخرج USB مزدوج + منفذ Type-C + منفذ طاقة. ذروة 300 واط لبدء تشغيل الأجهزة ذات الاستهلاك العالي. حماية شاملة ضد الحرارة، الحمل الزائد، الجهد المنخفض والعالي. مروحة تبريد مدمجة. مثالي للسفر، التخييم، أو العمل من السيارة.",
-      "descLongEn": "150W car power inverter — free yourself from car charger limits. Converts 12V DC from cigarette lighter to 220V AC. Dual USB + Type-C port + power outlet. 300W peak for starting high-consumption devices. Comprehensive protection against heat, overload, low/high voltage. Built-in cooling fan. Perfect for travel, camping, or working from the car.",
-      "color": "#B8AA85",
-      "visualClass": "pv-2",
-      "stock": 25,
+      "slug": "car-seat-organizer",
+      "ar": "منظم مقعد السيارة",
+      "en": "Car Seat Organizer",
+      "tag": "تنظيم · Car Organization",
+      "tagEn": "Organization · Car Organization",
+      "category": "car-organization",
+      "price": 99,
+      "oldPrice": 159,
+      "save": 60,
+      "desc": "عدة جيوب، حامل تابلت، حامل زجاجة، حماية من السكب. تنظيم كامل في ثوانٍ.",
+      "descLong": "منظم مقعد السيارة متعدد الجيوب. حامل تابلت 10 بوصة، حامل زجاجة، جيوب للمجلات والأغراض. يحمي ظهر المقعد من الخدوش. تركيب في دقيقة.",
+      "zambeel": "https://products.myzambeel.com/products/car-seat-organizer-1",
+      "stock": 41,
       "badge": "عملي",
-      "badgeEn": "Practical",
       "specs": [
-        { "k": "القدرة", "kEn": "Power", "v": "150W (ذروة 300W)", "vEn": "150W (300W peak)" },
-        { "k": "المدخل", "kEn": "Input", "v": "12V DC ولاعة", "vEn": "12V DC cigarette" },
-        { "k": "المخرج", "kEn": "Output", "v": "220V AC + USB", "vEn": "220V AC + USB" },
-        { "k": "USB", "kEn": "USB", "v": "2x USB + Type-C", "vEn": "2x USB + Type-C" },
-        { "k": "الحماية", "kEn": "Protection", "v": "شاملة", "vEn": "Comprehensive" },
-        { "k": "التبريد", "kEn": "Cooling", "v": "مروحة مدمجة", "vEn": "Built-in fan" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "12 شهر", "vEn": "12 months" }
+        { "k": "الجيوب", "v": "5+ جيوب متعددة" },
+        { "k": "حامل تابلت", "v": "حتى 10 بوصة" },
+        { "k": "حامل زجاجة", "v": "مدمج" },
+        { "k": "الحماية", "v": "للخلف المقعد" },
+        { "k": "الضمان", "v": "6 أشهر" }
       ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
       "bullets": [
-        "حوّل سيارتك لمكتب متنقل",
-        "اشحن لابتوب، كاميرا، أو أجهزة طبية",
-        "حماية شاملة ضد الحرارة والحمل الزائد",
-        "مثالي للتخييم والسفر"
+        "5+ جيوب لكل الأغراض",
+        "حامل تابلت 10 بوصة مدمج",
+        "يحمي ظهر المقعد من الخدوش"
       ],
-      "bulletsEn": [
-        "Turn your car into a mobile office",
-        "Power laptop, camera, or medical devices",
-        "Full heat and overload protection",
-        "Perfect for camping and travel"
-      ],
-      "images": [
-        "images/p06-main.jpg",
-        "images/p06-1.jpg",
-        "images/p06-2.jpg",
-        "images/p06-3.jpg",
-        "images/p06-4.jpg"
-      ]
-    },
-    {
-      "id": "07",
-      "num": "07",
-      "ar": "حماية حواف أبواب السيارة",
-      "en": "Car Door Edge Guards",
-      "tag": "حماية · Protection",
-      "tagEn": "Protection",
-      "monogram": "حماية",
-      "monogramEn": "Guard",
-      "price": 69,
-      "oldPrice": 119,
-      "save": 50,
-      "desc": "حماية سيليكون لحواف أبواب السيارة — تمنع الخدوش والصدمات في مواقف السيارات الضيقة. سهلة التركيب والإزالة.",
-      "descEn": "Silicone protection for car door edges — prevents scratches and dents in tight parking spots. Easy install and remove.",
-      "descLong": "حماية حواف الأبواب من السيليكون عالي الجودة — U-shaped design يناسب جميع حواف الأبواب. تحمي من الخدوش والصدمات عند فتح الأبواب في مواقف ضيقة. شريط لاصق قوي 3M. سهلة التركيب (10 دقائق لكل أبواب) وقابلة للإزالة بدون أثر. متينة، تتحمل جميع الظروف الجوية.",
-      "descLongEn": "High-quality silicone door edge guards — U-shaped design fits all door edges. Protects from scratches and dents when opening doors in tight parking. Strong 3M adhesive. Easy installation (10 min for all doors), removable without trace. Durable, withstands all weather conditions.",
-      "color": "#A89070",
-      "visualClass": "pv-3",
-      "stock": 70,
-      "badge": "ذكي",
-      "badgeEn": "Smart",
-      "specs": [
-        { "k": "المادة", "kEn": "Material", "v": "سيليكون عالي الجودة", "vEn": "Premium silicone" },
-        { "k": "التصميم", "kEn": "Design", "v": "U-shaped لجميع الأبواب", "vEn": "U-shaped universal" },
-        { "k": "اللاصق", "kEn": "Adhesive", "v": "3M قوي", "vEn": "Strong 3M" },
-        { "k": "التركيب", "kEn": "Installation", "v": "10 دقائق لكل سيارة", "vEn": "10 minutes total" },
-        { "k": "الإزالة", "kEn": "Removal", "v": "بدون أثر", "vEn": "No residue" },
-        { "k": "المتانة", "kEn": "Durability", "v": "جميع الطقوس", "vEn": "All weather" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
-      ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
-      "bullets": [
-        "حماية كاملة من خدوش الأبواب",
-        "تركيب 10 دقائق — بدون أدوات",
-        "لاصق 3M قوي — لا تسقط",
-        "قابلة للإزالة بدون أثر"
-      ],
-      "bulletsEn": [
-        "Full protection from door scratches",
-        "10-minute install — no tools",
-        "Strong 3M adhesive — won’t fall off",
-        "Removable without residue"
-      ],
-      "images": [
-        "images/p07-main.jpg",
-        "images/p07-1.jpg",
-        "images/p07-2.jpg",
-        "images/p07-3.jpg",
-        "images/p07-4.jpg"
-      ]
-    },
-    {
-      "id": "08",
-      "num": "08",
-      "ar": "فرشاة تلميع الإطارات",
-      "en": "Tire Shine Applicator Brush",
-      "tag": "بريق · Shine",
-      "tagEn": "Shine",
-      "monogram": "بريق",
-      "monogramEn": "Shine",
-      "price": 49,
-      "oldPrice": 89,
-      "save": 40,
-      "desc": "فرشاة احترافية لتلميع الإطارات — شعيرات ناعمة لا تخدش. مقبض مريح، تطبيق متساوي لللمعان على كل إطار.",
-      "descEn": "Professional tire shine applicator brush — soft bristles that won't scratch. Comfortable grip, even shine application on every tire.",
-      "descLong": "فرشاة تطبيق لمعان الإطارات الاحترافية — شعيرات ناعمة مصممة خصيصاً لتطبيق لمعان الإطارات بدون خدش. مقبض مريح غير قابل للانزلاق. تصميم هندسي يصل لجميع أجزاء الإطار. مثالية مع بخاخ تلميع الإطارات. توفر لمعاناً متساوياً واحترافياً في دقائق.",
-      "descLongEn": "Professional tire shine applicator brush — soft bristles designed specifically for applying tire shine without scratching. Comfortable non-slip grip. Ergonomic design reaches all parts of the tire. Perfect with tire shine sprays. Provides even, professional shine in minutes.",
-      "color": "#8A7556",
-      "visualClass": "pv-4",
-      "stock": 80,
-      "badge": "احترافي",
-      "badgeEn": "Pro",
-      "specs": [
-        { "k": "الشعيرات", "kEn": "Bristles", "v": "نایلون ناعم", "vEn": "Soft nylon" },
-        { "k": "المقبض", "kEn": "Handle", "v": "غير قابل للانزلاق", "vEn": "Non-slip" },
-        { "k": "الطول", "kEn": "Length", "v": "20 سم", "vEn": "20 cm" },
-        { "k": "الاستخدام", "kEn": "Use", "v": "مع لمعان الإطارات", "vEn": "With tire shine" },
-        { "k": "النتيجة", "kEn": "Result", "v": "لمعان متساوي", "vEn": "Even shine" },
-        { "k": "الوزن", "kEn": "Weight", "v": "120 جرام", "vEn": "120g" },
-        { "k": "الضمان", "kEn": "Warranty", "v": "6 أشهر", "vEn": "6 months" }
-      ],
-      "shipping": { "saudi": "3-5 أيام", "uae": "4-6 أيام", "gcc": "5-7 أيام",
-                    "saudiEn": "3-5 days", "uaeEn": "4-6 days", "gccEn": "5-7 days" },
-      "bullets": [
-        "تطبيق متساوي للمعان — لا بقع",
-        "شعيرات ناعمة — لا تخدش الإطار",
-        "مقبض مريح غير قابل للانزلاق",
-        "احترافي في دقائق"
-      ],
-      "bulletsEn": [
-        "Even shine application — no streaks",
-        "Soft bristles — won’t scratch tire",
-        "Comfortable non-slip grip",
-        "Professional results in minutes"
-      ],
-      "images": [
-        "images/p08-main.jpg",
-        "images/p08-1.jpg",
-        "images/p08-2.jpg",
-        "images/p08-3.jpg",
-        "images/p08-4.jpg"
-      ]
+      "images": ["images/p06-main.jpg"]
     }
   ],
-
+  "categories": [
+    {
+      "slug": "phone-holders",
+      "ar": "حاملات الهاتف للسيارة",
+      "en": "Car Phone Holders",
+      "products": ["p01", "p04"],
+      "description": "حاملات جوال مغناطيسية وقابلة للدوران 360° تناسب جميع أنواع السيارات."
+    },
+    {
+      "slug": "sun-protection",
+      "ar": "الحماية من الشمس",
+      "en": "Car Sun Protection",
+      "products": ["p02", "p03"],
+      "description": "شمسية车窗 ومظلات تعكس الحرارة وتحمي سيارتك من حرارة الصيف السعودي."
+    },
+    {
+      "slug": "car-organization",
+      "ar": "تنظيم السيارة",
+      "en": "Car Organization",
+      "products": ["p06"],
+      "description": "منظم مقعد السيارة العملي مع جيوب متعددة وحاملات."
+    },
+    {
+      "slug": "driving-comfort",
+      "ar": "راحة القيادة",
+      "en": "Driving Comfort",
+      "products": ["p05"],
+      "description": "وسائد رقبة ووسائل راحة للقيادة الطويلة في الطرق السعودية."
+    }
+  ],
   "bundle": {
     "enabled": true,
-    "products": ["01", "03", "07"],
-    "title": "باقة الأمان الكاملة للسيارة",
-    "subtitle": "كل ما تحتاجه لحماية سيارتك في حزمة واحدة",
-    "totalPrice": 517,
-    "bundlePrice": 399,
-    "save": 118,
-    "badge": "وفّر 118 ر.س"
+    "products": ["p01", "p02", "p06"],
+    "title": "باقة الأساسيات",
+    "subtitle": "كل ما تحتاجه سيارتك في باقة واحدة",
+    "totalPrice": 367,
+    "bundlePrice": 299,
+    "save": 68,
+    "badge": "وفّر 68 ر.س"
   },
-
   "discountTiers": [
     { "min": 1, "discount": 0, "label": "قطعة واحدة" },
     { "min": 2, "discount": 10, "label": "قطعتان" },
     { "min": 3, "discount": 15, "label": "3 قطع" },
-    { "min": 4, "discount": 20, "label": "4 قطع أو أكثر" },
-    { "min": 5, "discount": 25, "label": "5 قطع أو أكثر" }
+    { "min": 4, "discount": 20, "label": "4 قطع أو أكثر" }
   ],
-
   "marketing": {
     "countdownEnd": "2026-12-31T23:59:59",
     "countdownLabel": "ينتهي العرض خلال",
     "countdownEnabled": true,
-    "exitPopup": {
-      "enabled": true,
-      "title": "انتظر! عرض خاص قبل أن تخرج",
-      "text": "احصل على خصم إضافي 10% على طلبك الأول — أدخل رقم واتسابك الآن",
-      "discount": "10",
-      "buttonText": "أريد الخصم"
-    },
+    "exitPopup": { "enabled": false },
     "stockCounterEnabled": true,
     "stockMin": 3,
     "stockMax": 12,
     "liveActivityEnabled": true,
     "liveActivityInterval": 18000
   },
-
   "footer": {
-    "about": "نجمة الخليج — متجر حلول السيارة الأول في المملكة. ثماني قطع مختارة بعناية من حامل الجوال إلى الكاميرا والاكسسوارات. توصيل سريع، دفع عند الاستلام، وضمان ذهبي.",
-    "aboutEn": "Nujmat Al-Khalij — the leading car solutions store in Saudi Arabia. Eight hand-picked pieces from phone mount to dash cam and accessories. Fast delivery, cash on arrival, and golden warranty.",
-    "links": [
-      { "label": "الرئيسية", "labelEn": "Home", "url": "index.html" },
-      { "label": "المنتجات", "labelEn": "Products", "url": "index.html#products" },
-      { "label": "كيف تطلب", "labelEn": "How to order", "url": "index.html#how" },
-      { "label": "الشحن", "labelEn": "Shipping", "url": "index.html#shipping" },
-      { "label": "الأسئلة الشائعة", "labelEn": "FAQ", "url": "index.html#faq" },
-      { "label": "سياسة الإرجاع", "labelEn": "Returns", "url": "returns.html" },
-      { "label": "الشروط والأحكام", "labelEn": "Terms", "url": "terms.html" },
-      { "label": "الخصوصية", "labelEn": "Privacy", "url": "privacy.html" }
-    ],
+    "about": "نجمة الخليج — متجر حلول السيارة الأول في المملكة. ست قطع مختارة بعناية. توصيل سريع، دفع عند الاستلام، وضمان ذهبي.",
+    "aboutEn": "Gulf Star — Saudi Arabia's first car solutions store. Six hand-picked pieces. Fast delivery, cash on arrival, golden warranty.",
+    "links": [],
     "social": {
       "tiktok": "https://www.tiktok.com/@nujmat.sa",
       "snapchat": "https://www.snapchat.com/add/nujmat.sa",
-      "instagram": "https://www.instagram.com/nujmat.sa",
-      "twitter": "https://twitter.com/nujmat_sa",
-      "youtube": ""
+      "instagram": "https://www.instagram.com/@nujmat.sa",
+      "twitter": "https://twitter.com/nujmat_sa"
     },
-    "copyright": "© 2026 نجمة الخليج · جميع الحقوق محفوظة",
-    "copyrightEn": "© 2026 Nujmat Al-Khalij · All rights reserved"
+    "copyright": "© 2026 نجمة الخليج · جميع الحقوق محفوظة"
   },
-
   "analytics": {
     "metaPixelId": "",
     "tiktokPixelId": "",
     "googleAnalyticsId": "",
-    "snapchatPixelId": ""
+    "snapchatPixelId": "",
+    "googleSearchConsoleVerify": ""
   },
-
   "integrations": {
     "googleSheetsUrl": "https://script.google.com/macros/s/AKfycbyaCfntf-L_XnleTMALCnTo3lr7oivEFVJ_-3QQSvk4eyVdLcKi_WmDDbfc4Bqe-h93Jg/exec",
     "mailchimpUrl": "",
     "whatsappNumber": "880158126134"
   },
-
   "imageCdn": {
     "enabled": true,
     "provider": "jsdelivr",

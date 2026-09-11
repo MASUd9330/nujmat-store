@@ -606,125 +606,32 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 /* =====================================================
-   PICK AMEEN DNA — UPGRADE LAYER v2
-   Library init: tsParticles · AOS · vanilla-tilt
-   Injectables: floating WA · mobile sticky CTA
-   Confetti: order success delight
+   CORE DNA — Minimal version
+   - Smooth scroll
+   - Floating WhatsApp button
+   - Mobile sticky CTA
+   - Confetti helper (for checkout)
+   - CTA click tracking
    ===================================================== */
 
-// ---- Smooth scroll for anchor links ----
+// ---- Smooth scroll ----
 document.documentElement.style.scrollBehavior = 'smooth';
 
-// ---- tsParticles (hero background) ----
-async function initHeroParticles() {
-  if (typeof tsParticles === 'undefined') return;
-  const el = document.getElementById('tsparticles');
-  if (!el) return;
-  try {
-    await tsParticles.load('tsparticles', {
-      fullScreen: false,
-      background: { color: { value: 'transparent' } },
-      fpsLimit: 60,
-      detectRetina: true,
-      particles: {
-        number: { value: 45, density: { enable: true, area: 900 } },
-        color: { value: ['#d4a853', '#e8c075', '#b88a3e'] },
-        shape: { type: 'circle' },
-        opacity: {
-          value: { min: 0.1, max: 0.45 },
-          animation: { enable: true, speed: 0.6 }
-        },
-        size: { value: { min: 1, max: 2.5 } },
-        move: {
-          enable: true,
-          speed: 0.5,
-          direction: 'none',
-          random: false,
-          straight: false,
-          outModes: { default: 'out' }
-        },
-        links: {
-          enable: true,
-          distance: 130,
-          color: '#d4a853',
-          opacity: 0.18,
-          width: 1
-        }
-      },
-      interactivity: {
-        events: {
-          onHover: { enable: true, mode: 'grab' },
-          onClick: { enable: false },
-          resize: true
-        },
-        modes: {
-          grab: { distance: 140, links: { opacity: 0.35 } }
-        }
-      }
-    });
-  } catch (err) {
-    console.warn('[tsparticles] init failed:', err);
-  }
-}
-
-// ---- AOS (scroll animations) ----
-function initAOS() {
-  if (typeof AOS === 'undefined') return;
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduced) return;
-  AOS.init({
-    duration: 700,
-    once: true,
-    offset: 50,
-    easing: 'ease-out-cubic',
-    anchorPlacement: 'top-bottom'
-  });
-}
-
-// ---- vanilla-tilt (3D on cards) ----
-function initTilt() {
-  if (typeof VanillaTilt === 'undefined') return;
-  const cards = document.querySelectorAll('.tilt-card');
-  if (!cards.length) return;
-  VanillaTilt.init(cards, {
-    max: 4,
-    speed: 600,
-    glare: true,
-    'max-glare': 0.08,
-    scale: 1.01,
-    perspective: 1200,
-    transition: true,
-    reset: true
-  });
-}
-
-// ---- Confetti (gold + cream) ----
+// ---- Confetti (used on checkout success) ----
 function fireConfetti(opts = {}) {
   if (typeof confetti === 'undefined') return;
   const defaults = {
-    particleCount: 80,
-    spread: 70,
-    startVelocity: 45,
+    particleCount: 80, spread: 70, startVelocity: 45,
     origin: { y: 0.6 },
-    colors: ['#d4a853', '#e8c075', '#b88a3e', '#fff8e7', '#c0c0c0'],
-    shapes: ['circle', 'square'],
-    ticks: 200
+    colors: ['#d4a853', '#e8c075', '#b88a3e', '#fff8e7', '#c0c0c0']
   };
   confetti(Object.assign({}, defaults, opts));
-
-  // Side cannons for big moments
   if (opts.big) {
     const duration = 1500;
     const end = Date.now() + duration;
     (function frame() {
-      confetti({
-        particleCount: 3, angle: 60, spread: 55, origin: { x: 0 },
-        colors: ['#d4a853', '#e8c075']
-      });
-      confetti({
-        particleCount: 3, angle: 120, spread: 55, origin: { x: 1 },
-        colors: ['#d4a853', '#e8c075']
-      });
+      confetti({ particleCount: 3, angle: 60, spread: 55, origin: { x: 0 }, colors: ['#d4a853', '#e8c075'] });
+      confetti({ particleCount: 3, angle: 120, spread: 55, origin: { x: 1 }, colors: ['#d4a853', '#e8c075'] });
       if (Date.now() < end) requestAnimationFrame(frame);
     }());
   }
@@ -740,12 +647,7 @@ function injectFloatingWA() {
   wa.target = '_blank';
   wa.rel = 'noopener noreferrer';
   wa.setAttribute('aria-label', 'تواصل عبر واتساب');
-  wa.innerHTML = `
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-    <span class="float-wa-label">تحدث معنا الآن</span>
-  `;
+  wa.innerHTML = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg><span class="float-wa-label">تحدث معنا الآن</span>`;
   document.body.appendChild(wa);
 }
 
@@ -755,75 +657,29 @@ function injectMobileCTA() {
   if (window.matchMedia('(min-width: 769px)').matches) return;
   const cta = document.createElement('div');
   cta.className = 'mobile-sticky-cta';
-  cta.innerHTML = `
-    <div class="mobile-sticky-cta-text">
-      <div class="mobile-sticky-cta-title">اطلب الآن — توصيل 3-5 أيام</div>
-      <div class="mobile-sticky-cta-sub">دفع عند الاستلام · ضمان 6 أشهر</div>
-    </div>
-    <a href="checkout.html" class="mobile-sticky-cta-btn" data-track="mobile-cta">اطلب</a>
-  `;
+  cta.innerHTML = `<div class="mobile-sticky-cta-text"><div class="mobile-sticky-cta-title">اطلب الآن — توصيل 3-5 أيام</div><div class="mobile-sticky-cta-sub">دفع عند الاستلام · ضمان 6 أشهر</div></div><a href="checkout.html" class="mobile-sticky-cta-btn" data-track="mobile-cta">اطلب</a>`;
   document.body.appendChild(cta);
 }
 
-// ---- Master DNA init: hook into config:ready ----
+// ---- Init DNA on config:ready ----
 window.addEventListener('config:ready', () => {
-  initHeroParticles();
   injectFloatingWA();
   injectMobileCTA();
-  // AOS + tilt after a small delay (so DOM painted)
-  setTimeout(() => {
-    initAOS();
-    initTilt();
-  }, 100);
 });
 
-// Fallback: also init on plain DOMContentLoaded
+// Fallback for if config loads after DOMContentLoaded
 document.addEventListener('DOMContentLoaded', () => {
-  // If config already loaded before this listener attached
   if (window.CONFIG && window.CONFIG.site) {
-    initHeroParticles();
     injectFloatingWA();
     injectMobileCTA();
-    setTimeout(() => { initAOS(); initTilt(); }, 100);
   }
 });
 
-// ---- Track CTA clicks (for future analytics) ----
+// ---- CTA click tracking ----
 document.addEventListener('click', (e) => {
   const trackEl = e.target.closest('[data-track]');
   if (!trackEl) return;
   const trackId = trackEl.getAttribute('data-track');
   if (typeof fbq !== 'undefined') fbq('trackCustom', 'CTAClick', { id: trackId });
   if (typeof ttq !== 'undefined') ttq.track('CTAClick', { id: trackId });
-});
-
-// ---- AOS safety net: ensure content shows even if AOS fails ----
-// 1.5s grace period for AOS to fire animations. After that, force everything visible.
-setTimeout(() => {
-  document.body.classList.add('loaded');
-  document.querySelectorAll('[data-aos]').forEach(el => {
-    if (!el.classList.contains('aos-animate')) {
-      el.classList.add('aos-animate');
-    }
-  });
-}, 1500);
-
-// Even faster: if DOMContentLoaded already fired and body is in first paint,
-// show critical hero content immediately
-if (document.readyState !== 'loading') {
-  document.querySelectorAll('header.hero [data-aos]').forEach(el => {
-    requestAnimationFrame(() => el.classList.add('aos-animate'));
-  });
-}
-
-// Also init AOS on window.load (final fallback)
-window.addEventListener('load', () => {
-  if (typeof AOS !== 'undefined') {
-    try { AOS.refresh(); } catch (e) {}
-  }
-  // Belt + suspenders: ensure all animated content is visible
-  document.querySelectorAll('[data-aos]:not(.aos-animate)').forEach(el => {
-    el.classList.add('aos-animate');
-  });
-  document.body.classList.add('loaded');
 });
