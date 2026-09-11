@@ -665,6 +665,7 @@ function injectMobileCTA() {
 window.addEventListener('config:ready', () => {
   injectFloatingWA();
   injectMobileCTA();
+  initChatWidget();
 });
 
 // Fallback for if config loads after DOMContentLoaded
@@ -672,8 +673,27 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.CONFIG && window.CONFIG.site) {
     injectFloatingWA();
     injectMobileCTA();
+    initChatWidget();
+  } else {
+    initChatWidget();
   }
 });
+
+// ---- Chat widget toggle (Pick Ameen style) ----
+function initChatWidget() {
+  const toggle = document.getElementById('chatToggle');
+  const popup = document.getElementById('chatPopup');
+  const close = document.getElementById('chatClose');
+  if (!toggle || !popup) return;
+  toggle.addEventListener('click', () => {
+    popup.classList.toggle('show');
+  });
+  if (close) {
+    close.addEventListener('click', () => {
+      popup.classList.remove('show');
+    });
+  }
+}
 
 // ---- CTA click tracking ----
 document.addEventListener('click', (e) => {
